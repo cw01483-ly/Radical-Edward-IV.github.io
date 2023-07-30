@@ -1,7 +1,6 @@
 
 <footer class="footer py-4 js-page-footer">
   <div class="main">
-
     {%- assign _site_author = site.author -%}
     {%- if _site_author.type == 'organization' -%}
       {%- assign _site_author_itemtype = 'http://schema.org/Organization' -%}
@@ -26,6 +25,7 @@
     {%- assign _locale_copyright_dates = __return -%}
     <div class="site-info mt-2">
       <div>
+        <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fradical-edward-iv.github.io&count_bg=%23555555&title_bg=%23555555&icon=superuser.svg&icon_color=%23FFFFFF&title=Visitors&edge_flat=false"/></a><br>
         {%- include snippets/get-locale-string.html key='COPYRIGHT_DATES' -%}
         {%- assign _locale_copyright_dates = __return -%}
         © {{ site.title }} {{ _locale_copyright_dates }},

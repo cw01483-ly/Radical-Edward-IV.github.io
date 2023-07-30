@@ -7,4 +7,8 @@ sidebar:
   nav: notes-kr
 ---
 
-# Hello, world!!
+> 본 문서는 자격증 취득을 목적으로 관련 서적을 읽고 요약 및 추가한 내용입니다.
+
+
+* [리눅스마스터 2급](/notes/kr/linux-master/level-2-chapter-01) <sub>👈 클릭 시 이동</sub>
+* [정보처리기사 - 수제비 정보처리기사 실기 정리 노트](/notes/kr/info-processing-engineer/chapter-01) <sub>👈 클릭 시 이동</sub>

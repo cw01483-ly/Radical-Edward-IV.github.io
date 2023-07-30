@@ -32,6 +32,14 @@ notes-kr:
     children:
       - title:  Notes Home
         url:    /notes/kr/notes-home
+  - title:      리눅스마스터
+    children:
+      - title:  1. 리눅스의 이해
+        url:    /notes/kr/linux-master/level-2-chapter-01
+      - title:  2. 리눅스의 설치
+        url:    /notes/kr/linux-master/level-2-chapter-02
+      - title:  3. 기본 명령어
+        url:    /notes/kr/linux-master/level-2-chapter-03
   - title:      정보처리기사
     children:
       - title:  1. 요구사항 분석
@@ -44,6 +52,20 @@ notes-kr:
         url:    /notes/kr/info-processing-engineer/chapter-04
       - title:  5. 인터페이스 구현
         url:    /notes/kr/info-processing-engineer/chapter-05
+      - title:  6. 프로그래밍 언어 활용
+        url:    /notes/kr/info-processing-engineer/chapter-06
+      - title:  7. SQL 응용
+        url:    /notes/kr/info-processing-engineer/chapter-07
+      - title:  8. 서버 프로그램 구현
+        url:    /notes/kr/info-processing-engineer/chapter-08
+      - title:  9. 소프트웨어 개발 보안 구축
+        url:    /notes/kr/info-processing-engineer/chapter-09
+      - title:  10. 애플리케이션 테스트 관리
+        url:    /notes/kr/info-processing-engineer/chapter-10
+      - title:  11. 응용 SW 기초 기술 활용
+        url:    /notes/kr/info-processing-engineer/chapter-11
+      - title:  12. 제품 소프트웨어 패키징
+        url:    /notes/kr/info-processing-engineer/chapter-12
 
 docs-en:
   - title:      정보처리기사
