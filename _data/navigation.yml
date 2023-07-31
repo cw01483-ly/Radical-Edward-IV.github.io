@@ -32,6 +32,24 @@ notes-kr:
     children:
       - title:  Notes Home
         url:    /notes/kr/notes-home
+  - title:      SQL 개발자
+    children:
+      - title:  1. 데이터 모델링의 이해
+        url:    /notes/kr/sql-developer/chapter-01
+      - title:  2. 데이터 모델과 SQL
+        url:    /notes/kr/sql-developer/chapter-02
+      - title:  3. SQL 기본
+        url:    /notes/kr/sql-developer/chapter-03
+      - title:  4. SQL 활용
+        url:    /notes/kr/sql-developer/chapter-04
+      - title:  5. 관리 구문
+        url:    /notes/kr/sql-developer/chapter-05
+  - title:      SQL 전문가
+    children:
+      - title:  1. 데이터 모델링의 이해
+        url:    /notes/kr/sql-professional/chapter-01
+      - title:  2. 엔터티
+        url:    /notes/kr/sql-professional/chapter-02
   - title:      리눅스마스터
     children:
       - title:  1. 리눅스의 이해
