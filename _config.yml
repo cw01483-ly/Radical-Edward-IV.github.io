@@ -163,7 +163,7 @@ search:
 
   ## Google Custom Search Engine
   google:
-    custom_search_engine_id: <meta name="google-site-verification" content="E6H10g-h7YbN51He5trGMwwT1GiE8D6MHjZ7TpMsvRE" /> # Google Custom Search Engine ID
+    custom_search_engine_id: # Google Custom Search Engine ID
 
 
 ## => Analytics
