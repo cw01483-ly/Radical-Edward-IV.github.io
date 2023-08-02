@@ -90,9 +90,9 @@ IT 시스템의 **안정적인 운영을 위한 시스템**이다.
 
 * **FDS(이상거래탐지시스템, Fraud Detection System):** 전자금융거래 시 단말기 정보와 접속 정보, 거래 정보 등을 수집 및 분석하여 이상 금융 거래를 차단하는 기술이다.
 
-​
-
-<span style="color: grey;">References</span>   
+<br>
+<br>
+<span style="color: grey; font-weight: 700;">References</span>   
 [https://it-ist.tistory.com/m/171](https://it-ist.tistory.com/m/171)   
 [https://tyrionlife.tistory.com/m/40](https://tyrionlife.tistory.com/m/40)   
 [https://velog.io/@hitobi1014/IT-개발-금융권-이해](https://velog.io/@hitobi1014/IT-개발-금융권-이해)   
