@@ -117,9 +117,9 @@ sidebar:
     | user0000002 | Samantha | NULL | 3000 |
     | user0000003 | Amy | 5000 | 1000 |
 
-1. `SELECT user_income - user_expenditure AS ret FROM user WHERE user_no = ‘user0000002’;`
-ret = NULL (가로 연산 시 NULL이 포함되어 있으면 결과값은 NULL이다.)
+1. `SELECT user_income - user_expenditure AS ret FROM user WHERE user_no = ‘user0000002’;`   
+<sub>ret = NULL (가로 연산 시 NULL이 포함되어 있으면 결과값은 NULL이다.)</sub>
 
-2. `SELECT SUM(user_income) AS ret FROM user;`
-ret = 5000 (세로 연산, 다른 인스턴스의 데이터와 연산할 때 NULL이 포함되어 있으면 제외한다.)
-⁉️ *NULL ≠ ‘NULL’*
+2. `SELECT SUM(user_income) AS ret FROM user;`   
+<sub>ret = 5000 (세로 연산, 다른 인스턴스의 데이터와 연산할 때 NULL이 포함되어 있으면 제외한다.)</sub>   
+<sub>⁉️ *NULL ≠ ‘NULL’*</sub>

@@ -26,10 +26,7 @@ RDBMS는 이러한 RDB를 관리﹒감독하기 위한 시스템이다.
 
 ### 3.1.2 TABLE
 
-<figure>
 <img src="/notes/assets/name-by-table-part.png" width="700px;" alt="테이블 파트별 명칭">
-<figcaption>Hello!</figcaption>
-</figure>
 
 ### 3.1.3 SQL(Structured Query Language)
 
@@ -62,99 +59,96 @@ RDBMS는 이러한 RDB를 관리﹒감독하기 위한 시스템이다.
 ### 3.2.3 합성 연산자
 
 - `SELECT ‘D’ || ‘E’ || ‘V’ AS ret FROM dual;`<br>
-ret = DEV
+<sub>ret = DEV</sub>
 
 - `SELECT col1 || ‘ ‘ || ‘개발자’ || col2 AS ret FROM sample;`<br>
-col1 = 나는   
-col2 = 입니다.   
-ret = 나는 개발자입니다.
+<sub>col1 = 나는</sub>   
+<sub>col2 = 입니다.</sub>   
+<sub>ret = 나는 개발자입니다.</sub>
 
 ## 3.3 함수
 ### 3.3.1 문자 함수
 
 - `SELECT CHR(65) AS ret FROM dual;` : 아스키 코드를 인수로 입력했을 때 매핑되는 문자를 리턴한다.<br>
-ret = A   
-⁉️ *MSSQL인 경우 CHAR(ASCII 코드)*
+<sub>ret = A</sub>   
+<sub>⁉️ *MSSQL인 경우 CHAR(ASCII 코드)*</sub>
 
 - `SELECT LOWER('HELLO') AS ret FROM dual;` : 문자열을 🔡소문자로 변경한다.<br>
-ret = hello
+<sub>ret = hello</sub>
 
 - `SELECT UPPER('hello') AS ret FROM dual;` : 문자열을 🔠대문자로 변경한다.<br>
-ret = HELLO
+<sub>ret = HELLO</sub>
 
 - `SELECT LTRIM('     Theodore') AS ret FROM dual;` : 왼쪽 공백을 제거한다.<br>
-ret = Theodore   
-⁉️ *Oracle인 경우 LTRIM(문자열 [,특정문자]) 가능 * [] 옵션*
+<sub>ret = Theodore</sub>   
+<sub>⁉️ *Oracle인 경우 LTRIM(문자열 [,특정문자]) 가능 [] 옵션*</sub>
 
 - `SELECT RTRIM('Samantha     ') AS ret FROM dual;` : 오른쪽 공백을 제거한다.<br>
-ret = `Samantha`   
-⁉️ *Oracle인 경우 RTRIM(문자열 [,특정문자]) 가능 * [] 옵션*
+<sub>ret = `Samantha</sub>   
+<sub>⁉️ *Oracle인 경우 RTRIM(문자열 [,특정문자]) 가능 [] 옵션*</sub>
 
 - `SELECT TRIM('     Amy     ') AS ret FROM dual;` : 문자열 양쪽의 공백을 제거한다.<br>
-ret = Amy   
-⁉️ *Oracle인 경우 RTRIM([위치] [특정 문자] [FROM] 문자열) 가능
+<sub>ret = Amy</sub>   
+<sub>⁉️ *Oracle인 경우 RTRIM([위치] [특정 문자] [FROM] 문자열) 가능*</sub>
 
     * TRIM(LEADING ‘T’ FROM ‘Theodore’) → heodore
 
-    * TRIM(TRAILING ‘e’ FROM ‘Theodore’) → Theodor*
+    * TRIM(TRAILING ‘e’ FROM ‘Theodore’) → Theodor
 
 - `SELECT SUBSTR('Hello, world!', 3, 3) AS ret FROM dual;` : 특정 부분의 문자열을 잘라서 리턴한다.<br>
-ret = llo   
-⁉️ *MSSQL의 경우 SUBSTRING(문자열)*
+<sub>ret = llo</sub>   
+<sub>⁉️ *MSSQL의 경우 SUBSTRING(문자열)*</sub>
 
 - `SELECT LENGTH('Amy') AS ret FROM dual;` : 문자열을 길이를 리턴한다.<br>
-ret = 3   
-⁉️ *MSSQL의 경우 LEN(문자열)*
+<sub>ret = 3</sub>   
+<sub>⁉️ *MSSQL의 경우 LEN(문자열)*</sub>
 
 - `SELECT REPLACE(UPPER('Love and work, work and love, that''s all there is.'), 'WORK', 'MONEY') AS ret FROM dual;` : 문자열을 변경하여 리턴한다.<br>
-ret = LOVE AND MONEY, MONEY AND LOVE, THAT’S ALL THERE IS.
+<sub>ret = LOVE AND MONEY, MONEY AND LOVE, THAT’S ALL THERE IS.</sub>
 
 ### 3.3.2 숫자 함수
 
 - `SELECT ABS(-1) AS ret FROM dual;` : 절대값을 리턴한다.<br>
-ret = 1
+<sub>ret = 1</sub>
 
 - `SELECT SIGN(-7) AS ret FROM dual;` : 수의 부호를 리턴한다. (양수이면 1, 음수이면 -1)<br>
-ret = -1
+<sub>ret = -1</sub>
 
 - `SELECT ROUND(186.792, 1) AS ret FROM dual;` : 지정된 소수점 자릿수까지 반올림하여 리턴한다.<br>
-ret = 186.8
-
-`SELECT ROUND(186.792, -2) AS ret FROM dual;`<br>
-ret = 200
+<sub>ret = 186.8</sub>   
+`SELECT ROUND(186.792, -2) AS ret FROM dual;`   
+<sub>ret = 200</sub>
 
 - `SELECT TRUNC=(186.792, 1) AS ret FROM dual;` : 지정된 수소점 자릿수까지 버림하여 리턴한다.<br>
-ret = 186.7
+<sub>ret = 186.7</sub>
 
 - `SELECT CELL(186.792) AS ret FROM dual;` : 소수점 이하의 수를 올림한 정수를 리턴한다.<br>
-ret = 187
+<sub>ret = 187</sub>
 
 - `SELECT FLOOR(186.792) AS ret FROM dual;` : 소수점 이하의 수를 버림한 정수를 리턴한다.<br>
-ret = 186
+<sub>ret = 186</sub>
 
 - `SELECT MOD(-15, -4) AS ret FROM dual;` : 수1을 수2로 나눈 나머지를 리턴한다.<br>
-ret = -3
-
-`SELECT MOD(15, -4) AS ret FROM dual;`<br>
-ret = 3
-
-`SELECT MOD(-15, 0) AS ret FROM dual;`<br>
-ret = -15
+<sub>ret = -3</sub>   
+`SELECT MOD(15, -4) AS ret FROM dual;`   
+<sub>ret = 3</sub>   
+`SELECT MOD(-15, 0) AS ret FROM dual;`   
+<sub>ret = -15</sub>
 
 ### 3.3.3 날짜 함수
 
 - `SELECT SYSDATE AS ret FROM dual;` : 현재의 연, 월, 일, 시, 분, 초를 리턴한다.<br>
-ret = 2022-12-22 22:28:01   
-⁉️ *MSSQL인 경우 GETDATE()*   
-⁉️ *MYSQL인 경우 SYSDATE()*
+<sub>ret = 2022-12-22 22:28:01</sub>   
+<sub>⁉️ *MSSQL인 경우 GETDATE()*</sub>   
+<sub>⁉️ *MYSQL인 경우 SYSDATE()*</sub>
 
 - `SELECT EXTRACT({YEAR|MONTH|DAY} FROM SYSDATE) AS ret FROM dual;` : 날짜 데이터에서 특정 단위만을 리턴한다. * {} 선택<br>
-ret = 2022   
-⁉️ *MSSQL인 경우 DATEPART(특정 단위, 날짜 데이터)*
+<sub>ret = 2022</sub>   
+<sub>⁉️ *MSSQL인 경우 DATEPART(특정 단위, 날짜 데이터)*</sub>
 
 - `SELECT ADD_MONTHS(TO_DATE('2022-12-31', 'YYYY-MM-DD'), -1) AS ret FROM dual;` : 날짜 데이터에서 특정 개월 수를 더해 리턴한다.<br>
-ret = 2022-11-30 00:00:00   
-⁉️ *MSSQL인 경우 GETDATE()*
+<sub>ret = 2022-11-30 00:00:00</sub>   
+<sub>⁉️ *MSSQL인 경우 GETDATE()*</sub>
 
 ### 3.3.4 변환 함수
 
@@ -179,20 +173,19 @@ ret = 2022-11-30 00:00:00
 ### 3.3.5 NULL 관련 함수 🫥
 
 - `NVL(arg1, arg2)` : 인수1(arg1)의 값이 NULL일 경우 인수2(arg2)를 반환하고 NULL이 아닐 경우 인수1을 리턴한다.<br>
-⁉️ *MSSQL인 경우 ISNULL(arg1, arg2)*
+<sub>⁉️ *MSSQL인 경우 ISNULL(arg1, arg2)*</sub>
 
 - `NULLIF(arg1, arg2)` : 인수1(arg1)과 인수2(arg2)가 같으면 NULL을 반환하고 같지 않으면 인수1을 리턴한다.
 
-- `COALESCE(arg1, arg2, arg2…)` : NULL이 아닌 최초의 인수를 리턴한다.<br>
-e.g. `COALESCE(phone, email, fax)`
+- `COALESCE(arg1, arg2, arg2…)` : NULL이 아닌 최초의 인수를 리턴한다. <sub>*e.g. `COALESCE(phone, email, fax)`*</sub>
 
 ### 3.3.6 CASE
 
 ``` sql
 CASE WHEN subway_line = '1' THEN 'blue'
-		 WHEN subway_line = '2' THEN 'green'
-		 WHEN subway_line = '3' THEN 'orange'
-		 [ELSE 'gray']
+     WHEN subway_line = '2' THEN 'green'
+     WHEN subway_line = '3' THEN 'orange'
+    [ELSE 'gray']
 END
 ```
 
@@ -218,7 +211,7 @@ DECODE (subway_line,
 ### 3.4.1 WHERE 절이란?
 
 - INSERT를 제외한 DML문을 수행할 때 원하는 데이터만 골라 수행할 수 있도록 한다.
-- `SELECT col1, col2 … FROM table **WHERE** …`
+- `SELECT col1, col2 … FROM table WHERE …`
 
 ### 3.4.2 비교 연산자, 부정 비교 연산자
 
@@ -240,9 +233,7 @@ DECODE (subway_line,
 | 연산자 | 의미 | 예시 |
 | --- | --- | --- |
 | BETWEEN a AND b | a와 b의 사이 (a, b 포함) | WHERE col1 BETWEEN 1 AND 10 |
-| LIKE ‘String’ | 비교 문자열을 포함 | WHERE col1 LIKE ‘Theodore’
-WHERE col1 LIKE ‘%dore’
-WHERE col1 LIKE ‘%eod%’ |
+| LIKE ‘String’ | 비교 문자열을 포함 | WHERE col1 LIKE ‘Theodore’ WHERE col1 LIKE ‘%dore’ WHERE col1 LIKE ‘%eod%’ |
 | IN (List) | List 중 하나와 일치 | WHERE col1 IN (1, 2, 3, 5, 7, 9) |
 | IS NULL | NULL 값 | WHERE col1 IS NULL |
 | NOT BETWEEN a AND b | a와 b의 사이가 아님(a, b 미포함) | WHERE col1 NOT BETWEEN 1 AND 10 |
@@ -309,16 +300,17 @@ WHERE 절을 사용해도 되는 조건까지 HAVING 절로 처리하면 성능�
 
     - DESC: 내림차순
 
-⁉️ *Oracle의 경우 NULL 값을 최대값으로 인식한다. 오름차순으로 정렬할 때 NULL 값이 맨 뒤에 위치하게 된다. 만약 값을 위치를 변경하고 싶다면 ORDER BY 절에 NULLS FIRST, NULLS LAST 옵션을 통해 정렬 순서를 변경할 수 있다.*
+<sub>⁉️ *Oracle의 경우 NULL 값을 최대값으로 인식한다. 오름차순으로 정렬할 때 NULL 값이 맨 뒤에 위치하게 된다. 만약 값을 위치를 변경하고 싶다면 ORDER BY 절에 NULLS FIRST, NULLS LAST 옵션을 통해 정렬 순서를 변경할 수 있다.*</sub>
 
 ## 3.6 JOIN
 ### 3.6.1 JOIN이란?
 
 - 각기 다른 테이블을 함께 보여줄 때 사용한다. 실무에서 많이 사용하며 👩‍💻신입 개발자의 기술 면접시 단골 질문이다.
 
-![출처: https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a8db100a-bb95-40f3-826a-28f027be3695/Visual_SQL_JOINS_V2.png)
-
-출처: https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins
+<figure>
+<img src="/notes/assets/sql-joins.png" width="700px;" alt="테이블 파트별 명칭">
+<figcaption>출처: https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins</figcaption>
+</figure>
 
 ### 3.6.2 EQUI JOIN
 
@@ -376,7 +368,7 @@ ORDER BY A.SAL DESC;
 - EQUI, Non EQUI JOIN과 다르게 조건에 일치하지 않는 Rows도 조회된다.<br>
 Oracle에서는 모든 행이 출력되는 테이블의 반대편 테이블에 (+) 기호를 붙여 작성한다.
 
-![Untitled.001.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0cc98dc1-f447-4ec5-8a42-81823d48cd12/Untitled.001.png)
+<img src="/notes/assets/outer-join.png" width="700px;" alt="Outer join">
 
 ``` sql
 -- scott schema
@@ -420,7 +412,6 @@ WHERE A.DEPTNO = B.DEPTNO(+);
     INNER JOIN DEPT B
         ON A.DEPTNO = B.DEPTNO;
     ```
-    
 
 ### 3.7.3 OUTER JOIN
 
@@ -430,20 +421,13 @@ WHERE A.DEPTNO = B.DEPTNO(+);
 
     - 왼쪽에 표기된 테이블의 데이터가 모두 조회된다. JOIN되는 테이블에 조건을 충족하는 데이터가 없다면 NULL로 출력된다.
 
-    | TABLE_A | ID | NAME |
-    | --- | --- | --- |
-    |  | 1 | A |
-    |  | 2 | C |
-    |  | 3 | A |
-    |  | 4 | B |
-    |  | 5 | F |
-
-    | TABLE_B | ID | NAME |
-    | --- | --- | --- |
-    |  | 1 | B |
-    |  | 2 | C |
-    |  | 3 | C |
-    |  | 4 | B |
+    | ID (A) | NAME (A) || ID (B) | NAME (B) |
+    | --- | --- | --- | --- | --- |
+    | 1 | A || 1 | B |
+    | 2 | C || 2 | C |
+    | 3 | A || 3 | C |
+    | 4 | B || 4 | B |
+    | 5 | F ||||
 
     ``` sql
     SELECT *
@@ -494,8 +478,8 @@ WHERE A.DEPTNO = B.DEPTNO(+);
 ### 3.7.4 NATURAL JOIN
 
 - A 테이블과 B 테이블에서 같은 이름을 가진 컬럼들이 모두 동일한 데이터를 가지고 있을 경우 출력된다.<br>
-⁉️ *USING 조건절을 이용하여 원하는 컬럼만 JOIN 할 수 있다.*   
-⁉️ *USING 절로 정의된 컬럼 앞에는 ALIAS 또는 테이블명을 붙일 수 없다.*
+<sub>⁉️ *USING 조건절을 이용하여 원하는 컬럼만 JOIN 할 수 있다.*</sub>   
+<sub>⁉️ *USING 절로 정의된 컬럼 앞에는 ALIAS 또는 테이블명을 붙일 수 없다.*</sub>
 
     ``` sql
     SELECT *
