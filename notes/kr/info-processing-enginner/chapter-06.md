@@ -5,6 +5,8 @@ permalink: /notes/kr/info-processing-engineer/chapter-06
 key: notes
 sidebar:
   nav: notes-kr
+aside:
+  toc: true
 ---
 
 ## 기본 문법 활용하기

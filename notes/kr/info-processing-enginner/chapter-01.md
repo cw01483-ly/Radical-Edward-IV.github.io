@@ -5,6 +5,8 @@ permalink: /notes/kr/info-processing-engineer/chapter-01
 key: notes
 sidebar:
   nav: notes-kr
+aside:
+  toc: true
 ---
 
 ## 소프트웨어 개발 방법론

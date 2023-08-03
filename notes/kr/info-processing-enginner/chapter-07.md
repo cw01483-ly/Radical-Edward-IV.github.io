@@ -5,6 +5,8 @@ permalink: /notes/kr/info-processing-engineer/chapter-07
 key: notes
 sidebar:
   nav: notes-kr
+aside:
+  toc: true
 ---
 
 ## 데이터베이스 기본

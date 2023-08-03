@@ -5,6 +5,8 @@ permalink: /notes/kr/sql-developer/chapter-04
 key: notes
 sidebar:
   nav: notes-kr
+aside:
+  toc: true
 ---
 
 <span style="color: grey;">참고 도서: 2022 유선배 SQL개발자 과외노트</span><br>

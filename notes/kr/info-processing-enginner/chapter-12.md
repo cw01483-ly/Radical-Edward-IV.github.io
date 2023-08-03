@@ -5,6 +5,8 @@ permalink: /notes/kr/info-processing-engineer/chapter-12
 key: notes
 sidebar:
   nav: notes-kr
+aside:
+  toc: true
 ---
 
 ## 제품 소프트웨어 패키징하기

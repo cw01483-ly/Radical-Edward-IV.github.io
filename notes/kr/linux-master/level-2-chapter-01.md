@@ -5,6 +5,8 @@ permalink: /notes/kr/linux-master/level-2-chapter-01
 key: notes
 sidebar:
   nav: notes-kr
+aside:
+  toc: true
 ---
 
 ## 1.1 개요

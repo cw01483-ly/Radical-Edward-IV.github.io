@@ -5,10 +5,11 @@ permalink: /notes/kr/sql-professional/chapter-01-01
 key: notes
 sidebar:
   nav: notes-kr
+aside:
+  toc: true
 mermaid: true
 ---
 
-# 1. SQLP (SQL 전문가 가이드-데이터 모델링의 이해)
 # 1. 모델링의 이해
 ## 1.1 모델링의 정의
 

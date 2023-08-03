@@ -5,6 +5,8 @@ permalink: /notes/kr/info-processing-engineer/chapter-03
 key: notes
 sidebar:
   nav: notes-kr
+aside:
+  toc: true
 ---
 
 ## 논리 데이터 저장소 확인

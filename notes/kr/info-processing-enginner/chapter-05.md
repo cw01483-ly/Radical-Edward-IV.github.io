@@ -5,6 +5,8 @@ permalink: /notes/kr/info-processing-engineer/chapter-05
 key: notes
 sidebar:
   nav: notes-kr
+aside:
+  toc: true
 ---
 
 ## 인터페이스 설계 확인

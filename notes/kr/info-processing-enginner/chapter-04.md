@@ -5,6 +5,8 @@ permalink: /notes/kr/info-processing-engineer/chapter-04
 key: notes
 sidebar:
   nav: notes-kr
+aside:
+  toc: true
 ---
 
 ## 연계 데이터 구성

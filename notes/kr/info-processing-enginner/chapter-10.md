@@ -5,6 +5,8 @@ permalink: /notes/kr/info-processing-engineer/chapter-10
 key: notes
 sidebar:
   nav: notes-kr
+aside:
+  toc: true
 ---
 
 ## 애플리케이션 테스트 케이스 설계

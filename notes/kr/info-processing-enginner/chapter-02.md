@@ -5,6 +5,8 @@ permalink: /notes/kr/info-processing-engineer/chapter-02
 key: notes
 sidebar:
   nav: notes-kr
+aside:
+  toc: true
 ---
 
 ## UI 요구사항 확인

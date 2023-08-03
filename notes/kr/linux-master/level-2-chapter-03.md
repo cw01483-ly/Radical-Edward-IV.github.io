@@ -5,6 +5,8 @@ permalink: /notes/kr/linux-master/level-2-chapter-03
 key: notes
 sidebar:
   nav: notes-kr
+aside:
+  toc: true
 ---
 
 ## 3.1 사용자 생성 및 계정 관리

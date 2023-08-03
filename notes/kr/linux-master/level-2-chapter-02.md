@@ -5,6 +5,8 @@ permalink: /notes/kr/linux-master/level-2-chapter-02
 key: notes
 sidebar:
   nav: notes-kr
+aside:
+  toc: true
 ---
 
 ## 2.1 리눅스 설치 및 유형

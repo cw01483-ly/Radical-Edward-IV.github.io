@@ -5,6 +5,8 @@ permalink: /notes/kr/info-processing-engineer/chapter-11
 key: notes
 sidebar:
   nav: notes-kr
+aside:
+  toc: true
 ---
 
 ## 운영체제 특징

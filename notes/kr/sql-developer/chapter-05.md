@@ -5,6 +5,8 @@ permalink: /notes/kr/sql-developer/chapter-05
 key: notes
 sidebar:
   nav: notes-kr
+aside:
+  toc: true
 ---
 
 <span style="color: grey;">참고 도서: 2022 유선배 SQL개발자 과외노트</span><br>
@@ -169,7 +171,7 @@ DDL(Data Definition Language)은 데이터 정의어이다. DDL 명령어를 사
 
         + 참조 무결성 관련 옵션: `CASCADE`, `SET NULL`, `SET DEFAULT`, `RESTRICT`, `NO ACTION`
 
-    - `DEFAULT 기본값`: 해당 컬럼의 기본값을 설정한다. <sub>e.g. XXX_YN(여부) 컬럼인 경우 DEFAULT ‘N’로 설정할 수 있다.</sub>
+    - `DEFAULT 기본값`: 해당 컬럼의 기본값을 설정한다. <sub><i>e.g. XXX_YN(여부) 컬럼인 경우 DEFAULT ‘N’로 설정할 수 있다</i></sub>.
 
     - `CHECK 컬럼명 IN (값1, 값2, …)`: 해당 컬럼은 정의된 값만 저장할 수 있다.
 

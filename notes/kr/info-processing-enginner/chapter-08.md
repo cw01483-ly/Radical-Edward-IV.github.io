@@ -5,6 +5,8 @@ permalink: /notes/kr/info-processing-engineer/chapter-08
 key: notes
 sidebar:
   nav: notes-kr
+aside:
+  toc: true
 ---
 
 ## 개발환경 구축
