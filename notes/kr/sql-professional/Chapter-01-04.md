@@ -87,3 +87,10 @@ UML(Unified Modeling Language) 클래스다이어그램의 관계 중에는 **�
 - 업무기술서, 장표에 관계연결에 대한 규칙이 존재하는가?
 
 - 업무기술서, 장표에 관계연결을 가능하게 하는 동사가 있는가?
+
+<br>
+<br>
+<span style="color: grey; font-weight: 700;">References</span>   
+SQL 전문가 가이드(2020 개정판)   
+[https://dataonair.or.kr](https://dataonair.or.kr/)   
+[https://www.wikipedia.org](https://www.wikipedia.org/)

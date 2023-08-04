@@ -91,3 +91,10 @@ mermaid: true
 3. 약어 사용은 가급적 제한합니다.
 
 4. 전체 데이터 모델에서 유일성을 확보하는 것이 좋습니다.
+
+<br>
+<br>
+<span style="color: grey; font-weight: 700;">References</span>   
+SQL 전문가 가이드(2020 개정판)   
+[https://dataonair.or.kr](https://dataonair.or.kr/)   
+[https://www.wikipedia.org](https://www.wikipedia.org/)

@@ -97,4 +97,4 @@ IT 시스템의 **안정적인 운영을 위한 시스템**이다.
 [https://tyrionlife.tistory.com/m/40](https://tyrionlife.tistory.com/m/40)   
 [https://velog.io/@hitobi1014/IT-개발-금융권-이해](https://velog.io/@hitobi1014/IT-개발-금융권-이해)   
 [https://newsroom.koscom.co.kr/17371](https://newsroom.koscom.co.kr/17371)   
-[https://simroot.tistory.com/25](https://simroot.tistory.com/25)   
+[https://simroot.tistory.com/25](https://simroot.tistory.com/25) 

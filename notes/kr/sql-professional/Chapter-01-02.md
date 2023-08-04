@@ -151,3 +151,10 @@ node3[인사시스템]
 3. 단수 명사를 사용하고 띄어쓰기는 사용하지 않습니다.
 4. 모든 엔터티의 이름은 유일해야 하며, 다른 엔터티와 의미상의 중복도 피합니다.
 5. 엔터티 이름을 통해서 해당 엔터티가 갖고 있는 데이터가 무엇인지 알 수 있도록 표현합니다, <sub><i>i.g., 고객이 제품을 주문하였을 때 행위 엔터티에 대해 주문목록 또는 고객제품이라 명명할 수 있으나 후자의 경우 애매모호함이 있다</i></sub>.
+
+<br>
+<br>
+<span style="color: grey; font-weight: 700;">References</span>   
+SQL 전문가 가이드(2020 개정판)   
+[https://dataonair.or.kr](https://dataonair.or.kr/)   
+[https://www.wikipedia.org](https://www.wikipedia.org/)

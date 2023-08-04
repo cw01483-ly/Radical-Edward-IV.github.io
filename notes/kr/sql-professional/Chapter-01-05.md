@@ -93,3 +93,10 @@ FROM (
 3. **반정규화 적용**
 
     - 테이블, 속성, 관계
+
+<br>
+<br>
+<span style="color: grey; font-weight: 700;">References</span>   
+SQL 전문가 가이드(2020 개정판)   
+[https://dataonair.or.kr](https://dataonair.or.kr/)   
+[https://www.wikipedia.org](https://www.wikipedia.org/)
