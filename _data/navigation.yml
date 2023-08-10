@@ -56,6 +56,16 @@ notes-kr:
         url:    /notes/kr/sql-professional/chapter-01-04
       - title:  1.5 식별자
         url:    /notes/kr/sql-professional/chapter-01-05
+      - title:  2.1 정규화
+        url:    /notes/kr/sql-professional/chapter-02-01
+      - title:  2.2 관계와 조인
+        url:    /notes/kr/sql-professional/chapter-02-02
+      - title:  2.3 모델이 표현하는 트랜잭션
+        url:    /notes/kr/sql-professional/chapter-02-03
+      - title:  2.4 NULL 속성
+        url:    /notes/kr/sql-professional/chapter-02-04
+      - title:  2.5 본질식별자와 인조식별자
+        url:    /notes/kr/sql-professional/chapter-02-05
   - title:      리눅스마스터
     children:
       - title:  1. 리눅스의 이해
