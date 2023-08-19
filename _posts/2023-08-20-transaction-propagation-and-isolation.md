@@ -1,7 +1,7 @@
 ---
 title: 🍃 트랜잭션 전파 속성, 격리수준 (in Spring @Transactional)
 key: 20230820
-tags: 트랜잭션 @Transactional
+tags: 트랜잭션
 ---
 
 ## 1. @Transactional
