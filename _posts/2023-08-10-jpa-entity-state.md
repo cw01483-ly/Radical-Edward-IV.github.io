@@ -1,6 +1,6 @@
 ---
 title: 🍃 JPA Entity 상태
-key: 20230000
+key: 20230810
 tags: JPA ORM
 ---
 
