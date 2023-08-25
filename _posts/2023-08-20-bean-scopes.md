@@ -1,7 +1,7 @@
 ---
 title: 🫘 빈 스코프 (Bean Scopes in Spring)
 key: 20230820
-tags: Bean @Bean @Scope
+tags: Spring Bean @Bean @Scope
 ---
 
 ## 1. Overview
@@ -10,7 +10,12 @@ tags: Bean @Bean @Scope
 
 ## 2. Bean Life Cycle
 
-스프링 컨테이너 시작 👉 빈 생성 👉 DI 👉 커스텀 초기화 메소드(`@PostConstructor`) ️👉 빈 사용 ️👉 커스텀 소멸 메소드(`@PreDestroy`)
+스프링 컨테이너 시작   
+👉 빈 생성   
+👉 DI   
+👉 커스텀 초기화 메소드(`@PostConstructor`)    
+👉 빈 사용   
+👉 커스텀 소멸 메소드(`@PreDestroy`)
 
 ## 3. 6 Types of Scopes
 

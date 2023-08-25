@@ -1,7 +1,7 @@
 ---
 title: 🛑 예외의 종류와 특징 (Exception)
 key: 20230820
-tags: Exception
+tags: Java Exception
 ---
 
 ## 1. Error

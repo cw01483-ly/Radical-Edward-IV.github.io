@@ -1,7 +1,7 @@
 ---
 title: 🍃 JPA Entity 상태
 key: 20230810
-tags: JPA ORM
+tags: Spring JPA ORM
 ---
 
 <img src="/images/jpa-entity-state.png" width="700px;" alt="JPA Entity 상태 변화" />
