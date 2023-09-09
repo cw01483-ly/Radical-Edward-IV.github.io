@@ -80,7 +80,7 @@ IT 시스템의 **안정적인 운영을 위한 시스템**이다.
 
 * **ETL(Extract, Transform, Load):** ETL 시스템은 소스 데이터 시스템과 데이터 웨어하우스 간의 데이터 이동과 데이터 웨어하우스에서 데이터 마트로의 이동을 관리한다.
 
-* **CDC(Change Data Capture):** https://blog.naver.com/blacksocks93/223116039736
+* **CDC(Change Data Capture):** [변경 데이터 캡처 이동](https://radical-edward-iv.github.io/2023/08/04/change-data-capture.html)
 
 * **EXP:** 간편 결제
 
