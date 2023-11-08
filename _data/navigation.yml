@@ -12,9 +12,6 @@ header:
       # @end locale config
     url:        /notes/kr/notes-home
     key:        notes
-  - title:      Error
-    url:        /error.html
-    key:        error
   - title:      Archive
     url:        /archive.html
   - title:      About
