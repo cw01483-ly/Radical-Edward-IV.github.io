@@ -1,8 +1,14 @@
 ---
-title: 👨‍💻 정보처리기사 필기 실기 요약 - 4. 통합 구현
-key: 20230704
-tags: 정보처리기사
+layout: article
+title: 4. 통합 구현
+permalink: /notes/kr/info-processing-engineer/chapter-04
+key: notes
+sidebar:
+  nav: notes-kr
+aside:
+  toc: true
 ---
+
 `정보처리기사`{:.info} `정보처리기사요약`{:.info} `통합구현`{:.info} `연계`{:.info} `연계시스템`{:.info} `EAI`{:.info} `ESB`{:.info} `IPC`{:.info} `SOAP`{:.info} `UDDI`{:.info} `WSDL`{:.info}
 
 ## 연계 데이터 구성

@@ -1,8 +1,14 @@
 ---
-title: 👨‍💻 정보처리기사 필기 실기 요약 - 5. 인터페이스 구현
-key: 20230705
-tags: 정보처리기사
+layout: article
+title: 5. 인터페이스 구현
+permalink: /notes/kr/info-processing-engineer/chapter-05
+key: notes
+sidebar:
+  nav: notes-kr
+aside:
+  toc: true
 ---
+
 `정보처리기사`{:.info} `정보처리기사요약`{:.info} `인터페이스`{:.info} `인터페이스구현`{:.info} `EAI`{:.info} `ESB`{:.info} `JSON`{:.info} `XML`{:.info} `AJAX`{:.info} `REST`{:.info} `IPSec`{:.info}
 
 ## 인터페이스 설계 확인

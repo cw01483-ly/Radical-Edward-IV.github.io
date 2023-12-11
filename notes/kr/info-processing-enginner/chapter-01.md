@@ -1,8 +1,14 @@
 ---
-title: 👨‍💻 정보처리기사 필기 실기 요약 - 1. 요구사항 분석
-key: 20230701
-tags: 정보처리기사
+layout: article
+title: 정보처리기사 필기 실기 요약 - 1. 요구사항 분석
+permalink: /notes/kr/info-processing-engineer/chapter-01
+key: notes
+sidebar:
+  nav: notes-kr
+aside:
+  toc: true
 ---
+
 `정보처리기사`{:.info} `정보처리기사요약`{:.info} `요구사항분석`{:.info} `소프트웨어생명주기`{:.info} `폭포수모델`{:.info} `나선형모델`{:.info} `애자일`{:.info} `폭포수모델`{:.info}
 
 ## 소프트웨어 개발 방법론

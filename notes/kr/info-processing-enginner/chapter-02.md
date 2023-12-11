@@ -1,8 +1,14 @@
 ---
-title: 👨‍💻 정보처리기사 필기 실기 요약 - 2. 화면 설계
-key: 20230702
-tags: 정보처리기사
+layout: article
+title: 2. 화면 설계
+permalink: /notes/kr/info-processing-engineer/chapter-02
+key: notes
+sidebar:
+  nav: notes-kr
+aside:
+  toc: true
 ---
+
 `정보처리기사`{:.info} `정보처리기사요약`{:.info} `화면설계`{:.info} `UI`{:.info} `스토리보드`{:.info} `프로토타입`{:.info} `다이어그램`{:.info}
 
 ## UI 요구사항 확인

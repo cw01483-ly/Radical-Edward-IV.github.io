@@ -68,6 +68,16 @@ notes-kr:
         url:    /notes/kr/linux-master/level-2-chapter-03
   - title:      정보처리기사
     children:
+      - title:  1. 요구사항 분석
+        url:    /notes/kr/info-processing-engineer/chapter-01
+      - title:  2. 화면 설계
+        url:    /notes/kr/info-processing-engineer/chapter-02
+      - title:  3. 데이터 입출력 구현
+        url:    /notes/kr/info-processing-engineer/chapter-03
+      - title:  4. 통합 구현
+        url:    /notes/kr/info-processing-engineer/chapter-04
+      - title:  5. 인터페이스 구현
+        url:    /notes/kr/info-processing-engineer/chapter-05
       - title:  6. 프로그래밍 언어 활용
         url:    /notes/kr/info-processing-engineer/chapter-06
       - title:  7. SQL 응용
