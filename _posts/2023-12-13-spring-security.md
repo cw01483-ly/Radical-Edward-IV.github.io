@@ -100,4 +100,5 @@ Username에 ‘user’를 입력하고 Password에는 Console에서 Log로 확�
 <br>
 <br>
 <span style="color: grey; font-weight: 700;">References</span>   
-[https://spring.io/projects/spring-security](https://spring.io/projects/spring-security)
+[https://spring.io/projects/spring-security](https://spring.io/projects/spring-security)   
+[https://medium.com](https://medium.com/@truongbui95/jwt-authentication-and-authorization-with-spring-boot-3-and-spring-security-6-2f90f9337421)
