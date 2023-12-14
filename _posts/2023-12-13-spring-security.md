@@ -32,7 +32,7 @@ classpath에 Spring Security를 추가하고 스프링 애플리케이션을 실
 Using generated security password: 5451a8c2-a100-43ef-843c-7fb621b5c73b
 ```
 
-터미널을 실행한 뒤 엔트포인트 URL에 대한 curl 명령어를 실행하면 다음과 같은 출력을 확인할 수 있습니다.
+터미널을 실행한 뒤 엔드포인트 URL에 대한 curl 명령어를 실행하면 다음과 같은 출력을 확인할 수 있습니다.
 
 ```bash
 curl -i http://localhost:8080/hello
@@ -45,7 +45,7 @@ WWW-Authenticate: Basic realm="Realm"
 스프링 시큐리티는 `401` 응답과 함께 접근을 거부하게 됩니다.   
 웹 브라우저를 통해서 접속을 시도하게 되면 로그인 페이지가 표시됩니다.   
 설정 정보를 작성하기 전이라 Default 설정이 적용되고 있습니다.   
-모든 엔트포인트 URL에 요청할 경우 로그인 페이지로 리다이렉트합니다.   
+모든 엔드포인트 URL에 요청할 경우 로그인 페이지로 리다이렉트합니다.   
 Username에 ‘user’를 입력하고 Password에는 Console에서 Log로 확인한 password를 입력하여 접속할 수 있습니다.
 
 <img src="/images/spring-security-01.png" width="700px;" alt="Spring Security Study">​
