@@ -128,8 +128,8 @@ mermaid: true
 
 # 2. SQL 기본, 활용은 링크 참조
 
-* [SQL 기본](http://localhost:4000/notes/kr/sql-developer/chapter-03)
-* [SQL 활용](http://localhost:4000/notes/kr/sql-developer/chapter-04)
+* [SQL 기본](https://radical-edward-iv.github.io/notes/kr/sql-developer/chapter-03)
+* [SQL 활용](https://radical-edward-iv.github.io/notes/kr/sql-developer/chapter-04)
 
 <br>
 <br>
