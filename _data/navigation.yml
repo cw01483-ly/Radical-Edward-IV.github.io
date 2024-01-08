@@ -58,6 +58,8 @@ notes-kr:
         url:    /notes/kr/sql-professional/chapter-02-04
       - title:  2.5 본질식별자와 인조식별자
         url:    /notes/kr/sql-professional/chapter-02-05
+      - title:  3. SQL 기본과 활용
+        url:    /notes/kr/sql-professional/chapter-03
   - title:      리눅스마스터
     children:
       - title:  1. 리눅스의 이해

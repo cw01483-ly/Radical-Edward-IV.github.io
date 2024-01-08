@@ -490,6 +490,10 @@ WHERE A.DEPTNO = B.DEPTNO(+);
     -- Output
     -- 2|C
     -- 4|B
+
+    -- scott schema
+    SELECT A.EMPNO, A.ENAME, DEPT, B.DNAME
+    FROM EMP A NATURAL JOIN DEPT B
     ```
 
 ### 3.7.5 CROSS JOIN
