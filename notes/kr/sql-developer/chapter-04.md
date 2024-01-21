@@ -742,7 +742,7 @@ FROM (
 -- no data found
 ```
 
-- 윈도우 함수와 순위 함수
+- **윈도우 함수와 순위 함수**
 
 ``` sql
 -- scott schema
@@ -778,6 +778,27 @@ FROM (
     FROM SCOTT.EMP
 )
 WHERE D_RANK <= 5;
+```
+
+- **ROW LIMITING**
+
+``` sql
+-- [OFFSET offset {ROW | ROWS}]
+-- [FETCH {FIRST | NEXT} [{rowcount | percent PERCENT}] {ROW | ROWS} {ONLY | WITH TIES}]
+
+-- 5개의 행이 반환
+SELECT empno
+     , sal
+FROM emp
+ORDER BY sal, empno
+FETCH FIRST 5 ROWS ONLY;
+
+-- OFFSET 만큼 건너뛴 행 이후의 전체 행이 반환
+SELECT empno
+     , sal
+FROM emp
+ORDER BY sal, empno
+OFFSET 5 ROWS;
 ```
 
 ### 4.5.7 셀프 조인(Self Join)
@@ -839,4 +860,38 @@ CONNECT BY PRIOR PATH = PARENT_PATH;
 -- 1|Macintosh HD|            |/Macintosh HD            |Macintosh HD|0
 -- 2|USER        |Macintosh HD|/Macintosh HD/USER       |Macintosh HD|0
 -- 3|Shared      |USER        |/Macintosh HD/USER/Shared|Macintosh HD|1
+```
+
+### 4.5.9 PIVOT 절과 UNPIVOT 절
+
+행과 열을 전환하기 위해 사용한다.
+
+- **PIVOT**
+
+``` sql
+-- PIVOT [XML]
+--       (aggregate_function (expr) [[AS] alias]
+--     [, aggregate_function (expr) [[AS] alias]]...
+--        FOR {column | (column [, column]...)}
+--        IN ({{{expr | (expr [, expr]...)} [[AS] alias]}...
+--             | subquery
+--             | ANY [, ANY]...
+--             })
+--       )
+
+SELECT * FROM (SELECT job, deptno, sal FROM emp)
+PIVOT (SUM(sal) FOR deptno IN (10, 20, 30))
+ORDER BY 1;
+```
+
+- **UNPIVOT**
+
+``` sql
+-- UNPIVOT [{INCLUDE | EXCLUDE} NULLS]
+--         (    {column | (column [, col]...)}
+--          FOR {column | (column [, col]...)}
+--          IN ({column | (column [, col]...)} [AS {literal | (literal [, literal]...)}]
+--           [, {column | (column [, col]...)} [AS {literal | (literal [, literal]...)}]]...
+--             )
+--         )
 ```
