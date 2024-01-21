@@ -869,16 +869,6 @@ CONNECT BY PRIOR PATH = PARENT_PATH;
 - **PIVOT**
 
 ``` sql
--- PIVOT [XML]
---       (aggregate_function (expr) [[AS] alias]
---     [, aggregate_function (expr) [[AS] alias]]...
---        FOR {column | (column [, column]...)}
---        IN ({{{expr | (expr [, expr]...)} [[AS] alias]}...
---             | subquery
---             | ANY [, ANY]...
---             })
---       )
-
 SELECT * FROM (SELECT job, deptno, sal FROM emp)
 PIVOT (SUM(sal) FOR deptno IN (10, 20, 30))
 ORDER BY 1;
