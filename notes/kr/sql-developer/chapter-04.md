@@ -314,11 +314,11 @@ GROUP BY ROLLUP(JOB, DEPTNO);
 
 Row 간의 관계를 쉽게 정의하기 위한 함수이다. OVER 키워드와 함께 사용한다.
 
-| 순위 함수 | RANK, DENSE_RANK, ROW_NUMBER |
-| --- | --- |
-| 집계 함수 | SUM, MAX, MIN, AVG, COUNT |
-| 행 순서 함수 | FRST_VALUE, LAST_VALUE, LAG, LEAD |
-| 비율 함수 | CUME_DIST, PERCENT_RANK, NTILE, RATIO_TO_REPORT |
+| 순위 함수    | RANK, DENSE_RANK, ROW_NUMBER                    |
+| ------------ | ----------------------------------------------- |
+| 집계 함수    | SUM, MAX, MIN, AVG, COUNT                       |
+| 행 순서 함수 | FRST_VALUE, LAST_VALUE, LAG, LEAD               |
+| 비율 함수    | CUME_DIST, PERCENT_RANK, NTILE, RATIO_TO_REPORT |
 
 ### 4.5.2 순위 함수
 
@@ -464,7 +464,7 @@ WHERE SCORE = MAX_SCORE;
 -- B|NODE|51
 ```
 
-- MIN: 데이터의 최솟값을 리턴한다.
+- **MIN:** 데이터의 최솟값을 리턴한다.
 
 ``` sql
 -- 과목별 최솟값 조회
@@ -509,22 +509,22 @@ FROM STUDENTS
 WHERE SUBJECT = 'JAVA';
 ```
 
-| ⁉️ 윈도우 함수 사용 옵션 |
-|--------------------|
-| BETWEEN UNBOUNDED PRECEDING AND n PRECEDING |
-| BETWEEN UNBOUNDED AND CURRENT ROW |
-| BETWEEN UNBOUNDED PRECEDING AND n FOLLWING |
-| BETWEEN n PRECEDING AND n PRECEDING |
-| BETWEEN n PRECEDING AND CURRENT ROW |
-| BETWEEN n PRECEDING AND n FOLLOWING |
-| BETWEEN n PRECEDING AND UNBOUNDED FOLLOWING |
-| BETWEEN CURRENT ROW AND n FOLLOWING |
-| BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING |
-| BETWEEN n FOLLOWING ROW AND n FOLLOWING |
-| BETWEEN n FOLLOWING ROW AND UNBOUNDED FOLLOWING |
+| ⁉️ 윈도우 함수 사용 옵션                                  |
+|----------------------------------------------------------|
+| BETWEEN UNBOUNDED PRECEDING AND n PRECEDING              |
+| BETWEEN UNBOUNDED AND CURRENT ROW                        |
+| BETWEEN UNBOUNDED PRECEDING AND n FOLLWING               |
+| BETWEEN n PRECEDING AND n PRECEDING                      |
+| BETWEEN n PRECEDING AND CURRENT ROW                      |
+| BETWEEN n PRECEDING AND n FOLLOWING                      |
+| BETWEEN n PRECEDING AND UNBOUNDED FOLLOWING              |
+| BETWEEN CURRENT ROW AND n FOLLOWING                      |
+| BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING              |
+| BETWEEN n FOLLOWING ROW AND n FOLLOWING                  |
+| BETWEEN n FOLLOWING ROW AND UNBOUNDED FOLLOWING          |
 | UNBOUNDED PRECEDING (default: RANGE UNBOUNDED PRECEDING) |
-| n PRECEDING |
-| CURRENT ROW |
+| n PRECEDING                                              |
+| CURRENT ROW                                              |
 
 ### 4.5.4 행 순서 함수
 
@@ -781,6 +781,10 @@ WHERE D_RANK <= 5;
 ```
 
 - **ROW LIMITING**
+    - **OFFSET offset:** 건너뛸 행의 개수를 지정한다.
+    - **FETCH:** 반환할 행의 개수나 백분율을 지정한다.
+    - **ONLY:** 지정된 행의 개수나 백분율만큼 행을 반환한다.
+    - **WITH TIES:** 마지막 행에 대한 동순위를 포함해서 반환한다.
 
 ``` sql
 -- [OFFSET offset {ROW | ROWS}]
