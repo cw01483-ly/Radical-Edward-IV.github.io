@@ -117,6 +117,7 @@ Index Full Scan을 유도하는 힌트는 없으며 *index 힌트*를 사용합�
 
 Index Unique Scan은 <span class="red-bold">수직적 탐색</span>으로만 데이터를 찾습니다.   
 <span class="red-bold">Unique 인덱스를 equal(’=’) 조건으로 검색</span>해야 합니다.   
+유일한 값을 가진 인덱스를 검색할 때 사용되며, 범위 조건에는 적합하지 않습니다.   
 범위 조건(BETWEEN, >, <, LIKE)으로 검색할 경우 Index Range Scan을 사용하게 됩니다.   
 Index Unique Scan을 유도하는 힌트는 없으며 *index 힌트*를 사용합니다.
 
@@ -146,3 +147,9 @@ db_file_multiblock_read_count 파라미터 지정 값 만큼 한 번에 읽어�
 - <span class="red-bold">Index Range Scan Descending</span>
 
 <img src="/images/sqlp-certifications/sqlp-certification-13.jpeg" width="750px;" alt="SQLP 자격 시험" />
+
+### 인덱스 사용의 제약사항
+추후 업데이트
+
+### 인덱스 사용의 장단점
+추후 업데이트
