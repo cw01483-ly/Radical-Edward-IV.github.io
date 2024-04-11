@@ -95,7 +95,7 @@ tags: DBMS
 
 B*Tree 인덱스의 가장 일반적인 형태의 탐색 흐름입니다.   
 루트에서 리프까지 수직적 탐색을 하고 필요한 범위까지 수평적 스캔을 하는 방식입니다.   
-*항상 빠른 속도를 보장하지 않으며, 수평적 스캔 범위와 Table Random Access를 횟수를 줄여 성능을 개선*할 수 있습니다.   
+<i>항상 빠른 속도를 보장하지 않으며, 수평적 스캔 범위와 Table Random Access를 횟수를 줄여 성능을 개선</i>할 수 있습니다.   
 Index를 Range Scan 하려면, <span class="red-bold">인덱스를 구성하는 선두 컬럼을 가공하지 않은 상태로 조건절에 사용</span>해야 합니다.
 Index Range Scan을 유도하는 힌트는 없으며 *index 힌트*를 사용합니다.
 
