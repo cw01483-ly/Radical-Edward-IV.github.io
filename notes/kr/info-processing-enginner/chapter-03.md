@@ -7,6 +7,8 @@ sidebar:
   nav: notes-kr
 aside:
   toc: true
+excerpt: 정보처리기사 필기와 실기에 대한 요약, 특히 데이터 입출력 구현 부분에 대한 자세한 설명입니다.
+keywords: "정보처리기사, 요약, 데이터입출력구현, 데이터모델, 데이터베이스, DBMS, ERD, 정규화, 반정규화, 인덱스, 파티션"
 ---
 
 `정보처리기사`{:.info} `정보처리기사요약`{:.info} `데이터입출력구현`{:.info} `데이터모델`{:.info} `데이터베이스`{:.info} `DBMS`{:.info} `ERD`{:.info} `정규화`{:.info} `반정규화`{:.info} `인덱스`{:.info} `파티션`{:.info}

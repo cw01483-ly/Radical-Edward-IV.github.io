@@ -7,6 +7,8 @@ sidebar:
   nav: notes-kr
 aside:
   toc: true
+excerpt: 정보처리기사 필기와 실기에 대한 요약, 특히 인터페이스 구현 부분에 대한 자세한 설명입니다.
+keywords: "정보처리기사, 요약, 요구사항 분석, 화면설계, UI, 스토리보드, 프로토타입, 다이어그램"
 ---
 
 `정보처리기사`{:.info} `정보처리기사요약`{:.info} `인터페이스`{:.info} `인터페이스구현`{:.info} `EAI`{:.info} `ESB`{:.info} `JSON`{:.info} `XML`{:.info} `AJAX`{:.info} `REST`{:.info} `IPSec`{:.info}

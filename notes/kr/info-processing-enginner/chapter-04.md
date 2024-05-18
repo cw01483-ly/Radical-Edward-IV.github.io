@@ -7,6 +7,8 @@ sidebar:
   nav: notes-kr
 aside:
   toc: true
+excerpt: 정보처리기사 필기와 실기에 대한 요약, 특히 통합 구현 구성 부분에 대한 자세한 설명입니다.
+keywords: "정보처리기사, 요약, 통합구현, 연계시스템, EAI, ESB, IPC, SOAP, UDDI, WSDL"
 ---
 
 `정보처리기사`{:.info} `정보처리기사요약`{:.info} `통합구현`{:.info} `연계`{:.info} `연계시스템`{:.info} `EAI`{:.info} `ESB`{:.info} `IPC`{:.info} `SOAP`{:.info} `UDDI`{:.info} `WSDL`{:.info}

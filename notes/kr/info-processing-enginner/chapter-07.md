@@ -7,6 +7,8 @@ sidebar:
   nav: notes-kr
 aside:
   toc: true
+excerpt: 정보처리기사 필기와 실기에 대한 요약, 특히 SQL 응용 부분에 대한 자세한 설명입니다.
+keywords: "정보처리기사, 요약, SQL, ORACLE, 트랜잭션, ACID, 데이터베이스 고립화, DDL, DML, DCL, 프로시저, 옵티마이저"
 ---
 
 `정보처리기사`{:.info} `정보처리기사요약`{:.info} `SQL`{:.info} `ORACLE`{:.info} `트랜잭션`{:.info} `ACID`{:.info} `데이터베이스고립화`{:.info} `DDL`{:.info} `DML`{:.info} `DCL`{:.info} `프로시저`{:.info} `옵티마이저`{:.info}
