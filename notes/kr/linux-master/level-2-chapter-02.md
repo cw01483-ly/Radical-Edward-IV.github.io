@@ -7,6 +7,8 @@ sidebar:
   nav: notes-kr
 aside:
   toc: true
+excerpt: 리눅스마스터 필기와 실기에 대한 요약, 특히 리눅스 설치 부분에 대한 자세한 설명입니다.
+keywords: "리눅스마스터, 요약, 배포판, 부트매니저, 부트로더, LILO, GRUB, 런레벨, 파일시스템, 파티션, 볼륨, LVM"
 ---
 
 ## 2.1 리눅스 설치 및 유형

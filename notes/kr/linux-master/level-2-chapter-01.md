@@ -7,6 +7,8 @@ sidebar:
   nav: notes-kr
 aside:
   toc: true
+excerpt: 리눅스마스터 필기와 실기에 대한 요약, 특히 리눅스의 기본적인 내용에 대한 자세한 설명입니다.
+keywords: "리눅스마스터, 요약, 배포판, 데비안, 우분투, 레드헷, RHEL, CentOS, GNU, 아파치, 오픈소스"
 ---
 
 ## 1.1 개요

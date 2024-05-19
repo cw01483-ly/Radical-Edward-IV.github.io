@@ -7,6 +7,8 @@ sidebar:
   nav: notes-kr
 aside:
   toc: true
+excerpt: 리눅스마스터 필기와 실기에 대한 요약, 특히 리눅스 기본 명령어 부분에 대한 자세한 설명입니다.
+keywords: "리눅스마스터, 요약, 리눅스명령어"
 ---
 
 ## 3.1 사용자 생성 및 계정 관리
