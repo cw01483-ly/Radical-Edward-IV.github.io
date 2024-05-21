@@ -2,6 +2,8 @@
 title: 🍃 JPA Entity 상태
 key: 20230810
 tags: Spring JPA ORM
+excerpt: JPA 엔티티의 생명 주기와 상태 전이를 설명하며, 실용적인 예제를 통해 이해를 돕는 내용을 다룹니다. 
+keywords: "JPA, 엔티티 상태, 생명 주기, 지속성, 전이, 예제, Hibernate"
 ---
 
 <img src="/images/jpa-entity-state.png" width="700px;" alt="JPA Entity 상태 변화" />

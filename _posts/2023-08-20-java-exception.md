@@ -2,6 +2,8 @@
 title: 🛑 예외의 종류와 특징 (Exception)
 key: 20230820
 tags: Java Exception
+excerpt: Java의 다양한 예외 종류와 특징, 그리고 예외 처리 방법을 설명합니다.
+keywords: "Java, 예외, Exception, 오류 처리, 체크 예외, 언체크 예외, 예외 처리 방법"
 ---
 
 ## 1. Error

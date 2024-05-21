@@ -2,6 +2,8 @@
 title: 🤑 Lotto 구매 자동화
 key: 20230815
 tags: 미니프로젝트
+excerpt: Python을 사용하여 로또 구매를 자동화하는 튜토리얼로, Anaconda 설정, 스크립트 작성, crontab을 통한 스케줄링 등을 포함하고 있습니다.
+keywords: "자동화, 로또, Python, Anaconda, crontab, 스크립트, 스케줄링, Selenium"
 ---
 
 ## 0. 들어가기 전

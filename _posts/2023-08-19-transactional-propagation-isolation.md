@@ -2,6 +2,8 @@
 title: 🍃 트랜잭션 전파 속성, 격리수준 (in Spring @Transactional)
 key: 20230819
 tags: Spring 트랜잭션 @Transactional
+excerpt: Spring의 @Transactional 애노테이션을 이용한 트랜잭션 전파 속성과 격리 수준 설정에 대해 설명합니다.
+keywords: "트랜잭션, Spring, @Transactional, 전파 속성, 격리 수준, 데이터 일관성"
 ---
 
 ## 1. @Transactional

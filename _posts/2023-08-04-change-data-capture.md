@@ -2,6 +2,8 @@
 title: 📸 변경 데이터 캡처(CDC, Change Data Capture)
 key: 20230804
 tags: 기술
+excerpt: 변경 데이터 캡처(CDC)에 대한 내용을 설명한 자료입니다.
+keywords: "변경 데이터 캡처, CDC, DW, ETL"
 ---
 
 ### CDC란 무엇인가?
