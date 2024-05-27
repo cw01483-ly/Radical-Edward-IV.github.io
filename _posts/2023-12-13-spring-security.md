@@ -2,6 +2,8 @@
 title: 🍃 Spring Security
 key: 20231213
 tags: Spring SpringSecurity
+excerpt: Spring Security의 기본 설정과 사용법을 설명합니다. 의존성 추가, 설정 파일 구성, 인증과 인가 설정, 보안 기능을 소개합니다.
+keywords: "Spring Security, 보안, 인증, 인가, Spring Boot, 의존성 설정, 보안 구성, 사용자 인증"
 ---
 
 # 🏃‍♂️ Quick Start

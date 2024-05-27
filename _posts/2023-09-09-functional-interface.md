@@ -2,6 +2,8 @@
 title: ☕️ 함수형 인터페이스(Functional Interface)
 key: 20230909
 tags: Java @FunctionalInterface
+excerpt: 함수형 인터페이스의 정의와 특징을 설명하고, 자바에서 람다 표현식을 사용하여 코드의 간결성을 높이는 방법을 다룹니다. @FunctionalInterface 애노테이션의 사용법도 포함됩니다.
+keywords: "Java, 함수형 인터페이스, Functional Interface, 람다, SAM, @FunctionalInterface, 코드 간결성, 지연 연산"
 ---
 
 ## 1. Functional Interface (함수형 인터페이스)

@@ -2,6 +2,8 @@
 title: 👨‍💻 Oracle DBMS
 key: 20240427
 tags: DBMS
+excerpt: Oracle 데이터베이스 아키텍처를 설명하며, SQLP 자격증 시험 대비를 위한 주요 개념과 원리를 다룹니다. 데이터 파일, 컨트롤 파일, 리두 로그 파일 등의 구조와 역할을 소개합니다. 
+keywords: "SQLP, Oracle, 데이터베이스 아키텍처, 데이터 파일, 컨트롤 파일, 리두 로그, 자격증 시험, 데이터베이스 관리"
 ---
 
 <style>

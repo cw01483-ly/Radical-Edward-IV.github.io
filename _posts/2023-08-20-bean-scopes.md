@@ -2,6 +2,8 @@
 title: 🫘 빈 스코프 (Bean Scopes in Spring)
 key: 20230820
 tags: Spring Bean @Bean @Scope
+excerpt: Spring 프레임워크에서 빈의 생명주기를 관리하는 빈 스코프에 대해 설명합니다. 싱글톤, 프로토타입, 요청, 세션, 애플리케이션, 웹소켓 스코프의 차이점과 사용 방법을 다룹니다. 
+keywords: "Spring, 빈 스코프, Singleton, Prototype, Request, Session, Application, WebSocket, IoC 컨테이너, 빈 생명주기"
 ---
 
 ## 1. Overview
