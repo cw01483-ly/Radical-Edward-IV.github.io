@@ -2,8 +2,8 @@
 title: 👨‍💻 I/O 튜닝의 핵심 원리
 key: 20240602
 tags: DBMS
-excerpt: 
-keywords: ""
+excerpt: I/O 튜닝의 핵심 원리와 DBMS에서 Random Access 최소화, Sequential Access 선택도 튜닝, 인덱스 종류와 설계에 대한 심도 있는 설명을 제공합니다. Oracle의 IOT, SQL Server의 Cluster Index, B*Tree, 비트맵 인덱스, 함수기반 인덱스 및 리버스 인덱스를 다룹니다. 
+keywords: "I/O 튜닝, DBMS, Random Access 최소화, Sequential Access 선택도, 인덱스 튜닝, Oracle IOT, SQL Server Cluster Index, B*Tree 인덱스, 비트맵 인덱스, 함수기반 인덱스, 리버스 인덱스, 인덱스 설계, 성능 튜닝"
 ---
 
 <style>
