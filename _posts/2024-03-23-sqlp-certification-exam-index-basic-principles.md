@@ -77,10 +77,35 @@ keywords: "SQLP, 자격증 시험, 인덱스, 데이터베이스, 성능 최적�
 
 (지금은 단순하게 계산하지만 실제로는 앞으로 배우게 될 <span class="red-bold">Clustering Factor</span>를 함께 고려해야 함)
 
-| 데이터의 양     | Table Full Scan | 수직적 탐색 | 수평적 스캔 | 테이블 R.A  | 합계        |
-| --------------- | --------------- | ----------- | ----------- | ----------- | ----------- |
-| 1 ~ 10          | 100,000,000     | 3           | 1           | 10          | 14          |
-| 1 ~ 100,000,000 | 100,000,000     | 3           | 300,000     | 100,000,000 | 100,300,003 |
+<table>
+    <tr style="background-color: rgba(0, 0, 0, 0.05);">
+        <th rowspan="2">데이터의 양</th>
+        <th rowspan="2">Table Full Scan</th>
+        <th colspan="4">Index Range Scan</th>
+    </tr>
+    <tr style="background-color: rgba(0, 0, 0, 0.05);">
+        <th>수직적 탐색</th>
+        <th>수평적 스캔</th>
+        <th>테이블 R.A</th>
+        <th>합계</th>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>100,000,000</td>
+        <td>3</td>
+        <td>1</td>
+        <td>10</td>
+        <td>14</td>
+    </tr>
+    <tr>
+        <td>100,000,000</td>
+        <td>100,000,000</td>
+        <td>3</td>
+        <td>300,000</td>
+        <td>100,000,000</td>
+        <td>100,300,003</td>
+    </tr>
+</table>
 
 ⭐️⭐️⭐️ <span class="red-bold">인덱스 사용이 불가능</span> 하거나 <span class="red-bold">Index Range Scan이 불가능</span>한 경우
 
