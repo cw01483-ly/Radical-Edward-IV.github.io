@@ -8,6 +8,8 @@ sidebar:
 aside:
   toc: true
 mermaid: true
+excerpt: 조인은 여러 테이블의 레코드를 조합하여 하나의 결과 셋을 만드는 SQL 구문입니다. 주요 조인 유형으로는 INNER JOIN, OUTER JOIN, LEFT JOIN, RIGHT JOIN이 있습니다. 계층형 데이터 모델은 데이터 간의 계층 구조를 표현하며, 상호배타적 관계는 특정 속성이 단 하나의 값을 상속받는 것을 의미합니다. SQL 전문가를 위한 필수 개념으로 SQLP 시험 준비에 유용합니다.
+keywords: "관계와 조인, SQL 조인, INNER JOIN, OUTER JOIN, LEFT JOIN, RIGHT JOIN, 계층형 데이터 모델, 상호배타적 관계, SQLP 시험 준비, SQLP, SQL 전문가"
 ---
 
 # 1. 조인의 이해

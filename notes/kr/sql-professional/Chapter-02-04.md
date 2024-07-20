@@ -8,6 +8,8 @@ sidebar:
 aside:
   toc: true
 mermaid: true
+excerpt: NULL 값은 SQL에서 데이터가 존재하지 않음을 나타내는 특별한 표시어입니다. NULL 값은 특정 연산(IS NULL, IS NOT NULL)과 집계 함수에서 제외된다는 특징이 있습니다. 예를 들어, SELECT 1000 - NULL의 결과는 NULL이며, SELECT SUM(A)에서는 NULL 값을 제외하고 합산합니다. 이러한 개념은 SQL 전문가가 되기 위해 필수적으로 이해해야 하며, SQLP 시험 준비에도 중요한 내용입니다.
+keywords: "NULL 속성, SQL NULL, 데이터베이스, NULL 연산, 집계 함수, SQLP 시험 준비, SQLP, SQL 전문가, 데이터 처리, SQL 기본, NULL 값"
 ---
 
 # 1. NULL 값의 연산
