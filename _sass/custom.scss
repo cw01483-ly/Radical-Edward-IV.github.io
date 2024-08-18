@@ -2,4 +2,14 @@
 sub, figcaption {
     color: grey;
 }
+
+.header__brand > a > svg {
+    margin-top: 10px;
+    width: 7rem !important;
+}
+
+#title_name {
+    font-size: 15px !important;
+    color: grey;
+}
 /* end custom scss snippet */
