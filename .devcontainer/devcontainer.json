@@ -1,0 +1,25 @@
+// {
+//   "name"             : "Ruby Dev Container",
+//   "service"          : "gitblog",
+//   "dockerComposeFile": ["./docker-compose.yml"],
+//   "workspaceFolder"  : "/workspace",
+//   "remoteUser"       : "root",
+//   "postCreateCommand": "ruby --version",
+//   "customizations"   : {
+//       "jetbrains": {"backend": "RubyMine"}
+//   }
+// }
+// ==================================================
+{
+  "name": "Ruby Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations" : {
+    "jetbrains": {"backend": "RubyMine"}
+  },
+  "postCreateCommand": "ruby --version",
+  "remoteUser": "root",
+  "workspaceFolder": "/workspace",
+  "forwardPorts": ["4000:4000"]
+}
