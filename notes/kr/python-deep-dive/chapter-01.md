@@ -239,3 +239,49 @@ with open("memo.txt", "w", encoding="utf-8") as f:
   print("평균:", 평균)
   </code></pre>
 </details>
+
+## 5. 사용자 입력
+프로그램은 단순히 파일을 읽고 쓰는 것만이 아니라, **사용자로부터 입력을 받아 처리**할 수도 있습니다.  
+파이썬에서는 `input()` 함수를 사용하여 키보드로부터 문자열을 입력받을 수 있습니다.  
+
+```python
+name = input("당신의 이름을 입력하세요: ")
+print("안녕하세요,", name, "님!")
+
+age = int(input("나이를 입력하세요: "))
+print("내년에는", age + 1, "살이 됩니다.")
+```
+
+### 문제 4
+> 사용자에게 과목 이름과 점수를 입력받아 딕셔너리에 저장하고,   
+> 모든 입력이 끝나면 딕셔너리 전체 파일로 출력하세요.
+>
+> **조건**
+>   * 입력 형식 예시: 국어 90
+>   * "exit"를 입력하면 종료
+
+<details>
+  <summary><span class="green-bold">정답 보기</span></summary>
+
+  <pre><code class="language-python">
+  # 과목 점수를 입력받아 딕셔너리에 저장 후 파일로 저장하기
+  scores = {}
+
+  while True:
+      data = input("과목 이름과 점수를 입력하세요 (종료: exit): ")
+      if data == "exit":
+          break
+      subject, score = data.split()
+      scores[subject] = int(score)
+
+  # 딕셔너리 확인
+  print("입력된 점수:", scores)
+
+  # 파일 생성 및 저장
+  with open("scores.txt", "w", encoding="utf-8") as f:
+      for subject, score in scores.items():
+          f.write(f"{subject},{score}\n")
+
+  print("scores.txt 파일이 생성되었습니다.")
+  </code></pre>
+</details>
