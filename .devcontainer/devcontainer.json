@@ -1,25 +1,28 @@
-// {
-//   "name"             : "Ruby Dev Container",
-//   "service"          : "gitblog",
-//   "dockerComposeFile": ["./docker-compose.yml"],
-//   "workspaceFolder"  : "/workspace",
-//   "remoteUser"       : "root",
-//   "postCreateCommand": "ruby --version",
-//   "customizations"   : {
-//       "jetbrains": {"backend": "RubyMine"}
-//   }
-// }
-// ==================================================
 {
-  "name": "Ruby Dev Container",
-  "build": {
-    "dockerfile": "Dockerfile"
+  "name": "blog",
+
+  "forwardPorts": [4000],
+
+  "remoteUser": "vscode",
+
+  "customizations": {
+    "vscode": {
+
+      "settings": {},
+
+      "extensions": [
+        "rebornix.ruby",
+        "vscodevim.vim",
+        "christian-kohler.path-intellisense",
+        "pkief.material-icon-theme",
+        "esbenp.prettier-vscode"
+      ]
+    }
   },
-  "customizations" : {
-    "jetbrains": {"backend": "RubyMine"}
-  },
-  "postCreateCommand": "ruby --version",
-  "remoteUser": "root",
-  "workspaceFolder": "/workspace",
-  "forwardPorts": ["4000:4000"]
+
+  "image": "mcr.microsoft.com/devcontainers/ruby:dev-3.2",
+
+  "runArgs": ["--name", "blog"],
+
+  "postCreateCommand": "apt-get update && gem install jekyll bundler"
 }

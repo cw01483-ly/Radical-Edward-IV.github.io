@@ -94,6 +94,10 @@ notes-kr:
         url:    /notes/kr/info-processing-engineer/chapter-11
       - title:  12. 제품 소프트웨어 패키징
         url:    /notes/kr/info-processing-engineer/chapter-12
+  - title: Python DeepDive
+    children:
+      - title: 1. 파일 입출력
+        url:   /notes/kr/python-deep-dive/chapter-01
 
 layouts:
   - title: Layouts
