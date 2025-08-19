@@ -53,7 +53,7 @@ keywords: "Python, 파일 입출력, 심화 과정, 데이터 처리, 프로그�
 파일에 내용을 저장하거나 불러오기 위해서는 먼저 <strong>파일을 열어야 합니다.</strong>    
 파이썬에서는 `open(파일명, 모드)` 함수를 사용하여 파일을 엽니다.
 
-<a href="/notes/assets/python-deep-dive/data.zip" download>예제 파일 다운로드</a>
+<a href="/notes/assets/python-deep-dive/chapter01.zip" download>예제 파일 다운로드</a>
 
 ``` python
 # memo.txt를 읽기 모드로 열겠다는 코드입니다.
@@ -162,12 +162,12 @@ with open('memo1.txt', 'r') as f:
 
 ```python
 # w 모드 예시 — 기존 내용을 덮어쓰기
-with open("memo1.txt", "w", encoding="utf-8") as f:
+with open("memo.txt", "w", encoding="utf-8") as f:
     f.write("첫 번째 줄\n")
     f.write("두 번째 줄\n")
 
 # a 모드 예시 — 기존 파일에 내용 추가
-with open("memo1.txt", "a", encoding="utf-8") as f:
+with open("memo.txt", "a", encoding="utf-8") as f:
     f.write("세 번째 줄 (추가)\n")
 ```
 
@@ -181,7 +181,7 @@ with open("memo1.txt", "a", encoding="utf-8") as f:
 
 ```python
 # 파일을 열었지만 닫지 않은 경우
-f = open("memo3.txt", "w", encoding="utf-8")
+f = open("memo.txt", "w", encoding="utf-8")
 f.write("파일 닫기 실습 중입니다.")
 # f.close()가 없다면, 내용이 저장되지 않을 수도 있음
 ```
@@ -190,6 +190,52 @@ f.write("파일 닫기 실습 중입니다.")
 파이썬에서는 with 구문을 사용하면 블록이 끝날 때 자동으로 close()가 실행됩니다.
 
 ```python
-with open("memo3.txt", "w", encoding="utf-8") as f:
+with open("memo.txt", "w", encoding="utf-8") as f:
     f.write("이 문장은 자동으로 저장되고 파일은 닫힙니다.")
 ```
+
+### 문제 2
+> `hello.txt` 파일에는 여러 줄의 문장이 저장되어 있습니다.   
+> 이 중에서 “Python”이라는 단어가 들어 있는 줄만 출력하세요.
+
+<details>
+  <summary><span class="green-bold">정답 보기</span></summary>
+
+  <pre><code class="language-python">
+  with open("memo.txt", "r", encoding="utf-8") as f:
+    for line in f:
+        if "Python" in line:
+            print(line.strip())
+  </code></pre>
+</details>
+
+### 문제 3
+> `scores.txt` 파일의 내용은 다음과 같습니다.   
+> 필릭스,83   
+> 연준,60   
+> ...   
+> 파일을 읽어와서 각 학생의 점수를 출력하고, 총점과 평균 점수를 계산하여 마지막에 출력하세요.
+>
+> **힌트**
+> `line.split(",")`로 이름과 점수를 분리하고, `int()`로 점수를 정수로 바꿉니다.
+
+<details>
+  <summary><span class="green-bold">정답 보기</span></summary>
+
+  <pre><code class="language-python">
+  총점 = 0
+  학생수 = 0
+
+  with open("scores.txt", "r", encoding="utf-8") as f:
+      for line in f:
+          이름, 점수 = line.strip().split(",")
+          점수 = int(점수)
+          print(f"{이름} 학생 점수: {점수}")
+          총점 += 점수
+          학생수 += 1
+
+  평균 = 총점 / 학생수
+  print("총점:", 총점)
+  print("평균:", 평균)
+  </code></pre>
+</details>
