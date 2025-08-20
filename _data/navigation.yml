@@ -98,6 +98,12 @@ notes-kr:
     children:
       - title: 1. 파일 입출력
         url:   /notes/kr/python-deep-dive/chapter-01
+  - title: Java DeepDive
+    children:
+      - title: 1. 다형성과 인터페이스
+        url: /notes/kr/java-deep-dive/chapter-01
+      - title: 2. 예외 처리 및 기본 API 클래스
+        url: /notes/kr/java-deep-dive/chapter-02
 
 layouts:
   - title: Layouts

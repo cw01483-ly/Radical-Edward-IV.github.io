@@ -36,6 +36,8 @@ keywords: "Python, 파일 입출력, 심화 과정, 데이터 처리, 프로그�
     }
 </style>
 
+![header](https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=Python%20DeepDive&reversal=false&textBg=false)
+
 >파이썬은 여러 분야에서 쓰입니다. 특히 <span class="blue-bold">데이터 분석에 강합니다.</span>
 >왜냐하면 파이썬에는 <span class="blue-bold">데이터를 다루기 좋은 도구(라이브러리와 함수)가 이미 준비</span>되어 있고, 문법도 자연스러운 문장처럼 읽히기 때문입니다. 또한 <span class="blue-bold">파일 입출력도 쉽게 할 수 있습니다.</span>
 >
