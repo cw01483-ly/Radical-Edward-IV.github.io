@@ -91,10 +91,10 @@ file = open("memo.txt", "r")
 </table>
 
 ### 파일을 열 때 발생할 수 있는 오류
-  * <span class="red-bold">FileNotFoundError</span>: 지정한 경로에 파일이 없을 때 발생 (`open('없는파일.txt', 'r')`)
-  * <span class="red-bold">PermissionError</span>: 읽기 전용 파일이거나 권한이 없는 위치에 쓰려고 할 때 발생 (`open('C:/Windows/system.ini', 'w')`)
-  * <span class="red-bold">IsADirectoryError</span>: 파일이 아니라 폴더 경로를 열려고 할 때 발생 (`open('C:/Users', 'w')`)
-  * <span class="red-bold">ValueError: invalid mode</span>: 모드 문자열이 잘못되었을 때 발생 (`open('test.txt', 'wr')`)
+* <span class="red-bold">FileNotFoundError</span>: 지정한 경로에 파일이 없을 때 발생 (`open('없는파일.txt', 'r')`)
+* <span class="red-bold">PermissionError</span>: 읽기 전용 파일이거나 권한이 없는 위치에 쓰려고 할 때 발생 (`open('C:/Windows/system.ini', 'w')`)
+* <span class="red-bold">IsADirectoryError</span>: 파일이 아니라 폴더 경로를 열려고 할 때 발생 (`open('C:/Users', 'w')`)
+* <span class="red-bold">ValueError: invalid mode</span>: 모드 문자열이 잘못되었을 때 발생 (`open('test.txt', 'wr')`)
 
 ## 2. 파일 읽기
 파이썬에서 **읽기 모드(`r`)**로 파일을 열면, 그 안의 내용을 읽어올 수 있는 메서드들이 있습니다.
