@@ -12,278 +12,201 @@ keywords: "Python, 파일 입출력, 심화 과정, 데이터 처리, 프로그�
 ---
 
 <style>
-    img {
-
-    }
-    .blue-bold {
-        color: #203BB0;
-        font-weight: 900;
-    }
-    .red-bold {
-        color: #D53C41;
-        font-weight: 900;
-    }
-    .green-bold {
-        color: #448F52;
-        font-weight: 900;
-    }
-    .yellow-bold {
-        color: #BD8739;
-        font-weight: 900;
-    }
-    .text-underline {
-        text-decoration: underline;
-    }
+    /* 색상 활용 규칙
+      빨강: 주의, 경고, 위험 (덮어쓰기, 에러 등)
+      파랑: 핵심 개념, 주요 기능 (모드, with 구문 등)
+      초록: 안전한 대안, 긍정적 결과 (추가 모드, 정답 보기 등)
+      노랑: 코드 요소 (함수명, 메서드명 등)
+    */
+    .red-text { color: #D53C41; font-weight: bold; }
+    .blue-text { color: #203BB0; font-weight: bold; }
+    .green-text { color: #448F52; font-weight: bold; }
+    .yellow-code { color: #BD8739; font-weight: bold; }
 </style>
 
 ![header](https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=Python%20DeepDive&reversal=false&textBg=false)
 
->파이썬은 여러 분야에서 쓰입니다. 특히 <span class="blue-bold">데이터 분석에 강합니다.</span>
->왜냐하면 파이썬에는 <span class="blue-bold">데이터를 다루기 좋은 도구(라이브러리와 함수)가 이미 준비</span>되어 있고, 문법도 자연스러운 문장처럼 읽히기 때문입니다. 또한 <span class="blue-bold">파일 입출력도 쉽게 할 수 있습니다.</span>
+> 파이썬은 데이터를 다루는 데 아주 강력한 도구예요. 데이터를 다루려면 '파일'에서 정보를 가져오거나(<span class="blue-text">입력</span>), 파일에 새로운 정보를 저장하는(<span class="blue-text">출력</span>) 방법을 알아야 합니다.
 >
->  * <strong>입력(Input) = 파일에서 데이터를 읽어오기</strong>
->  * <strong>출력(Output) = 파일에 데이터를 저장하기</strong>    
+> * **입력(Input)**: 파일에서 데이터를 프로그램으로 읽어오기
+> * **출력(Output)**: 프로그램의 데이터를 파일에 저장하기
 >
-><span class="red-bold">즉, 프로그램이 “노트”처럼 파일을 열고 → 내용을 읽거나 → 새로운 내용을 쓰는 과정입니다.</span>
->
+> <span class="blue-text">프로그램이 노트를 펴서 내용을 읽거나, 새로운 내용을 쓰는 과정</span>이라고 생각하면 쉬워요! 😉
 
-<figure>
-<img src="/notes/assets/python-deep-dive/chapter-01-01.png" width="50%;" alt="Python 파일 입출력" />
-</figure>
+---
 
-## 1. 파일 열기
-파일에 내용을 저장하거나 불러오기 위해서는 먼저 <strong>파일을 열어야 합니다.</strong>    
-파이썬에서는 `open(파일명, 모드)` 함수를 사용하여 파일을 엽니다.
+## 1. 파일 열고 닫기: `open()` 과 `with`
 
+파일을 읽거나 쓰려면, 가장 먼저 <span class="blue-text">파일을 열어야</span> 합니다. 파이썬에서는 <code class="yellow-code">open()</code> 함수를 사용해요.
+
+<code class="yellow-code">open("파일이름", "모드")</code>
+
+'모드'는 파일을 어떤 목적으로 열지 알려주는 신호와 같아요.
+
+| 모드 | 기능 | 설명 |
+| :--: | :--- | :--- |
+| <span class="blue-text">r</span> | 읽기 (read) | 파일의 내용을 읽기만 할 때 사용해요. |
+| <span class="blue-text">w</span> | 쓰기 (write) | 파일에 내용을 쓸 때 사용해요. <span class="red-text">주의! 기존 내용은 모두 사라지고 새로 써져요.</span> |
+| <span class="blue-text">a</span> | 추가 (append) | 파일의 맨 끝에 새로운 내용을 추가해요. <span class="green-text">기존 내용이 안전하게 유지돼요.</span> |
+
+<br>
+
+#### 💡 가장 안전하고 편한 방법: `with`
+
+파일 작업이 끝나면 반드시 `close()`로 닫아줘야 해요. 하지만 깜빡하기 쉽죠.  
+<span class="blue-text">`with` 구문을 사용하면 작업이 끝났을 때 파이썬이 알아서 파일을 닫아줘서 아주 편리하고 안전</span>하답니다.   
+앞으로는 항상 `with`를 사용하세요!
+
+```python
+# 'with' 블록이 끝나면 memo.txt 파일은 자동으로 닫힙니다.
+with open("memo.txt", "w") as file:
+    file.write("with 구문을 사용하면 정말 편해요!")
+```
+<details>
+  <summary>파일을 열 때 흔히 만나는 오류들</summary>
+  <ul>
+    <li><span class="red-text">FileNotFoundError</span>: 파일이 존재하지 않을 때 발생해요.</li>
+    <li><span class="red-text">PermissionError</span>: 파일에 접근할 권한이 없을 때 발생해요.</li>
+    <li><span class="red-text">IsADirectoryError</span>: 파일이 아니라 폴더(디렉토리)를 열려고 할 때 발생해요.</li>
+  </ul>
+</details>
+
+## 2. 파일 내용 읽기
+파일을 <span class="blue-text">'r' 모드</span>로 열면 내용을 읽을 수 있어요.
+
+* <code class="yellow-code">read()</code>: 파일 전체 내용을 하나의 문자열로 통째로 읽어와요.
+* <code class="yellow-code">readlines()</code>: 파일의 모든 줄을 각각의 문자열로 만들어 리스트에 담아줘요.
+* <code class="yellow-code">readline()</code>: 파일에서 딱 한 줄만 읽어와요. (자주 쓰이진 않아요.)
+
+```python
+# memo.txt 파일에 아래 내용이 저장되어 있다고 상상해보세요!
+# 첫 번째 줄입니다.
+# 두 번째 줄입니다.
+
+with open('memo.txt', 'r') as f:
+    # 1. read()로 전체 읽기
+    content = f.read()
+    print("--- read() 결과 ---")
+    print(content)
+
+with open('memo.txt', 'r') as f:
+    # 2. readlines()로 한 줄씩 리스트에 담아 읽기
+    lines = f.readlines()
+    print("--- readlines() 결과 ---")
+    print(lines) 
+    # 결과: ['첫 번째 줄입니다.\n', '두 번째 줄입니다.']
+```
+
+## 3. 파일에 내용 쓰기
+파일에 글자를 쓰려면 <span class="blue-text">'w' 모드</span>나 <span class="blue-text">'a' 모드</span>로 열어야 해요.
+
+* `w` 모드 (덮어쓰기): <span class="red-text">파일의 모든 내용을 지우고</span> 처음부터 새로 써요.
+* `a` 모드 (이어쓰기): <span class="green-text">기존 내용 맨 끝에</span> 새로운 내용을 추가해요.
+
+```python
+# "w" 모드: 기존 내용을 모두 지우고 새로 쓰기
+with open("memo.txt", "w") as f:
+    f.write("이 내용만 남을 거예요.\n")
+
+# "a" 모드: 기존 내용에 이어서 추가하기
+with open("memo.txt", "a") as f:
+    f.write("이 내용은 뒤에 추가돼요.\n")
+```
+
+## 4. 사용자에게 직접 입력받기: `input()`
+파일뿐만 아니라 사용자에게 직접 키보드로 입력을 받을 수도 있어요. 이때는 <code class="yellow-code">input()</code> 함수를 사용해요.
+
+**중요‼️** <code class="yellow-code">input()</code>으로 받은 값은 <span class="red-text">항상 문자열(string) 타입</span>이에요.
+
+만약 숫자로 사용하고 싶다면 `int()`를 이용해 숫자로 변환해줘야 합니다.
+
+```python
+name = input("이름을 입력하세요: ")
+print(f"안녕하세요, {name}님!")
+
+# input()은 문자열을 반환하므로, 숫자로 바꿔줘야(형 변환) 계산이 가능해요.
+age_str = input("나이를 입력하세요: ")
+age_int = int(age_str) 
+print(f"내년에는 {age_int + 1}살이 되시는군요!")
+```
+
+## 5. 종합 연습문제
 <a href="/notes/assets/python-deep-dive/chapter01.zip" download>예제 파일 다운로드</a>
 
-``` python
-# memo.txt를 읽기 모드로 열겠다는 코드입니다.
-file = open("memo.txt", "r")
-```
-
-<table>
-  <colgroup>
-    <col width="25%" />
-    <col width="25%" />
-    <col width="50%" />
-  </colgroup>
-  <tr align="center" style="background-color: #ddd;">
-    <th>모드</th>
-    <th>기능</th>
-    <th>설명</th>
-  </tr>
-  <tr>
-    <td>r</td>
-    <td>읽기(read) 모드</td>
-    <td>파일을 읽기 모드로 엽니다.</td>
-  </tr>
-  <tr>
-    <td>w</td>
-    <td>쓰기(write) 모드</td>
-    <td>파일을 쓰기 모드로 엽니다. <span class="red-bold">기존 파일 내용은 덮여쓰여집니다.</span></td>
-  </tr>
-  <tr>
-    <td>r</td>
-    <td>추가(append) 모드</td>
-    <td>파일을 추가 모드로 엽니다. <span class="red-bold">기존 파일 내용을 유지한 채 내용을 추가합니다.</span></td>
-  </tr>
-</table>
-
-### 파일을 열 때 발생할 수 있는 오류
-* <span class="red-bold">FileNotFoundError</span>: 지정한 경로에 파일이 없을 때 발생 (`open('없는파일.txt', 'r')`)
-* <span class="red-bold">PermissionError</span>: 읽기 전용 파일이거나 권한이 없는 위치에 쓰려고 할 때 발생 (`open('C:/Windows/system.ini', 'w')`)
-* <span class="red-bold">IsADirectoryError</span>: 파일이 아니라 폴더 경로를 열려고 할 때 발생 (`open('C:/Users', 'w')`)
-* <span class="red-bold">ValueError: invalid mode</span>: 모드 문자열이 잘못되었을 때 발생 (`open('test.txt', 'wr')`)
-
-## 2. 파일 읽기
-파이썬에서 **읽기 모드(`r`)**로 파일을 열면, 그 안의 내용을 읽어올 수 있는 메서드들이 있습니다.
-
-1. `파일객체.read()`: 파일 전체 내용을 한 번에 읽음
-2. `파일객체.readline()`: 파일에서 한 줄만 읽음
-3. `파일객체.readlines()`: 파일 전체를 읽어서 리스트(줄 단위)로 반위
-
-```python
-f = open('memo1.txt', 'r')
-all = f.read()
-print('read():')
-print(all)
-
-f = open('memo1.txt', 'r')
-line = f.readline()
-print('readline():')
-print(line)
-
-f = open('memo1.txt', 'r')
-lines = f.readlines()
-print('readlines():')
-print(lines)
-```
-
-```python
-# 파일을 자동으로 닫아주는 문법
-with open('memo1.txt', 'r') as f:
-  all = f.read()
-  print('read():')
-  print(all)
-```
-
 ### 문제 1
-> `memo1.txt` 파일에는 여러 줄의 문장이 저장되어 있습니다.  
-> 이 파일을 한 줄씩 읽어서 화면에 출력하세요.
->
-> **조건 및 힌트**
-> 1. `readline()` 메서드를 사용하세요.  
-> 2. 더 이상 읽을 줄이 없으면 `""`(빈 문자열)이 반환됩니다.  
+> memo1.txt 파일을 한 줄씩 읽어서 화면에 출력하세요.
 
 <details>
-  <summary><span class="green-bold">정답 보기</span></summary>
-
-  <strong>방법 1 — `readline()` 사용</strong>
+  <summary><span class="green-text">정답 보기</span></summary>
+  <p>파일 객체는 for문과 함께 사용하면 한 줄씩 자동으로 읽어올 수 있어 매우 편리합니다.</p>
   <pre><code class="language-python">
-  with open('memo1.txt', 'r') as f:
-    line = f.readline()
-    while line:
-      print(line.strip())
-      line = f.readline()
-  </code></pre>
-
-  <strong>방법 2 — for 사용</strong>
-  <pre><code class="language-python">
-  with open ('memo1.txt', 'r') as f:
-    for line in f:
-      print(line)
+    with open('memo1.txt', 'r') as f:
+      for line in f:
+        print(line.strip()) # .strip()은 줄 끝의 불필요한 공백이나 줄바꿈 문자를 제거합니다.
   </code></pre>
 </details>
 
-## 3. 파일 쓰기
-파일에 새로운 내용을 기록하려면 **쓰기 모드(`w`)** 또는 **추가 모드(`a`)**로 열어야 합니다.  
-
-- `w` 모드: 기존 내용을 **모두 지우고** 새로 작성  
-- `a` 모드: 기존 내용을 **유지한 채** 뒤에 이어서 작성  
-
-```python
-# w 모드 예시 — 기존 내용을 덮어쓰기
-with open("memo.txt", "w", encoding="utf-8") as f:
-    f.write("첫 번째 줄\n")
-    f.write("두 번째 줄\n")
-
-# a 모드 예시 — 기존 파일에 내용 추가
-with open("memo.txt", "a", encoding="utf-8") as f:
-    f.write("세 번째 줄 (추가)\n")
-```
-
-## 4. 파일 닫기
-파일 작업이 끝나면 반드시 **파일을 닫아야 합니다.**  
-파일을 닫지 않으면 다음과 같은 문제가 생길 수 있습니다.
-
-- 메모리와 같은 시스템 자원이 불필요하게 점유됩니다.  
-- 파일이 다른 프로그램에서 사용되지 못할 수 있습니다.  
-- 데이터가 완전히 저장되지 않아 손상될 위험이 있습니다.  
-
-```python
-# 파일을 열었지만 닫지 않은 경우
-f = open("memo.txt", "w", encoding="utf-8")
-f.write("파일 닫기 실습 중입니다.")
-# f.close()가 없다면, 내용이 저장되지 않을 수도 있음
-```
-
-### 안전한 방법: with 구문
-파이썬에서는 with 구문을 사용하면 블록이 끝날 때 자동으로 close()가 실행됩니다.
-
-```python
-with open("memo.txt", "w", encoding="utf-8") as f:
-    f.write("이 문장은 자동으로 저장되고 파일은 닫힙니다.")
-```
-
 ### 문제 2
-> `hello.txt` 파일에는 여러 줄의 문장이 저장되어 있습니다.   
-> 이 중에서 “Python”이라는 단어가 들어 있는 줄만 출력하세요.
+> hello.txt 파일에서 "Python"이라는 단어가 포함된 줄만 찾아서 출력하세요.
 
 <details>
-  <summary><span class="green-bold">정답 보기</span></summary>
-
+  <summary><span class="green-text">정답 보기</span></summary>
   <pre><code class="language-python">
-  with open("memo.txt", "r", encoding="utf-8") as f:
-    for line in f:
+    with open("hello.txt", "r") as f:
+      for line in f:
         if "Python" in line:
-            print(line.strip())
+          print(line.strip())
   </code></pre>
 </details>
 
 ### 문제 3
-> `scores.txt` 파일의 내용은 다음과 같습니다.   
-> 필릭스,83   
-> 연준,60   
-> ...   
-> 파일을 읽어와서 각 학생의 점수를 출력하고, 총점과 평균 점수를 계산하여 마지막에 출력하세요.
->
-> **힌트**
-> `line.split(",")`로 이름과 점수를 분리하고, `int()`로 점수를 정수로 바꿉니다.
+scores.txt 파일에는 이름,점수 형식으로 데이터가 저장되어 있습니다. 각 학생의 점수를 출력하고, 총점과 평균 점수를 계산하여 마지막에 출력하세요.
 
 <details>
-  <summary><span class="green-bold">정답 보기</span></summary>
-
+  <summary><span class="green-text">정답 보기</span></summary>
   <pre><code class="language-python">
-  총점 = 0
-  학생수 = 0
+    total_score = 0
+    student_count = 0
 
-  with open("scores.txt", "r", encoding="utf-8") as f:
+    with open("scores.txt", "r") as f:
       for line in f:
-          이름, 점수 = line.strip().split(",")
-          점수 = int(점수)
-          print(f"{이름} 학생 점수: {점수}")
-          총점 += 점수
-          학생수 += 1
+        name, score_str = line.strip().split(",")
+        score = int(score_str) # 쉼표로 분리한 점수(문자열)를 숫자로 변환
 
-  평균 = 총점 / 학생수
-  print("총점:", 총점)
-  print("평균:", 평균)
+    print(f"{name} 학생 점수: {score}")
+
+    total_score += score
+    student_count += 1
+    average = total_score / student_count
+    print(f"\n총점: {total_score}")
+    print(f"평균: {average}")
   </code></pre>
 </details>
 
-## 5. 사용자 입력
-프로그램은 단순히 파일을 읽고 쓰는 것만이 아니라, **사용자로부터 입력을 받아 처리**할 수도 있습니다.  
-파이썬에서는 `input()` 함수를 사용하여 키보드로부터 문자열을 입력받을 수 있습니다.  
-
-```python
-name = input("당신의 이름을 입력하세요: ")
-print("안녕하세요,", name, "님!")
-
-age = int(input("나이를 입력하세요: "))
-print("내년에는", age + 1, "살이 됩니다.")
-```
-
 ### 문제 4
-> 사용자에게 과목 이름과 점수를 입력받아 딕셔너리에 저장하고,   
-> 모든 입력이 끝나면 딕셔너리 전체 파일로 출력하세요.
->
-> **조건**
->   * 입력 형식 예시: 국어 90
->   * "exit"를 입력하면 종료
+사용자에게 '과목 점수' 형식으로 입력을 받아 딕셔너리에 저장하고, 사용자가 "exit"를 입력하면 파일(my_scores.txt)에 그 내용을 저장하는 프로그램을 만드세요.
 
 <details>
-  <summary><span class="green-bold">정답 보기</span></summary>
-
+  <summary><span class="green-text">정답 보기</span></summary>
   <pre><code class="language-python">
-  # 과목 점수를 입력받아 딕셔너리에 저장 후 파일로 저장하기
-  scores = {}
+    scores = {}
 
-  while True:
-      data = input("과목 이름과 점수를 입력하세요 (종료: exit): ")
-      if data == "exit":
-          break
-      subject, score = data.split()
-      scores[subject] = int(score)
+    while True:
+      data = input("과목과 점수를 입력하세요 (예: 국어 90, 종료: exit): ")
 
-  # 딕셔너리 확인
-  print("입력된 점수:", scores)
+    if data == "exit":
+      break
 
-  # 파일 생성 및 저장
-  with open("scores.txt", "w", encoding="utf-8") as f:
+    subject, score = data.split()
+    scores[subject] = int(score)
+
+    print("\n입력된 점수:", scores)
+
+    파일에 딕셔너리 내용 저장하기
+    with open("my_scores.txt", "w") as f:
       for subject, score in scores.items():
-          f.write(f"{subject},{score}\n")
+        f.write(f"{subject},{score}\n")
 
-  print("scores.txt 파일이 생성되었습니다.")
+    print("my_scores.txt 파일이 생성되었습니다.")
   </code></pre>
 </details>

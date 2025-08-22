@@ -349,4 +349,105 @@ class Phone {
   </code></pre>
 </details>
 
-## 8. 
+## 8. 타입 변환
+<figure>
+<img src="/notes/assets/java-deep-dive/chapter-01-01.jpg" width="650px;" alt="Java Object Type Casting">
+<figcaption>https://www.geeksforgeeks.org/java/class-type-casting-in-java/</figcaption>
+</figure>
+
+타입 변환은 객체의 타입을 다른 타입으로 변환하는 것을 말합니다.   
+자바에서는 크게 두 가지 경우가 있습니다.
+
+1. **자료형(기본 타입) 변환**   
+자동 형 변환, 강제 형 변환 (기초 강의에서 학습)
+2. **클래스 객체 타입 변환**    
+상속 관계에서 이루어지며, 변환 가능 범위는 제한적임
+
+### 자동 타입 변환 (업캐스팅, Upcasting)
+상속 관계에서 **자식 객체를 부모 타입으로 변환**하는 것입니다.
+
+* `부모클래스 변수 = new 자식클래스();`
+* `부모클래스 변수 = 자식객체;`
+
+부모 부모 타입으로 변환된 경우, **부모 클래스 멤버만 접근 가능**합니다.   
+단, 자식이 **오버라이딩한 메서드**는 자식 클래스의 메서드가 호출됩니다.
+
+```java
+class Parent {
+    void print() {
+        System.out.println("부모 출력");
+    }
+}
+
+class Child extends Parent {
+    void print() {   // 오버라이딩
+        System.out.println("자식 출력");
+    }
+    void childOnly() {
+        System.out.println("자식 전용 메서드");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Parent p = new Child();   // 자동 타입 변환 (업캐스팅)
+        p.print();                // "자식 출력" (오버라이딩된 메서드 실행)
+        // p.childOnly();         // 부모 타입이라 접근 불가
+    }
+}
+```
+
+### 강제 타입 변환 (다운캐스팅, Downcasting)
+부모 타입으로 변환된 객체를 다시 자식 타입으로 변환하는 것입니다.   
+이렇게 해야 자식 클래스 고유의 멤버에 접근 가능합니다.
+
+* **일회성 반환:** `((자식클래스) 부모타입참조).자식메서드();`
+* **변수에 저장:** `자식클래스 변수 = (자식클래스) 부모타입참조;`
+
+```java
+class Parent {
+    void print() {
+        System.out.println("부모 출력");
+    }
+}
+
+class Child extends Parent {
+    void print() {
+        System.out.println("자식 출력");
+    }
+    void childOnly() {
+        System.out.println("자식 전용 메서드");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Parent p = new Child();   // 업캐스팅
+        p.print();                // "자식 출력"
+
+        // 1) 일회성 다운캐스팅
+        ((Child)p).childOnly();   // "자식 전용 메서드"
+
+        // 2) 변수에 할당
+        Child c = (Child)p;
+        c.childOnly();            // "자식 전용 메서드"
+    }
+}
+```
+
+## 9. 다형성
+다형성은 객체 지향 프로그래밍의 대표적인 특징 중 하나입니다.    
+**하나의 타입(부모 타입)으로 다양한 객체(자식 클래스)를 사용**할 수 있는 것을 의미합니다.
+
+앞서 학습한 타입 변환을 통해, 부모 클래스 하나로 여러 자식 객체들을 참조하여 사용할 수 있습니다.   
+즉, 동일한 메서드 호출이라도 실제 어떤 객체가 할당되어 있는지에 따라 실행 결과가 달라집니다.
+
+### 사용 사례
+예를 들어, 회사의 Employee(직원) 라는 부모 클래스를 만들고, 이를 상속받는 Manager(관리자), Engineer(엔지니어), Intern(인턴) 클래스를 정의할 수 있습니다.   
+프로그램에서는 Employee 타입의 리스트 하나만 선언해 두고, 그 안에 다양한 직급의 객체들을 저장할 수 있습니다.
+
+* Manager 객체가 들어오면 보고 기능을 실행
+* ngineer 객체가 들어오면 개발 기능을 실행
+* ntern 객체가 들어오면 보조 기능을 실행
+
+이처럼 **하나의 부모 타입(Employee) 참조 변수로 다양한 자식 객체들을 다룰 수 있는 것**이 다형성의 대표적인 활용 사례입니다.
