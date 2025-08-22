@@ -100,8 +100,8 @@ with open('memo.txt', 'r') as f:
 ## 3. 파일에 내용 쓰기
 파일에 글자를 쓰려면 <span class="blue-text">'w' 모드</span>나 <span class="blue-text">'a' 모드</span>로 열어야 해요.
 
-* `w` 모드 (덮어쓰기): <span class="red-text">파일의 모든 내용을 지우고</span> 처음부터 새로 써요.
-* `a` 모드 (이어쓰기): <span class="green-text">기존 내용 맨 끝에</span> 새로운 내용을 추가해요.
+* <code class="yellow-code">w</code> 모드 (덮어쓰기): <span class="red-text">파일의 모든 내용을 지우고</span> 처음부터 새로 써요.
+* <code class="yellow-code">a</code> 모드 (이어쓰기): <span class="green-text">기존 내용 맨 끝에</span> 새로운 내용을 추가해요.
 
 ```python
 # "w" 모드: 기존 내용을 모두 지우고 새로 쓰기
@@ -118,7 +118,7 @@ with open("memo.txt", "a") as f:
 
 **중요‼️** <code class="yellow-code">input()</code>으로 받은 값은 <span class="red-text">항상 문자열(string) 타입</span>이에요.
 
-만약 숫자로 사용하고 싶다면 `int()`를 이용해 숫자로 변환해줘야 합니다.
+만약 숫자로 사용하고 싶다면 <code class="yellow-code">int()</code>를 이용해 숫자로 변환해줘야 합니다.
 
 ```python
 name = input("이름을 입력하세요: ")

@@ -12,28 +12,16 @@ keywords: "Java, 다형성, 인터페이스, 심화 과정, 데이터 처리, �
 ---
 
 <style>
-    img {
-
-    }
-    .blue-bold {
-        color: #203BB0;
-        font-weight: 900;
-    }
-    .red-bold {
-        color: #D53C41;
-        font-weight: 900;
-    }
-    .green-bold {
-        color: #448F52;
-        font-weight: 900;
-    }
-    .yellow-bold {
-        color: #BD8739;
-        font-weight: 900;
-    }
-    .text-underline {
-        text-decoration: underline;
-    }
+    /* 색상 활용 규칙
+      빨강: 주의, 경고, 위험 (덮어쓰기, 에러 등)
+      파랑: 핵심 개념, 주요 기능 (모드, with 구문 등)
+      초록: 안전한 대안, 긍정적 결과 (추가 모드, 정답 보기 등)
+      노랑: 코드 요소 (함수명, 메서드명 등)
+    */
+    .red-text { color: #D53C41; font-weight: bold; }
+    .blue-text { color: #203BB0; font-weight: bold; }
+    .green-text { color: #448F52; font-weight: bold; }
+    .yellow-code { color: #BD8739; font-weight: bold; }
 </style>
 
 ![header](https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=Java%20DeepDive&reversal=false&textBg=false)
@@ -46,9 +34,11 @@ keywords: "Java, 다형성, 인터페이스, 심화 과정, 데이터 처리, �
 ## 1. 생성자(Constructor)
 
 ### 생성자 개념
-객체 생성 시 호출되는 특별한 메서드입니다.   
-**클래스 이름과 동일**하며 **반환 타입 없음** `new` 키워드와 함께 호출됩니다.   
-클래스에 생성자를 작성하지 않으면 **컴파일러가 기본 생성자 제공**합니다.
+<span class="blue-text">객체 생성 시 호출</span>되는 특별한 메서드이며, 주요 특징은 다음과 같습니다.
+* <span class="blue-text">클래스 이름과 동일</span>
+* <span class="blue-text">반환 타입 없음</span>
+* <code class="yellow-code">new</code> 키워드와 함께 호출
+* 생성자를 작성하지 않으면 컴파일러가 <span class="green-text">기본 생성자를 자동으로 제공</span>
 
 ```java
 public class Hello {
@@ -85,9 +75,9 @@ class Person {
 }
 ```
 
-## 2. this와 this()
-* this: 현재 객체 자기 자신 참조
-* this(): 같은 클래스의 다른 생성자 호출
+### this와 this()
+* <code class="yellow-code">this</code>: <span class="blue-text">현재 객체(자기 자신)</span>를 가리키는 참조 변수
+* <code class="yellow-code">this()</code>: <span class="blue-text">같은 클래스의 다른 생성자</span>를 호출
 
 ```java
 class Student {
@@ -105,9 +95,10 @@ class Student {
 }
 ```
 
-## 3. 상속
-부모 클래스의 필드와 메서드를 자식 클래스가 물려받는 것을 말합니다.   
-코드 재사용성 향상과 중복 제거 효과가 있습니다.
+## 2. 상속
+<span class="blue-text">부모 클래스</span>의 필드와 메서드를 <span class="blue-text">자식 클래스</span>가 물려받는 것을 의미하며, 다음과 같은 장점이 있습니다.
+* <span class="green-text">코드 재사용성 향상</span>
+* <span class="green-text">중복 제거</span>
 
 ```java
 class A {
@@ -122,7 +113,7 @@ B b = new B();
 b.hello(); // 부모 메서드 사용 가능
 ```
 
-### 문제 1
+### 문제 1: Person 클래스 생성자와 필드 초기화
 > `Person` 클래스를 작성하고, 이름과 나이를 입력받아 필드를 초기화하는 생성자를 만들어 보세요.   
 > 생성된 객체의 이름과 나이를 출력하세요.
 >
@@ -154,12 +145,12 @@ b.hello(); // 부모 메서드 사용 가능
   </code></pre>
 </details>
 
-## 4. 오버라이딩(Overriding)
-부모 클래스의 메서드를 자식 클래스에서 재정의합니다.   
-
-* 이름, 매개변수, 반환타입이 동일해야 합니다.
-* 접근 제한자는 같거나 더 넓게만 변경 가능합니다.   
-`default` → `public` 🙆‍♂️, `public` → `private` 🙅‍♀️
+## 3. 오버라이딩(Overriding)
+<span class="blue-text">부모 클래스의 메서드를 자식 클래스에서 재정의</span>하는 것을 말하며, 아래 규칙을 따라야 합니다.
+* 메서드의 <span class="blue-text">이름, 매개변수, 반환 타입이 동일</span>해야 합니다.
+* 접근 제한자는 <span class="blue-text">같거나 더 넓은 범위</span>로만 변경 가능합니다.
+  - <span class="green-text">`default` → `public` (O)</span>
+  - <span class="red-text">`public` → `private` (X)</span>
 
 ```java
 class Computer {
@@ -178,8 +169,8 @@ class Mac extends Computer {
 }
 ```
 
-### 5. Super 키워드
-부모 클래스의 필드나 메서드를 참조할 때 사용합니다.
+## 4. Super 키워드
+<code class="yellow-code">super</code>는 <span class="blue-text">부모 클래스의 멤버를 참조</span>할 때 사용하는 키워드입니다.
 
 ```java
 class Parent {
@@ -193,7 +184,7 @@ class Child extends Parent {
 }
 ```
 
-## 6. 접근제한자
+## 5. 접근제한자
 <table>
   <colgroup>
     <col width="30%" />
@@ -221,10 +212,10 @@ class Child extends Parent {
   </tr>
 </table>
 
-## 7. final 클래스와 final 메서드
-* final class: 상속 불가
-* final method: 오버라이딩 불가
-* **생성자에는 `final` 사용 불가**
+## 6. final 클래스와 final 메서드
+* <code class="yellow-code">final class</code>: <span class="blue-text">상속 불가</span>
+* <code class="yellow-code">final method</code>: <span class="blue-text">오버라이딩 불가</span>
+* <span class="red-text">생성자에는 `final`을 사용할 수 없습니다.</span>
 
 ```java
 final class Car {}  // 더 이상 상속 불가
@@ -236,7 +227,7 @@ class Phone {
 }
 ```
 
-### 문제 2
+### 문제 2. 생성자 오버로딩
 > Student 클래스를 작성하고, 기본 생성자와 이름만 받는 생성자, 이름과 점수를 모두 받는 생성자를 작성하세요.
 > 생성자 오버로딩을 활용하세요.
 > 
@@ -275,9 +266,9 @@ class Phone {
   </code></pre>
 </details>
 
-### 문제 3
-> 부모 클래스 Animal에 sound() 메서드를 정의하고, 자식 클래스 Dog와 Cat에서 오버라이딩하세요.   
-> 각각 “멍멍”, “야옹”을 출력하세요.
+### 문제 3. 오버라이딩과 다형성
+> 부모 클래스 `Post`에 share() 메서드를 정의하고, 자식 클래스 `ImagePost`와 `VideoPost`에서 오버라이딩하세요.  
+> 각각 “이미지 공유”, “비디오 공유”를 출력하세요.
 > 
 > **조건 및 힌트**
 > 1. extends 키워드를 사용해 상속하세요.
@@ -286,39 +277,39 @@ class Phone {
 <details>
   <summary><span class="green-bold">정답 보기</span></summary>
 
-  <pre><code class="language-python">
-    class Animal {
-        void sound() {
-            System.out.println("소리");
+  <pre><code class="language-java">
+    class Post {
+        void share() {
+            System.out.println("게시물 공유");
         }
     }
 
-    class Dog extends Animal {
+    class ImagePost extends Post {
         @Override
-        void sound() {
-            System.out.println("멍멍");
+        void share() {
+            System.out.println("이미지 공유");
         }
     }
 
-    class Cat extends Animal {
+    class VideoPost extends Post {
         @Override
-        void sound() {
-            System.out.println("야옹");
+        void share() {
+            System.out.println("비디오 공유");
         }
     }
 
     public class Main {
         public static void main(String[] args) {
-            Animal a1 = new Dog();
-            Animal a2 = new Cat();
-            a1.sound();  // 멍멍
-            a2.sound();  // 야옹
+            Post p1 = new ImagePost();
+            Post p2 = new VideoPost();
+            p1.share();  // 이미지 공유
+            p2.share();  // 비디오 공유
         }
     }
   </code></pre>
 </details>
 
-### 문제 4
+### 문제 4. super 키워드로 부모 필드 접근하기
 > Parent 클래스의 value 필드를 Child 클래스에서 출력하도록 하세요.   
 > super 키워드를 사용해야 합니다.
 > 
@@ -329,7 +320,7 @@ class Phone {
 <details>
   <summary><span class="green-bold">정답 보기</span></summary>
 
-  <pre><code class="language-python">
+  <pre><code class="language-java">
     class Parent {
         int value = 100;
     }
@@ -349,28 +340,21 @@ class Phone {
   </code></pre>
 </details>
 
-## 8. 타입 변환
+## 7. 타입 변환
 <figure>
 <img src="/notes/assets/java-deep-dive/chapter-01-01.jpg" width="650px;" alt="Java Object Type Casting">
 <figcaption>https://www.geeksforgeeks.org/java/class-type-casting-in-java/</figcaption>
 </figure>
 
-타입 변환은 객체의 타입을 다른 타입으로 변환하는 것을 말합니다.   
-자바에서는 크게 두 가지 경우가 있습니다.
-
-1. **자료형(기본 타입) 변환**   
-자동 형 변환, 강제 형 변환 (기초 강의에서 학습)
-2. **클래스 객체 타입 변환**    
-상속 관계에서 이루어지며, 변환 가능 범위는 제한적임
+타입 변환은 한 타입을 다른 타입으로 변환하는 것입니다. 자바의 클래스 타입 변환은 상속 관계에서 이루어지며, 두 가지 종류가 있습니다.
 
 ### 자동 타입 변환 (업캐스팅, Upcasting)
-상속 관계에서 **자식 객체를 부모 타입으로 변환**하는 것입니다.
-
+<span class="blue-text">자식 객체를 부모 타입으로 변환</span>하는 것을 말하며, 별도의 캐스팅 연산자 없이 자동으로 이루어집니다.
 * `부모클래스 변수 = new 자식클래스();`
 * `부모클래스 변수 = 자식객체;`
 
-부모 부모 타입으로 변환된 경우, **부모 클래스 멤버만 접근 가능**합니다.   
-단, 자식이 **오버라이딩한 메서드**는 자식 클래스의 메서드가 호출됩니다.
+부모 타입으로 변환된 경우, <span class="red-text">부모 클래스의 멤버만 접근 가능</span>합니다.
+단, 자식이 <span class="blue-text">오버라이딩한 메서드</span>는 자식의 메서드가 호출됩니다.
 
 ```java
 class Parent {
@@ -398,11 +382,9 @@ public class Main {
 ```
 
 ### 강제 타입 변환 (다운캐스팅, Downcasting)
-부모 타입으로 변환된 객체를 다시 자식 타입으로 변환하는 것입니다.   
-이렇게 해야 자식 클래스 고유의 멤버에 접근 가능합니다.
-
-* **일회성 반환:** `((자식클래스) 부모타입참조).자식메서드();`
-* **변수에 저장:** `자식클래스 변수 = (자식클래스) 부모타입참조;`
+<span class="blue-text">부모 타입으로 변환된 객체를 다시 자식 타입으로 변환</span>하는 것을 말하며, <span class="blue-text">자식 클래스의 멤버에 접근</span>하기 위해 사용됩니다.
+* 일회성 변환: `((자식클래스) 부모타입참조).자식메서드();`
+* 변수 저장 후 사용: `자식클래스 변수 = (자식클래스) 부모타입참조;`
 
 ```java
 class Parent {
@@ -435,19 +417,117 @@ public class Main {
 }
 ```
 
-## 9. 다형성
-다형성은 객체 지향 프로그래밍의 대표적인 특징 중 하나입니다.    
-**하나의 타입(부모 타입)으로 다양한 객체(자식 클래스)를 사용**할 수 있는 것을 의미합니다.
+### 문제 5: 기본 타입 변환 연습
+> `Account`(계좌) 클래스를 만들고, 이를 상속받는 `SavingsAccount`(저축예금) 클래스를 정의하세요.  
+> `SavingsAccount` 객체를 생성하여 `Account` 타입으로 자동 변환(업캐스팅)한 뒤, 다시 `SavingsAccount` 타입으로 강제 변환(다운캐스팅)하여 저축예금에만 있는 메서드를 호출해보세요.
+>
+> **조건 및 힌트**
+> 1. `Account` 클래스에는 `showBalance()` 메서드를, `SavingsAccount` 클래스에는 `addInterest()` 메서드를 추가하세요.
+> 2. `instanceof` 연산자를 사용하여 안전하게 다운캐스팅을 시도하세요.
 
-앞서 학습한 타입 변환을 통해, 부모 클래스 하나로 여러 자식 객체들을 참조하여 사용할 수 있습니다.   
-즉, 동일한 메서드 호출이라도 실제 어떤 객체가 할당되어 있는지에 따라 실행 결과가 달라집니다.
+<details>
+  <summary><span class="green-bold">정답 보기</span></summary>
+
+  <pre><code class="language-java">
+    class Account {
+        int balance = 10000;
+        void showBalance() {
+            System.out.println("잔액: " + balance + "원");
+        }
+    }
+
+    class SavingsAccount extends Account {
+        void addInterest() {
+            System.out.println("이자가 추가되었습니다!");
+        }
+    }
+
+    public class Main {
+        public static void main(String[] args) {
+            // 1. SavingsAccount 객체를 Account 타입으로 업캐스팅
+            Account acc = new SavingsAccount();
+            acc.showBalance(); // Account의 메서드 호출 가능
+
+            // 2. instanceof로 타입 확인 후 안전하게 다운캐스팅
+            if (acc instanceof SavingsAccount) {
+                SavingsAccount sa = (SavingsAccount) acc;
+                sa.addInterest(); // SavingsAccount 고유의 메서드 호출
+            }
+        }
+    }
+  </code></pre>
+</details>
+
+### 문제 6: 다형성을 활용한 객체 관리
+> 다양한 상품(`Product`)을 관리하는 쇼핑몰 프로그램을 만드세요. `Product`를 부모 클래스로 하고, `Book`과 `Clothing`을 자식 클래스로 정의하세요.
+> `Product` 타입의 배열에 `Book`과 `Clothing` 객체를 함께 저장하고, 반복문을 통해 각 상품의 정보를 출력하세요.
+>
+> **조건 및 힌트**
+> 1. `Product`에는 `showInfo()` 메서드를 정의하고, 각 자식 클래스에서 이를 오버라이딩하세요.
+> 2. `Book`에는 `readSample()` 메서드를, `Clothing`에는 `checkSize()` 메서드를 추가하세요.
+> 3. 반복문 내에서 `instanceof`를 사용해 객체 타입을 확인하고, 다운캐스팅하여 각 클래스 고유의 메서드를 호출하세요.
+
+<details>
+  <summary><span class="green-bold">정답 보기</span></summary>
+
+  <pre><code class="language-java">
+    class Product {
+        public void showInfo() {
+            System.out.println("상품 정보를 표시합니다.");
+        }
+    }
+
+    class Book extends Product {
+        @Override
+        public void showInfo() {
+            System.out.println("책 정보를 표시합니다.");
+        }
+
+        public void readSample() {
+            System.out.println("책 샘플을 읽어봅니다.");
+        }
+    }
+
+    class Clothing extends Product {
+        @Override
+        public void showInfo() {
+            System.out.println("의류 정보를 표시합니다.");
+        }
+
+        public void checkSize() {
+            System.out.println("의류 사이즈를 확인합니다.");
+        }
+    }
+
+    public class Main {
+        public static void main(String[] args) {
+            Product[] products = { new Book(), new Clothing() };
+
+            for (Product p : products) {
+                p.showInfo(); // 오버라이딩된 메서드 실행
+
+                if (p instanceof Book) {
+                    Book book = (Book) p;
+                    book.readSample();
+                } else if (p instanceof Clothing) {
+                    Clothing clothing = (Clothing) p;
+                    clothing.checkSize();
+                }
+            }
+        }
+    }
+  </code></pre>
+</details>
+
+## 8. 다형성
+다형성(Polymorphism)은 객체 지향 프로그래밍의 핵심 특징 중 하나로, <span class="blue-text">하나의 타입(부모)으로 다양한 형태의 객체(자식)를 다룰 수 있는 능력</span>을 의미합니다.
+
+앞서 학습한 타입 변환을 통해, 동일한 메서드를 호출하더라도 실제 참조하는 객체가 무엇인지에 따라 실행 결과가 달라집니다.
 
 ### 사용 사례
-예를 들어, 회사의 Employee(직원) 라는 부모 클래스를 만들고, 이를 상속받는 Manager(관리자), Engineer(엔지니어), Intern(인턴) 클래스를 정의할 수 있습니다.   
-프로그램에서는 Employee 타입의 리스트 하나만 선언해 두고, 그 안에 다양한 직급의 객체들을 저장할 수 있습니다.
+예를 들어, `Employee`(직원)라는 부모 클래스를 상속받는 여러 자식 클래스가 있을 때, `Employee` 타입 하나만으로 다양한 직급의 객체를 관리할 수 있습니다.
+* `Manager` 객체는 보고 기능을 수행
+* `Engineer` 객체는 개발 기능을 수행
+* `Intern` 객체는 보조 기능을 수행
 
-* Manager 객체가 들어오면 보고 기능을 실행
-* ngineer 객체가 들어오면 개발 기능을 실행
-* ntern 객체가 들어오면 보조 기능을 실행
-
-이처럼 **하나의 부모 타입(Employee) 참조 변수로 다양한 자식 객체들을 다룰 수 있는 것**이 다형성의 대표적인 활용 사례입니다.
+이처럼 **하나의 부모 타입 참조 변수로 다양한 자식 객체를 유연하게 처리할 수 있는 것**이 다형성의 대표적인 활용 사례입니다.
