@@ -210,3 +210,91 @@ scores.txt 파일에는 이름,점수 형식으로 데이터가 저장되어 있
     print("my_scores.txt 파일이 생성되었습니다.")
   </code></pre>
 </details>
+
+## 6. CSV 및 Json 다루기: 공공 데이터 활용하기
+
+파일 입출력의 연장선으로, 현대 애플리케이션에서는 다른 서버와 데이터를 주고받는 일이 매우 흔합니다. 이때 가장 널리 사용되는 데이터 형식이 바로 **CSV**와 **JSON**입니다.
+
+*   <span class="blue-text">**CSV (Comma-Separated Values)**</span>: 쉼표(,)로 데이터를 구분하는 가장 단순한 텍스트 파일 형식입니다. 엑셀과 같은 스프레드시트 프로그램에서 쉽게 열 수 있어 데이터 분석에 많이 사용됩니다.
+*   <span class="blue-text">**JSON (JavaScript Object Notation)**</span>: `키:값` 쌍으로 이루어진 데이터 객체를 전달하기 위한 개방형 표준 형식입니다. 사람이 읽고 쓰기 쉬우며, 기계가 파싱하고 생성하기도 쉽습니다. 파이썬의 딕셔너리와 리스트 구조와 거의 동일하여 다루기 매우 편리합니다.
+
+이번에는 앞에서 배운 파일 처리 개념과 네트워크 통신을 결합하여, 공공데이터포털의 '대기오염정보' API를 호출하고 그 결과를 파싱하는 예제를 만들어 보겠습니다.
+
+### 예제: 실시간 미세먼지 농도 확인 프로그램
+
+이 프로그램은 `requests` 라이브러리를 사용하여 특정 지역의 미세먼지 농도를 가져와 출력합니다.
+
+> 💡 **시작하기 전에!**  
+> 이 코드를 실행하려면 `requests` 라이브러리가 필요합니다. 터미널에서 아래 명령어로 설치해주세요.
+> ```bash
+> pip install requests
+> ```
+
+> ⚠️ **API 키 발급받기**  
+> 공공데이터포털 API를 사용하려면 먼저 회원가입 후 [대기오염정보 조회 서비스](https://www.data.go.kr/data/15073861/openapi.do) 페이지에서 '활용신청'을 통해 개인 인증키(Service Key)를 발급받아야 합니다. 발급받은 키를 아래 코드의 `YOUR_API_KEY` 부분에 붙여넣으세요.
+
+```python
+import requests
+import json
+
+# 공공데이터포털에서 발급받은 본인의 API 키를 입력하세요.
+# 주의: Decoding 된 키를 사용해야 합니다. 포털에서 '일반 인증키(Decoding)'을 복사하세요.
+API_KEY = "YOUR_API_KEY" 
+
+# 데이터를 조회할 측정소 이름
+STATION_NAME = "종로구"
+
+# API 요청을 보낼 URL
+# dataType을 'json'으로 설정하여 JSON 형식으로 데이터를 받습니다.
+URL = (
+    "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty"
+    f"?serviceKey={API_KEY}"
+    f"&returnType=json"
+    f"&numOfRows=1"
+    f"&pageNo=1"
+    f"&stationName={STATION_NAME}"
+    f"&dataTerm=DAILY"
+    f"&ver=1.0"
+)
+
+# requests 라이브러리를 사용해 URL에 GET 요청을 보냅니다.
+response = requests.get(URL)
+
+# 응답이 성공적인지 확인 (HTTP 상태 코드 200)
+if response.status_code == 200:
+    # 응답받은 JSON 문자열을 파이썬 딕셔너리로 변환합니다.
+    data = json.loads(response.text)
+    
+    # 데이터가 정상적으로 수신되었는지 확인합니다.
+    # API 응답 구조에 따라 키를 확인해야 합니다.
+    if data['response']['header']['resultCode'] == '00':
+        # 필요한 정보 추출
+        item = data['response']['body']['items'][0]
+        
+        station_name = item['stationName']
+        measure_time = item['dataTime']
+        pm10_value = item['pm10Value']
+        pm25_value = item['pm25Value']
+        
+        print(f"--- {station_name} 대기오염정보 ---")
+        print(f"측정 시간: {measure_time}")
+        print(f"미세먼지(PM10) 농도: {pm10_value}µg/m³")
+        print(f"초미세먼지(PM2.5) 농도: {pm25_value}µg/m³")
+    else:
+        # API 자체에서 보낸 에러 메시지 출력
+        error_msg = data['response']['header']['resultMsg']
+        print(f"API 오류가 발생했습니다: {error_msg}")
+else:
+    # HTTP 요청 실패 시
+    print(f"데이터를 가져오는 데 실패했습니다. 상태 코드: {response.status_code}")
+
+```
+
+#### 코드 설명
+1.  <code class="yellow-code">import requests, json</code>: HTTP 요청을 보내기 위한 `requests`와 JSON 데이터를 다루기 위한 `json` 라이브러리를 가져옵니다.
+2.  <code class="yellow-code">API_KEY, STATION_NAME, URL</code>: API 요청에 필요한 기본 정보들을 변수에 저장합니다. 특히 `URL`에는 f-string을 사용하여 변수들을 동적으로 포함시켰습니다. `returnType=json` 파라미터를 통해 JSON 형식의 응답을 요청하는 것이 핵심입니다.
+3.  <code class="yellow-code">requests.get(URL)</code>: `requests` 라이브러리의 `get` 함수를 이용해 해당 URL로 HTTP GET 요청을 보냅니다. 서버로부터의 모든 응답이 `response` 객체에 담깁니다.
+4.  <code class="yellow-code">response.status_code == 200</code>: HTTP 상태 코드를 확인하여 요청이 성공했는지 검사합니다. `200`은 '성공'을 의미합니다.
+5.  <code class="yellow-code">json.loads(response.text)</code>: `response.text`에는 서버가 보낸 순수한 JSON 문자열이 담겨 있습니다. `json.loads()` 함수는 이 문자열을 파이썬 딕셔너리와 리스트로 변환해줍니다. 이제 파이썬에서 다루기 쉬운 형태로 데이터가 가공되었습니다.
+6.  <code class="yellow-code">data['response']['body']['items'][0]</code>: 변환된 딕셔너리에서 우리가 원하는 실제 데이터가 있는 곳까지 키를 이용해 한 단계씩 접근합니다. API 문서를 보며 데이터 구조를 파악하는 것이 중요합니다.
+7.  **정보 출력**: 필요한 데이터(측정소 이름, 시간, 미세먼지 농도 등)를 추출하여 `print` 함수로 보기 좋게 출력합니다.
