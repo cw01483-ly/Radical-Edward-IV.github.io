@@ -98,12 +98,20 @@ notes-kr:
     children:
       - title: 1. 파일 입출력
         url:   /notes/kr/python-deep-dive/chapter-01
+      - title: 2. CSV 및 Json 다루기
+        url:   /notes/kr/python-deep-dive/chapter-02
+      - title: 3. 클래스와 객체지향 프로그래밍
+        url:   /notes/kr/python-deep-dive/chapter-03
   - title: Java DeepDive
     children:
-      - title: 1. 다형성과 인터페이스
+      - title: 1. 다형성의 원리와 활용
         url: /notes/kr/java-deep-dive/chapter-01
-      - title: 2. 예외 처리 및 기본 API 클래스
-        url: /notes/kr/java-deep-dive/chapter-02
+      # - title: 2. 자바 인터페이스 완전 정복
+      #   url: /notes/kr/java-deep-dive/chapter-02
+      - title: 3. 예외 처리의 모든 것
+        url: /notes/kr/java-deep-dive/chapter-03
+      - title: 4. 자바 기본 API 클래스 활용법
+        url: /notes/kr/java-deep-dive/chapter-04
 
 layouts:
   - title: Layouts
