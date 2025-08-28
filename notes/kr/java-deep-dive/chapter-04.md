@@ -23,7 +23,7 @@ keywords: "Java, 예외 처리, 에러, Exception, try-catch, 사용자 정의 �
     .yellow-code { color: #BD8739; font-weight: bold; }
 </style>
 
-![header](https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=Java%20API%20Classes&reversal=false&textBg=false)
+![header](https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=Java%20DeepDive&reversal=false&textBg=false)
 
 ## 1. 기본 API 클래스
 자바에서 제공하는 API는 프로그램 개발에 자주 사용되는 클래스 및 인터페이스 모음을 말하며 **라이브러리**라고도 부릅니다.  

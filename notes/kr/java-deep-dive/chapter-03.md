@@ -24,7 +24,7 @@ keywords: "Java, 예외 처리, 에러, Exception, try-catch, 사용자 정의 �
     .yellow-code { color: #BD8739; font-weight: bold; }
 </style>
 
-![header](https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=Java%20Exception&reversal=false&textBg=false)
+![header](https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=Java%20DeepDive&reversal=false&textBg=false)
 
 ## 1. 에러와 예외
 자바 프로그램 실행 중 발생하는 비정상적인 상황을 의미하며, 다음과 같이 두 종류로 나뉩니다.

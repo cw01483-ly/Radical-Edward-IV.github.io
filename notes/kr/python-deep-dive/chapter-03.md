@@ -33,10 +33,15 @@ keywords: "Python, Class, Object, OOP, __init__, self, Inheritance, 클래스, �
 
 ## 1. 클래스와 객체: 개념 이해하기
 
+<figure>
+<img src="/notes/assets/python-deep-dive/chapter-03-01.png" width="70%" alt="클래스와 객체"/>
+<figcaption>클래스와 객체</figcaption>
+</figure>
+
 파이썬에서 객체지향 프로그래밍을 이해하려면 먼저 '클래스'와 '객체'라는 두 가지 핵심 개념을 알아야 합니다.
 
 *   <span class="blue-text">**클래스(Class)**</span>: 객체를 만들기 위한 **설계도** 또는 **틀**입니다. 예를 들어, '학생(Student)'이라는 클래스를 만들면, 이 클래스는 학생이 어떤 데이터(상태)와 어떤 기능(행동)을 가질지 정의합니다.
-*   <span class="blue-text">**객체(Object)**</span>: 클래스라는 설계도를 바탕으로 실제로 만들어진 **실체**입니다. '학생' 클래스를 이용해 '철수', '영희'와 같은 각각의 학생 객체(또는 **인스턴스**)를 만들 수 있습니다.
+*   <span class="blue-text">**객체(Object)**</span>: 클래스라는 설계도를 바탕으로 실제로 만들어진 **실체**입니다. '학생' 클래스를 이용해 '찬성', '지수'와 같은 각각의 학생 객체(또는 **인스턴스**)를 만들 수 있습니다.
 
 ### 객체의 상태(State)와 행동(Behavior)
 
@@ -52,6 +57,10 @@ class 클래스명:
   클래스 변수
   생성자
   메서드
+
+객체를 담을 변수명 = 클래스명()
+
+객체명(변수명).메서드명()
 ```
 
 ```python

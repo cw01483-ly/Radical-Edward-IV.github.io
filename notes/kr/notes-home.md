@@ -14,3 +14,4 @@ sidebar:
 * [리눅스마스터 2급](/notes/kr/linux-master/level-2-chapter-01) <sub>👈 클릭 시 이동</sub>
 * [정보처리기사 - 수제비 정보처리기사 실기 정리 노트](/notes/kr/info-processing-engineer/chapter-01) <sub>👈 클릭 시 이동</sub>
 * [Python DeepDive](/notes/kr/python-deep-dive/chapter-01) <sub>👈 클릭 시 이동</sub>
+* [Java DeepDive](/notes/kr/java-deep-dive/chapter-01) <sub>👈 클릭 시 이동</sub>

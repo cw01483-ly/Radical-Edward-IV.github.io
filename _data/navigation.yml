@@ -106,13 +106,16 @@ notes-kr:
     children:
       - title: 1. 다형성의 원리와 활용
         url: /notes/kr/java-deep-dive/chapter-01
-      # - title: 2. 자바 인터페이스 완전 정복
-      #   url: /notes/kr/java-deep-dive/chapter-02
+      - title: 2. 자바 인터페이스 완전 정복
+        url: /notes/kr/java-deep-dive/chapter-02
       - title: 3. 예외 처리의 모든 것
         url: /notes/kr/java-deep-dive/chapter-03
       - title: 4. 자바 기본 API 클래스 활용법
         url: /notes/kr/java-deep-dive/chapter-04
-
+      - title: 5. 자바 컬렉션 프레임워크 기초
+        url: /notes/kr/java-deep-dive/chapter-05
+      - title: 6. 자바 컬렉션 프레임워크 심화
+        url: /notes/kr/java-deep-dive/chapter-06
 layouts:
   - title: Layouts
     children:
