@@ -53,6 +53,78 @@ boolean hasValue = seasonMap.containsValue("봄");  // true
 seasonMap.remove("winter");
 ```
 
+### 문제 1 - Map 기본 사용법 (기초)
+> 아래 코드의 주석을 참고하여, Map에 데이터를 추가하고 값을 조회하는 코드를 완성하세요.
+
+```java
+Map<Integer, String> fruitMap = new HashMap<>();
+
+// TODO: 1-"사과", 2-"바나나", 3-"오렌지"를 추가하세요. (put)
+
+// TODO: 키 2에 해당하는 값을 조회하여 변수 value에 저장하세요. (get)
+
+// TODO: 키 3에 해당하는 값을 조회하여 변수 value에 저장하세요. (getOrDefault)
+
+// 추가 연습: 키 4가 존재하는지 확인하세요. (containsKey)
+
+// 추가 연습: 값 "바나나"가 존재하는지 확인하세요. (containsValue)
+
+// 추가 연습: 키 2의 값을 삭제하세요. (remove)
+
+// 추가 연습: Map이 비어있는지 확인하세요. (isEmpty)
+
+// 추가 연습: Map의 모든 키와 값을 출력하세요. (keySet, values, entrySet)
+```
+
+<details>
+  <summary><span class="green-bold">정답 보기</span></summary>
+
+  <pre><code class="language-java">
+  Map&lt;Integer, String&gt; fruitMap = new HashMap<>();
+
+  // TODO: 1-"사과", 2-"바나나", 3-"오렌지"를 추가하세요. (put)
+  fruitMap.put(1, "사과");
+  fruitMap.put(2, "바나나");
+  fruitMap.put(3, "오렌지");
+
+  // TODO: 키 2에 해당하는 값을 조회하여 변수 value에 저장하세요. (get)
+  String value = fruitMap.get(2);
+  System.out.println(value);
+  System.out.println(value);
+
+  // TODO: 키 3에 해당하는 값을 조회하여 변수 value에 저장하세요. (getOrDefault)
+  value = fruitMap.getOrDefault(3, "없음");
+  System.out.println(value);
+
+  // TODO: 키 3에 해당하는 값을 조회하여 변수 value에 저장하세요. (getOrDefault)
+  System.out.println(value);
+
+  // 추가 연습: 키 4가 존재하는지 확인하세요. (containsKey)
+  System.out.println("키 4 존재 여부: " + fruitMap.containsKey(4));
+
+  // 추가 연습: 값 "바나나"가 존재하는지 확인하세요. (containsValue)
+  boolean hasBanana = fruitMap.containsValue("바나나");
+  System.out.println("키 4 존재 여부: " + hasKey4);
+
+  // 추가 연습: 값 "바나나"가 존재하는지 확인하세요. (containsValue)
+  System.out.println("바나나 존재 여부: " + hasBanana);
+
+  // 추가 연습: 키 2의 값을 삭제하세요. (remove)
+  fruitMap.remove(2);
+  System.out.println("키 2 삭제 후: " + fruitMap);
+
+  // 추가 연습: Map이 비어있는지 확인하세요. (isEmpty)
+  System.out.println("비어있는가? " + fruitMap.isEmpty());
+
+  // 추가 연습: Map의 모든 키와 값을 출력하세요. (keySet, values, entrySet)
+  System.out.println("모든 키: " + fruitMap.keySet());
+  System.out.println("모든 값: " + fruitMap.values());
+  for (Map.Entry<Integer, String> entry : fruitMap.entrySet()) {
+    System.out.println(entry.getKey() + " => " + entry.getValue());
+  }
+  </code></pre>
+</details>
+
 ### TreeMap (정렬된 Map)
 ```java
 Map<String, Integer> scoreMap = new TreeMap<>();
@@ -123,6 +195,89 @@ while (iterator.hasNext()) {
 - <span class="green-text">순회 중 안전한 삭제 가능</span>
 - 컬렉션의 내부 구조에 독립적
 - 일관된 순회 방식 제공
+
+### 문제 2 - Iterator 기본 사용법 (기초)
+> 아래 코드의 주석을 참고하여, Iterator를 사용하여 컬렉션을 순회하고 요소를 조작하는 코드를 완성하세요.
+
+```java
+import java.util.*;
+
+public class IteratorPractice {
+    public static void main(String[] args) {
+        List<String> fruitList = new ArrayList<>();
+        fruitList.add("사과");
+        fruitList.add("바나나");
+        fruitList.add("오렌지");
+        fruitList.add("포도");
+        fruitList.add("키위");
+        
+        System.out.println("=== Iterator를 사용한 순회 ===");
+        
+        // TODO: List에서 Iterator를 생성하세요. (iterator())
+        
+        // TODO: Iterator를 사용하여 모든 요소를 출력하세요. (hasNext, next)
+        
+        // TODO: Iterator를 다시 생성하세요. (iterator())
+        
+        // TODO: Iterator를 사용하여 "바나나"를 찾아서 "바나나(노란색)"으로 변경하세요. (set)
+        
+        // TODO: Iterator를 다시 생성하세요. (iterator())
+        
+        // TODO: Iterator를 사용하여 "키위"를 삭제하세요. (remove)
+        
+        // TODO: 최종 결과를 출력하세요.
+    }
+}
+```
+
+<details>
+  <summary><span class="green-bold">정답 보기</span></summary>
+
+  <pre><code class="language-java">
+        // TODO: List에서 Iterator를 생성하세요. (iterator())
+        Iterator&lt;String&gt; iterator = fruitList.iterator();
+        
+        // TODO: Iterator를 사용하여 모든 요소를 출력하세요. (hasNext, next)
+        System.out.println("원본 리스트:");
+        while (iterator.hasNext()) {
+            String fruit = iterator.next();
+            System.out.println(fruit);
+        }
+        
+        // TODO: Iterator를 다시 생성하세요. (iterator())
+        iterator = fruitList.iterator();
+        
+        // TODO: Iterator를 사용하여 "바나나"를 찾아서 "바나나(노란색)"으로 변경하세요. (set)
+        int index = 0;
+        while (iterator.hasNext()) {
+            String fruit = iterator.next();
+            if (fruit.equals("바나나")) {
+                fruitList.set(index, "바나나(노란색)");
+                break;
+            }
+            index++;
+        }
+        
+        // TODO: Iterator를 다시 생성하세요. (iterator())
+        iterator = fruitList.iterator();
+        
+        // TODO: Iterator를 사용하여 "키위"를 삭제하세요. (remove)
+        while (iterator.hasNext()) {
+            String fruit = iterator.next();
+            if (fruit.equals("키위")) {
+                iterator.remove();
+                break;
+            }
+        }
+        
+        // TODO: 최종 결과를 출력하세요.
+        System.out.println("\n수정된 리스트:");
+        iterator = fruitList.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+  </code></pre>
+</details>
 
 ### 향상된 for문 (for-each)
 ```java
@@ -384,144 +539,201 @@ System.out.println("LinkedHashMap 검색 시간: " + (endTime - startTime));
 
 ## 5. 단계별 실습 문제
 
-### 문제 1 - 학생 성적 관리 시스템 (기초)
-> 학생들의 이름과 성적을 입력받아 TreeMap을 사용하여 성적 순으로 정렬하고, 동일한 성적의 학생들을 그룹화하여 출력하라.
->
-> **조건 및 힌트**
-> 1. TreeMap을 사용하여 자동 정렬 구현.
-> 2. Map<Integer, List<String>> 구조로 성적별 학생 그룹화.
-> 3. Scanner를 사용하여 콘솔 입력 처리.
-> 4. "종료" 입력 시 프로그램 종료.
-> 5. 예: 입력 "김철수:85, 이영희:92, 박민수:85" → 출력 "85점: 김철수, 박민수 / 92점: 이영희".
-                
+### 문제 3 - 주문 관리 시스템 (기초)
+> 아래 코드의 주석을 참고하여, HashMap을 사용하여 주문 정보를 관리하는 코드를 완성하세요.
+
+```java
+import java.util.*;
+
+public class OrderManager {
+    private Map<String, Order> orderMap = new HashMap<>();
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        OrderManager manager = new OrderManager();
+        
+        System.out.println("주문 정보를 입력하세요 (형식: 주문번호,고객ID,상태,금액, 종료하려면 '종료' 입력):");
+        
+        // TODO: Scanner를 사용하여 주문 정보를 입력받으세요. (nextLine)
+        
+        // TODO: "종료"를 입력받으면 입력을 멈추세요. (equals)
+        
+        // TODO: 입력받은 문자열을 ","로 분리하세요. (split)
+        
+        // TODO: 주문 정보를 Map에 저장하세요. (put)
+        
+        // TODO: 모든 주문 정보를 출력하세요. (entrySet)
+        
+        sc.close();
+    }
+    
+    // TODO: 주문을 추가하는 메서드를 구현하세요. (put)
+    public void addOrder(Order order) {
+        
+    }
+}
+
+// TODO: Order 클래스를 구현하세요. (생성자, getter 메서드)
+class Order {
+    private String orderId;
+    private String customerId;
+    private String status;
+    private double amount;
+    
+    // TODO: 생성자를 구현하세요.
+    
+    // TODO: getter 메서드들을 구현하세요.
+    
+    // TODO: toString 메서드를 구현하세요.
+}
+```
+
 <details>
-  <summary><span class="green-text">정답 보기</span></summary>
+  <summary><span class="green-bold">정답 보기</span></summary>
 
   <pre><code class="language-java">
-    import java.util.*;
-    import java.util.Scanner;
-
-    public class GradeManager {
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            Map<Integer, List<String>> gradeMap = new TreeMap<>();
+        // TODO: Scanner를 사용하여 주문 정보를 입력받으세요. (nextLine)
+        while (true) {
+            String input = sc.nextLine().trim();
+            if (input.equals("종료")) break;
             
-            System.out.println("학생 이름과 성적을 입력하세요 (형식: 이름:성적, 종료하려면 '종료' 입력):");
-            
-            while (true) {
-                String input = sc.nextLine().trim();
-                if (input.equals("종료")) break;
+            // TODO: 입력받은 문자열을 ","로 분리하세요. (split)
+            String[] parts = input.split(",");
+            if (parts.length == 4) {
+                String orderId = parts[0].trim();
+                String customerId = parts[1].trim();
+                String status = parts[2].trim();
+                double amount = Double.parseDouble(parts[3].trim());
                 
-                String[] parts = input.split(":");
-                if (parts.length == 2) {
-                    String name = parts[0].trim();
-                    int grade = Integer.parseInt(parts[1].trim());
-                    
-                    // 성적별로 학생 그룹화
-                    gradeMap.computeIfAbsent(grade, k -> new ArrayList<>()).add(name);
-                }
+                // TODO: 주문 정보를 Map에 저장하세요. (put)
+                Order order = new Order(orderId, customerId, status, amount);
+                manager.addOrder(order);
             }
-            
-            System.out.println("\n=== 성적별 학생 그룹화 ===");
-            for (Map.Entry<Integer, List<String>> entry : gradeMap.entrySet()) {
-                int grade = entry.getKey();
-                List<String> students = entry.getValue();
-                System.out.printf("%d점: %s\n", grade, String.join(", ", students));
-            }
-            
-            sc.close();
+        }
+        
+        // TODO: 모든 주문 정보를 출력하세요. (entrySet)
+        System.out.println("\n=== 모든 주문 정보 ===");
+        for (Map.Entry&lt;String, Order&gt; entry : manager.orderMap.entrySet()) {
+            System.out.println(entry.getValue());
+        }
+  </code></pre>
+</details>
+
+<details>
+  <summary><span class="green-bold">메서드 및 클래스 구현 정답</span></summary>
+
+  <pre><code class="language-java">
+    // TODO: 주문을 추가하는 메서드를 구현하세요. (put)
+    public void addOrder(Order order) {
+        orderMap.put(order.getOrderId(), order);
+    }
+
+    // TODO: Order 클래스를 구현하세요. (생성자, getter 메서드)
+    class Order {
+        private String orderId;
+        private String customerId;
+        private String status;
+        private double amount;
+        
+        // TODO: 생성자를 구현하세요.
+        public Order(String orderId, String customerId, String status, double amount) {
+            this.orderId = orderId;
+            this.customerId = customerId;
+            this.status = status;
+            this.amount = amount;
+        }
+        
+        // TODO: getter 메서드들을 구현하세요.
+        public String getOrderId() { return orderId; }
+        public String getCustomerId() { return customerId; }
+        public String getStatus() { return status; }
+        public double getAmount() { return amount; }
+        
+        // TODO: toString 메서드를 구현하세요.
+        @Override
+        public String toString() {
+            return String.format("주문번호: %s, 고객: %s, 상태: %s, 금액: %.0f원", 
+                            orderId, customerId, status, amount);
         }
     }
   </code></pre>
 </details>
 
-### 문제 2 - SNS 친구 추천 시스템 (중급)
-> 사용자와 친구 관계를 저장하고, 공통 친구가 많은 사용자를 찾아 친구 추천 점수를 계산하여 출력하라.
->
-> **조건 및 힌트**
-> 1. HashMap과 HashSet을 조합하여 친구 관계 저장.
-> 2. 공통 친구 수를 계산하는 메서드 구현.
-> 3. 친구 추천 점수 = 공통 친구 수 × 10.
-> 4. 추천 점수 순으로 정렬하여 출력.
-> 5. 예: 김철수의 친구: [이영희, 박민수], 이영희의 친구: [김철수, 박민수, 최지영] → 박민수 추천점수: 20점.
-                
+### 문제 4 - 친구 관계 관리 (기초)
+> 아래 코드의 주석을 참고하여, HashMap과 HashSet을 사용하여 친구 관계를 관리하는 코드를 완성하세요.
+
+```java
+import java.util.*;
+
+public class FriendManager {
+    private Map<String, Set<String>> friendMap = new HashMap<>();
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        FriendManager manager = new FriendManager();
+        
+        System.out.println("친구 관계를 입력하세요 (형식: 사용자1 사용자2, 종료하려면 '종료' 입력):");
+        
+        // TODO: Scanner를 사용하여 친구 관계를 입력받으세요. (nextLine)
+        
+        // TODO: "종료"를 입력받으면 입력을 멈추세요. (equals)
+        
+        // TODO: 입력받은 문자열을 공백으로 분리하세요. (split)
+        
+        // TODO: 친구 관계를 Map에 저장하세요. (computeIfAbsent, add)
+        
+        // TODO: 모든 사용자의 친구 목록을 출력하세요. (entrySet)
+        
+        sc.close();
+    }
+    
+    // TODO: 친구 관계를 추가하는 메서드를 구현하세요. (computeIfAbsent, add)
+    public void addFriendship(String user1, String user2) {
+        
+    }
+}
+```
+
 <details>
-  <summary><span class="green-text">정답 보기</span></summary>
+  <summary><span class="green-bold">정답 보기</span></summary>
 
   <pre><code class="language-java">
-    import java.util.*;
-    import java.util.Scanner;
+        // TODO: Scanner를 사용하여 친구 관계를 입력받으세요. (nextLine)
+        while (true) {
+            String input = sc.nextLine().trim();
+            if (input.equals("종료")) break;
+            
+            // TODO: 입력받은 문자열을 공백으로 분리하세요. (split)
+            String[] users = input.split("\\s+");
+            if (users.length == 2) {
+                // TODO: 친구 관계를 Map에 저장하세요. (computeIfAbsent, add)
+                manager.addFriendship(users[0], users[1]);
+            }
+        }
+        
+        // TODO: 모든 사용자의 친구 목록을 출력하세요. (entrySet)
+        System.out.println("\n=== 친구 관계 목록 ===");
+        for (Map.Entry&lt;String, Set&lt;String&gt;&gt; entry : manager.friendMap.entrySet()) {
+            String user = entry.getKey();
+            Set&lt;String&gt; friends = entry.getValue();
+            System.out.printf("%s의 친구: %s\n", user, String.join(", ", friends));
+        }
+  </code></pre>
+</details>
 
-    public class FriendRecommender {
-        private Map<String, Set<String>> friendMap = new HashMap<>();
-        
-        public void addFriendship(String user1, String user2) {
-            friendMap.computeIfAbsent(user1, k -> new HashSet<>()).add(user2);
-            friendMap.computeIfAbsent(user2, k -> new HashSet<>()).add(user1);
-        }
-        
-        public int getCommonFriends(String user1, String user2) {
-            Set<String> friends1 = friendMap.getOrDefault(user1, new HashSet<>());
-            Set<String> friends2 = friendMap.getOrDefault(user2, new HashSet<>());
-            
-            Set<String> common = new HashSet<>(friends1);
-            common.retainAll(friends2);
-            return common.size();
-        }
-        
-        public Map<String, Integer> getRecommendations(String targetUser) {
-            Map<String, Integer> recommendations = new HashMap<>();
-            Set<String> targetFriends = friendMap.getOrDefault(targetUser, new HashSet<>());
-            
-            for (String user : friendMap.keySet()) {
-                if (!user.equals(targetUser) && !targetFriends.contains(user)) {
-                    int score = getCommonFriends(targetUser, user) * 10;
-                    if (score > 0) {
-                        recommendations.put(user, score);
-                    }
-                }
-            }
-            
-            return recommendations;
-        }
-        
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            FriendRecommender recommender = new FriendRecommender();
-            
-            System.out.println("친구 관계를 입력하세요 (형식: 사용자1 사용자2, 종료하려면 '종료' 입력):");
-            
-            while (true) {
-                String input = sc.nextLine().trim();
-                if (input.equals("종료")) break;
-                
-                String[] users = input.split("\\s+");
-                if (users.length == 2) {
-                    recommender.addFriendship(users[0], users[1]);
-                }
-            }
-            
-            System.out.print("추천을 받을 사용자를 입력하세요: ");
-            String targetUser = sc.nextLine().trim();
-            
-            Map<String, Integer> recommendations = recommender.getRecommendations(targetUser);
-            
-            System.out.println("\n=== 친구 추천 목록 ===");
-            if (recommendations.isEmpty()) {
-                System.out.println("추천할 친구가 없습니다.");
-            } else {
-                recommendations.entrySet().stream()
-                    .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
-                    .forEach(entry -> System.out.printf("%s: %d점\n", entry.getKey(), entry.getValue()));
-            }
-            
-            sc.close();
-        }
+<details>
+  <summary><span class="green-bold">메서드 구현 정답</span></summary>
+
+  <pre><code class="language-java">
+    // TODO: 친구 관계를 추가하는 메서드를 구현하세요. (computeIfAbsent, add)
+    public void addFriendship(String user1, String user2) {
+        friendMap.computeIfAbsent(user1, k -> new HashSet&lt;String&gt;()).add(user2);
+        friendMap.computeIfAbsent(user2, k -> new HashSet&lt;String&gt;()).add(user1);
     }
   </code></pre>
 </details>
 
-### 문제 3 - 온라인 쇼핑몰 주문 관리 시스템 (고급)
+### 문제 5 - 온라인 쇼핑몰 주문 관리 시스템 (고급)
 > 주문 번호별 주문 정보를 관리하고, 고객별 주문 내역을 집계하며, 주문 상태별 통계를 출력하라.
 >
 > **조건 및 힌트**
@@ -565,8 +777,8 @@ System.out.println("LinkedHashMap 검색 시간: " + (endTime - startTime));
     }
 
     public class OrderManager {
-        private Map<String, Order> orderMap = new HashMap<>();
-        private Map<String, List<Order>> customerOrderMap = new HashMap<>();
+        private Map&lt;String, Order&gt; orderMap = new HashMap<>();
+        private Map&lt;String, List&lt;Order&gt;&gt; customerOrderMap = new HashMap<>();
         
         public void addOrder(Order order) {
             orderMap.put(order.getOrderId(), order);
@@ -580,11 +792,11 @@ System.out.println("LinkedHashMap 검색 시간: " + (endTime - startTime));
             return orderMap.get(orderId);
         }
         
-        public List<Order> getCustomerOrders(String customerId) {
+        public List&lt;Order&gt; getCustomerOrders(String customerId) {
             return customerOrderMap.getOrDefault(customerId, new ArrayList<>());
         }
         
-        public Map<String, Long> getStatusStatistics() {
+        public Map&lt;String, Long&gt; getStatusStatistics() {
             return orderMap.values().stream()
                 .collect(Collectors.groupingBy(Order::getStatus, Collectors.counting()));
         }
@@ -606,13 +818,13 @@ System.out.println("LinkedHashMap 검색 시간: " + (endTime - startTime));
             manager.addOrder(new Order("ORD005", "CUST001", "주문완료", 25000));
             
             System.out.println("=== 주문 상태별 통계 ===");
-            Map<String, Long> statusStats = manager.getStatusStatistics();
+            Map&lt;String, Long&gt; statusStats = manager.getStatusStatistics();
             statusStats.forEach((status, count) -> 
                 System.out.printf("%s: %d건\n", status, count));
             
             System.out.println("\n=== 고객별 주문 내역 ===");
             for (String customerId : Arrays.asList("CUST001", "CUST002", "CUST003")) {
-                List<Order> orders = manager.getCustomerOrders(customerId);
+                List&lt;Order&gt; orders = manager.getCustomerOrders(customerId);
                 System.out.printf("\n고객 %s의 주문 내역:\n", customerId);
                 orders.forEach(order -> System.out.println("  " + order));
             }
@@ -664,19 +876,6 @@ if (value != null) {
 // 또는 기본값 사용
 String value = map.getOrDefault("존재하지 않는 키", "기본값");
 System.out.println(value.length());
-```
-
-### 메모리 누수 방지
-```java
-// 잘못된 예시
-Map<String, Object> cache = new HashMap<>();
-// ... 많은 데이터 추가 ...
-// cache.clear(); // <span class="red-text">clear() 호출하지 않음</span>
-
-// 올바른 해결법
-Map<String, Object> cache = new WeakHashMap<>();  // <span class="green-text">약한 참조 사용</span>
-// 또는
-cache.clear();  // <span class="green-text">명시적으로 정리</span>
 ```
 
 ## 7. 고급 활용 기법

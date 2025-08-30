@@ -293,186 +293,192 @@ public class Product {
 
 ## 5. 단계별 실습 문제
 
-### 문제 1 - 학생 명단 관리 시스템 (기초)
-> 학생들의 이름을 입력받아 List에 저장하고, Set을 사용하여 중복을 제거한 뒤 정렬하여 출력하라.
->
-> **조건 및 힌트**
-> 1. ArrayList와 HashSet을 조합하여 사용.
-> 2. 중복 제거 후 TreeSet으로 정렬.
-> 3. Scanner를 사용하여 콘솔 입력 처리.
-> 4. "종료" 입력 시 프로그램 종료.
-> 5. 예: 입력 "김철수, 이영희, 김철수, 박민수" → 출력 "김철수, 박민수, 이영희".
-                
+### 문제 1 - 학생 명단 관리 (기초)
+> 아래 코드의 주석을 참고하여, List에 데이터를 추가하고 Set을 사용하여 중복을 제거한 뒤 정렬하는 코드를 완성하세요.
+
+```java
+Scanner sc = new Scanner(System.in);
+List<String> studentList = new ArrayList<>();
+Set<String> studentSet = new HashSet<>();
+
+System.out.println("학생 이름을 입력하세요 (종료하려면 '종료' 입력):");
+
+// TODO: Scanner를 사용하여 학생 이름을 입력받고 List에 추가하세요. (add)
+
+// TODO: "종료"를 입력받으면 입력을 멈추세요. (equals)
+
+// TODO: List의 모든 이름을 Set에 추가하여 중복을 제거하세요. (addAll)
+
+// TODO: Set을 List로 변환하세요. (new ArrayList<>)
+
+// TODO: List를 오름차순으로 정렬하세요. (Collections.sort)
+
+// TODO: 정렬된 결과를 출력하세요.
+
+sc.close();
+```
+
 <details>
-  <summary><span class="green-text">정답 보기</span></summary>
-
+  <summary><span class="green-bold">정답 보기</span></summary>
   <pre><code class="language-java">
-    import java.util.*;
-    import java.util.Scanner;
-
-    public class StudentManager {
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            List<String> studentNames = new ArrayList<>();
-            Set<String> uniqueNames = new HashSet<>();
-            
-            System.out.println("학생 이름을 입력하세요 (종료하려면 '종료' 입력):");
-            
-            while (true) {
-                String name = sc.nextLine().trim();
-                if (name.equals("종료")) break;
-                
-                studentNames.add(name);
-                uniqueNames.add(name);
-            }
-            
-            // 중복 제거 후 정렬
-            Set<String> sortedNames = new TreeSet<>(uniqueNames);
-            
-            System.out.println("\n=== 전체 학생 목록 ===");
-            for (String name : studentNames) {
-                System.out.println(name);
-            }
-            
-            System.out.println("\n=== 중복 제거 후 정렬된 목록 ===");
-            for (String name : sortedNames) {
-                System.out.println(name);
-            }
-            
-            sc.close();
-        }
+    // TODO: Scanner를 사용하여 학생 이름을 입력받고 List에 추가하세요. (add)
+    while (true) {
+        String name = sc.nextLine().trim();
+        if (name.equals("종료")) break;
+        studentList.add(name);
     }
+    
+    // TODO: "종료"를 입력받으면 입력을 멈추세요. (equals)
+    // 위의 while 루프에서 처리됨
+    
+    // TODO: List의 모든 이름을 Set에 추가하여 중복을 제거하세요. (addAll)
+    studentSet.addAll(studentList);
+    
+    // TODO: Set을 List로 변환하세요. (new ArrayList<>)
+    List&lt;String&gt; uniqueStudentList = new ArrayList<>(studentSet);
+    
+    // TODO: List를 오름차순으로 정렬하세요. (Collections.sort)
+    Collections.sort(uniqueStudentList);
+    
+    // TODO: 정렬된 결과를 출력하세요.
+    System.out.println("\n=== 중복 제거 및 정렬된 학생 명단 ===");
+    for (String student : uniqueStudentList) {
+        System.out.println(student);
+    }
+    System.out.println("총 " + uniqueStudentList.size() + "명의 학생");
   </code></pre>
 </details>
 
+### 문제 2 - 상품 카테고리 관리 (기초)
+> 아래 코드의 주석을 참고하여, Set과 Map을 사용하여 상품 카테고리를 관리하는 코드를 완성하세요.
 
-### 문제 2 - 상품 카테고리 관리 시스템 (중급)
-> 상품의 카테고리와 개수를 입력받아 Set으로 중복을 방지하고, 카테고리별 상품 개수를 List로 관리하라.
->
-> **조건 및 힌트**
-> 1. HashSet으로 카테고리 중복 방지.
-> 2. ArrayList로 카테고리별 상품 개수 관리.
-> 3. Map을 사용하여 카테고리와 개수를 연결.
-> 4. 카테고리별 통계 출력 기능 구현.
-> 5. 예: 입력 "전자제품:5, 의류:3, 전자제품:2" → 출력 "전자제품:7, 의류:3".
-                
+```java
+Scanner sc = new Scanner(System.in);
+Set<String> categories = new HashSet<>();
+Map<String, Integer> categoryCounts = new HashMap<>();
+
+System.out.println("카테고리와 개수를 입력하세요 (형식: 카테고리:개수, 종료하려면 '종료' 입력):");
+
+// TODO: Scanner를 사용하여 카테고리와 개수를 입력받으세요. (nextLine)
+
+// TODO: "종료"를 입력받으면 입력을 멈추세요. (equals)
+
+// TODO: 입력받은 문자열을 ":"로 분리하세요. (split)
+
+// TODO: 카테고리를 Set에 추가하세요. (add)
+
+// TODO: 카테고리별 개수를 Map에 저장하세요. (put, getOrDefault)
+
+// TODO: 모든 카테고리와 개수를 출력하세요.
+
+sc.close();
+```
+
 <details>
-  <summary><span class="green-text">정답 보기</span></summary>
+  <summary><span class="green-bold">정답 보기</span></summary>
 
   <pre><code class="language-java">
-    import java.util.*;
-    import java.util.Scanner;
-
-    public class CategoryManager {
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            Set<String> categories = new HashSet<>();
-            Map<String, Integer> categoryCounts = new HashMap<>();
+        // TODO: Scanner를 사용하여 카테고리와 개수를 입력받으세요. (nextLine)
+        while (true) {
+            String input = sc.nextLine().trim();
+            if (input.equals("종료")) break;
             
-            System.out.println("카테고리와 개수를 입력하세요 (형식: 카테고리:개수, 종료하려면 '종료' 입력):");
-            
-            while (true) {
-                String input = sc.nextLine().trim();
-                if (input.equals("종료")) break;
+            // TODO: 입력받은 문자열을 ":"로 분리하세요. (split)
+            String[] parts = input.split(":");
+            if (parts.length == 2) {
+                String category = parts[0].trim();
+                int count = Integer.parseInt(parts[1].trim());
                 
-                String[] parts = input.split(":");
-                if (parts.length == 2) {
-                    String category = parts[0].trim();
-                    int count = Integer.parseInt(parts[1].trim());
-                    
-                    categories.add(category);
-                    categoryCounts.put(category, categoryCounts.getOrDefault(category, 0) + count);
-                }
+                // TODO: 카테고리를 Set에 추가하세요. (add)
+                categories.add(category);
+                
+                // TODO: 카테고리별 개수를 Map에 저장하세요. (put, getOrDefault)
+                categoryCounts.put(category, categoryCounts.getOrDefault(category, 0) + count);
             }
-            
-            System.out.println("\n=== 카테고리별 상품 개수 ===");
-            for (String category : categories) {
-                System.out.println(category + ": " + categoryCounts.get(category) + "개");
-            }
-            
-            System.out.println("\n=== 전체 카테고리 수 ===");
-            System.out.println("총 " + categories.size() + "개 카테고리");
-            
-            sc.close();
         }
-    }
+        
+        // TODO: 모든 카테고리와 개수를 출력하세요.
+        System.out.println("\n=== 카테고리별 상품 개수 ===");
+        for (String category : categories) {
+            System.out.println(category + ": " + categoryCounts.get(category) + "개");
+        }
+        System.out.println("총 " + categories.size() + "개 카테고리");
   </code></pre>
 </details>
 
-<br/>
+### 문제 3 - 컬렉션 성능 비교 (기초)
+> 아래 코드의 주석을 참고하여, ArrayList와 LinkedList의 기본적인 성능 차이를 측정하는 코드를 완성하세요.
 
-### 문제 3 - 컬렉션 성능 비교 실험 (고급)
-> ArrayList와 LinkedList의 성능 차이를 측정하여 실제 데이터로 비교해보라.
->
-> **조건 및 힌트**
-> 1. 100만 개 데이터로 추가 성능 측정.
-> 2. 중간 삽입/삭제 성능 측정.
-> 3. System.nanoTime() 사용하여 시간 측정.
-> 4. 결과를 표 형태로 출력.
-> 5. 각 컬렉션의 장단점을 실제 데이터로 확인.
-                
+```java
+ArrayList<Integer> arrayList = new ArrayList<>();
+LinkedList<Integer> linkedList = new LinkedList<>();
+
+int size = 10000;  // 난이도 낮춤: 1만 개로 감소
+
+System.out.println("=== 컬렉션 성능 비교 테스트 ===\n");
+
+// TODO: ArrayList에 1만 개 데이터를 추가하고 시간을 측정하세요. (add, System.nanoTime)
+
+// TODO: LinkedList에 1만 개 데이터를 추가하고 시간을 측정하세요. (add, System.nanoTime)
+
+// TODO: ArrayList의 중간에 100개 데이터를 삽입하고 시간을 측정하세요. (add(index, element))
+
+// TODO: LinkedList의 중간에 100개 데이터를 삽입하고 시간을 측정하세요. (add(index, element))
+
+// TODO: 측정된 시간을 출력하세요.
+
+System.out.println("\n=== 성능 비교 결과 ===");
+System.out.println("ArrayList와 LinkedList의 차이점을 확인해보세요!");
+```
+
 <details>
-  <summary><span class="green-text">정답 보기</span></summary>
-
+  <summary><span class="green-bold">정답 보기</span></summary>
   <pre><code class="language-java">
-    import java.util.*;
-
-    public class PerformanceTest {
-        public static void main(String[] args) {
-            ArrayList<Integer> arrayList = new ArrayList<>();
-            LinkedList<Integer> linkedList = new LinkedList<>();
-            
-            int size = 1000000;
-            
-            System.out.println("=== 컬렉션 성능 비교 테스트 ===\n");
-            
-            // 1. 연속 추가 성능 테스트
-            long startTime = System.nanoTime();
-            for (int i = 0; i < size; i++) {
-                arrayList.add(i);
-            }
-            long arrayListAddTime = System.nanoTime() - startTime;
-            
-            startTime = System.nanoTime();
-            for (int i = 0; i < size; i++) {
-                linkedList.add(i);
-            }
-            long linkedListAddTime = System.nanoTime() - startTime;
-            
-            // 2. 중간 삽입 성능 테스트
-            startTime = System.nanoTime();
-            for (int i = 0; i < 1000; i++) {
-                arrayList.add(size/2, i);
-            }
-            long arrayListInsertTime = System.nanoTime() - startTime;
-            
-            startTime = System.nanoTime();
-            for (int i = 0; i < 1000; i++) {
-                linkedList.add(size/2, i);
-            }
-            long linkedListInsertTime = System.nanoTime() - startTime;
-            
-            // 결과 출력
-            System.out.println("연속 추가 성능:");
-            System.out.printf("ArrayList:  %8d ns\n", arrayListAddTime);
-            System.out.printf("LinkedList: %8d ns\n", linkedListAddTime);
-            System.out.println();
-            
-            System.out.println("중간 삽입 성능 (1000회):");
-            System.out.printf("ArrayList:  %8d ns\n", arrayListInsertTime);
-            System.out.printf("LinkedList: %8d ns\n", linkedListInsertTime);
-            System.out.println();
-            
-            System.out.println("결론:");
-            System.out.println("- ArrayList: 연속 추가 빠름, 중간 삽입 느림");
-            System.out.println("- LinkedList: 연속 추가 느림, 중간 삽입 빠름");
-        }
+    // TODO: ArrayList에 1만 개 데이터를 추가하고 시간을 측정하세요. (add, System.nanoTime)
+    long startTime = System.nanoTime();
+    for (int i = 0; i < size; i++) {
+        arrayList.add(i);
     }
+    long arrayListAddTime = System.nanoTime() - startTime;
+    
+    // TODO: LinkedList에 1만 개 데이터를 추가하고 시간을 측정하세요. (add, System.nanoTime)
+    startTime = System.nanoTime();
+    for (int i = 0; i < size; i++) {
+        linkedList.add(i);
+    }
+    long linkedListAddTime = System.nanoTime() - startTime;
+    
+    // TODO: ArrayList의 중간에 100개 데이터를 삽입하고 시간을 측정하세요. (add(index, element))
+    startTime = System.nanoTime();
+    for (int i = 0; i < 100; i++) {
+        arrayList.add(size/2, i);
+    }
+    long arrayListInsertTime = System.nanoTime() - startTime;
+    
+    // TODO: LinkedList의 중간에 100개 데이터를 삽입하고 시간을 측정하세요. (add(index, element))
+    startTime = System.nanoTime();
+    for (int i = 0; i < 100; i++) {
+        linkedList.add(size/2, i);
+    }
+    long linkedListInsertTime = System.nanoTime() - startTime;
+    
+    // TODO: 측정된 시간을 출력하세요.
+    System.out.println("연속 추가 성능:");
+    System.out.printf("ArrayList:  %8d ns\n", arrayListAddTime);
+    System.out.printf("LinkedList: %8d ns\n", linkedListAddTime);
+    System.out.println();
+    
+    System.out.println("중간 삽입 성능 (100회):");
+    System.out.printf("ArrayList:  %8d ns\n", arrayListInsertTime);
+    System.out.printf("LinkedList: %8d ns\n", linkedListInsertTime);
+
+    System.out.println("결론:");
+    System.out.println("- ArrayList: 연속 추가 빠름, 중간 삽입 느림");
+    System.out.println("- LinkedList: 연속 추가 느림, 중간 삽입 빠름");
   </code></pre>
 </details>
 
 ## 6. 자주 발생하는 오류와 해결법
-
 ### ConcurrentModificationException
 ```java
 // 잘못된 예시
