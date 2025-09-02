@@ -102,6 +102,8 @@ notes-kr:
         url:   /notes/kr/python-deep-dive/chapter-02
       - title: 3. 클래스와 객체지향 프로그래밍
         url:   /notes/kr/python-deep-dive/chapter-03
+      - title: 4. 예외 처리
+        url:   /notes/kr/python-deep-dive/chapter-04
   - title: Java DeepDive
     children:
       - title: 1. 다형성의 원리와 활용

@@ -212,19 +212,17 @@ public class IteratorPractice {
         fruitList.add("키위");
         
         System.out.println("=== Iterator를 사용한 순회 ===");
-        
+
         // TODO: List에서 Iterator를 생성하세요. (iterator())
-        
+
         // TODO: Iterator를 사용하여 모든 요소를 출력하세요. (hasNext, next)
-        
+
         // TODO: Iterator를 다시 생성하세요. (iterator())
-        
-        // TODO: Iterator를 사용하여 "바나나"를 찾아서 "바나나(노란색)"으로 변경하세요. (set)
-        
+
         // TODO: Iterator를 다시 생성하세요. (iterator())
-        
+
         // TODO: Iterator를 사용하여 "키위"를 삭제하세요. (remove)
-        
+
         // TODO: 최종 결과를 출력하세요.
     }
 }
