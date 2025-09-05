@@ -481,7 +481,7 @@ public class Exercise03 {
 </details>
 
 ## 4. 스레드 상태와 전이
-### 4.1 상태 표
+### 4.1 상태표
 
 | 상태 | 상수 | 설명 |
 |------|------|------|
@@ -493,9 +493,11 @@ public class Exercise03 {
 | 종료 | TERMINATED | `run()` 완료 또는 예외 종료 |
 
 ### 4.2 `sleep`: 시간 지연
-
-현재 스레드를 `TIMED_WAITING`으로 전이.
-락은 유지하지 않는다.
+* **상태 전이**: 현재 스레드를 `TIMED_WAITING` 상태로 전이시킵니다.
+* **락 해제**: 스레드가 대기하는 동안 **락을 유지하지 않습니다**.
+  - 다른 스레드가 동기화된 메서드나 블록에 접근할 수 있습니다
+  - CPU 자원을 다른 스레드가 사용할 수 있습니다
+* **자동 복귀**: 지정된 시간이 지나면 자동으로 `RUNNABLE` 상태로 돌아갑니다.
 
 ```java
 public class SleepDemo {
@@ -508,56 +510,109 @@ public class SleepDemo {
 ```
 
 ### 4.3 `wait()` / `notify()`: 조건 대기와 신호
-* <span class="blue-text">모니터 락</span>이 걸린 동기화 블록/메서드 내부에서만 호출 가능.
-* `wait()`: 현재 스레드가 락을 <span class="green-text">반납</span>하고 조건 대기.
-* `notify()` 또는 `notifyAll()`: 대기 스레드에 신호. 락은 호출 스레드가 블록을 <span class="green-text">빠져나갈 때</span> 해제.
+* **호출 제한**: <span class="blue-text">모니터 락</span>이 걸린 동기화 블록/메서드 내부에서만 호출 가능합니다.
+  - `synchronized` 블록이나 메서드 밖에서는 `IllegalMonitorStateException` 발생
+  - 스레드가 해당 객체의 락을 보유하고 있을 때만 사용 가능
+
+* **`wait()` 메서드**: 
+  - 현재 스레드가 락을 <span class="green-text">반납</span>하고 `WAITING` 상태로 전이
+  - 다른 스레드가 `notify()` 또는 `notifyAll()`을 호출할 때까지 대기
+  - 깨어나면 다시 락을 획득한 후 실행 계속
+
+* **`notify()` / `notifyAll()` 메서드**:
+  - 대기 중인 스레드에게 신호를 보냅니다
+  - `notify()`: 대기 중인 스레드 중 하나만 깨움 (선택은 JVM이 결정)
+  - `notifyAll()`: 대기 중인 모든 스레드를 깨움
+  - 락은 호출 스레드가 동기화 블록을 <span class="green-text">완전히 빠져나갈 때</span> 해제됩니다
 
 ### 4.4 생산자-소비자 미니 예제
 
 ```java
-class Storage {
-    private int stock = 0;
-    private final int CAP = 10;
+public class Worker {
+    private int stackCount = 10;
 
-    public synchronized void produce(int n) throws InterruptedException {
-        while (stock + n > CAP) { // 가득 찼으면 대기
-            wait();
+    public synchronized void addStack(int stackCount) {
+        this.stackCount += stackCount;
+
+        if (this.stackCount > 10) {
+            system.out.println("=====작업자 깨우기=====");
+            notify();
         }
-        stock += n;
-        System.out.println("[생산] +" + n + " -> " + stock);
-        notifyAll(); // 소비자 깨우기
     }
 
-    public synchronized void consume(int n) throws InterruptedException {
-        while (stock < n) { // 재고 없으면 대기
-            System.out.println("===짐 없음 대기===");
-            wait();
-            System.out.println("===대기 해제===");
+    public synchronized void popStack(int leaveCount) {
+        try {
+            if (leaveCount > this.stackCount) {
+                this.stackCount = 0;
+            } else {
+                this.stackCount -= leaveCount;
+            }
+
+            if (this.stackCount == 0) {
+                system.out.println("=====작업자 대기=====");
+                wait();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        stock -= n;
-        System.out.println("[소비] -" + n + " -> " + stock);
-        notifyAll(); // 생산자 깨우기
+    }
+
+    public int getStackCount() {
+        return this.stackCount;
     }
 }
 
-public class WaitNotifyDemo {
+public class AddStackThread extends Thread {
+    private Worker worker;
+
+    public AddStackThread(Worker worker) {
+        this.worker = worker;
+    }
+
+    @Override
+    public void run() {
+        try {
+            while (true) {
+                Thread.sleep(1000);
+                if (this.worker.getStackCount() == 10) {
+                    system.out.println("=====짐 10개 추가=====")가
+                    this.worker.addStack(10);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+class PopStackThread extends Thread {
+    private Worker worker;
+
+    public PopStackThread(Worker worker) {
+        this.worker = worker;
+    }
+
+    @Override
+    public void run() {
+        try {
+            while (true) {
+                Thread.sleep(1000);
+                system.out.println("=====짐 5개 나르기=====");
+                this.worker.popStack(5);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+public class Main {
     public static void main(String[] args) {
-        Storage s = new Storage();
-
-        Thread producer = new Thread(() -> {
-            try {
-                for (int i = 0; i < 5; i++) s.produce(3);
-            } catch (InterruptedException ignored) {}
-        }, "producer");
-
-        Thread consumer = new Thread(() -> {
-            try {
-                for (int i = 0; i < 5; i++) s.consume(2);
-            } catch (InterruptedException ignored) {}
-        }, "consumer");
-
-        producer.start();
-        consumer.start();
+        Worker worker = new Worker();
+        AddStackThread addStackThread = new AddStackThread(worker);
+        PopStackThread popStackThread = new PopStackThread(worker);
+        addStackThread.start();
+        popStackThread.start();
     }
 }
 ```
