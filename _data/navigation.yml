@@ -118,6 +118,8 @@ notes-kr:
         url: /notes/kr/java-deep-dive/chapter-05
       - title: 6. 자바 컬렉션 프레임워크 심화
         url: /notes/kr/java-deep-dive/chapter-06
+      # - title: 7. 프로세스와 스레드
+      #   url: /notes/kr/java-deep-dive/chapter-07
 layouts:
   - title: Layouts
     children:
