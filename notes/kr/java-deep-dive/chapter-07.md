@@ -527,6 +527,11 @@ public class SleepDemo {
 
 ### 4.4 생산자-소비자 미니 예제
 
+<figure>
+    <img src="/notes/assets/java-deep-dive/chapter-07-02.png" width="70%" alt="생산자-소비자 미니 예제"/>
+    <figcaption>생산자-소비자 미니 예제</figcaption>
+</figure>
+
 ```java
 public class Worker {
     private int stackCount = 10;
@@ -627,10 +632,72 @@ public class Main {
 
 ```java
 public class Exercise04 {
-    // TODO: BoundedBuffer 구현 (offer/take 동기화, 용량 5)
+    static class BoundedBuffer {
+        private final int[] buffer = new int[5]; // 용량 5인 버퍼
+        private int count = 0; // 현재 저장된 아이템 수
+        private int putIndex = 0; // 다음 저장 위치
+        private int takeIndex = 0; // 다음 가져올 위치
+        
+        // TODO: offer 메서드 구현 (버퍼가 가득 찬 경우 대기)
+        public synchronized void offer(int item) throws InterruptedException {
+            // TODO: while 조건으로 버퍼가 가득 찬지 확인
+            // TODO: wait() 호출
+            // TODO: 아이템 저장 및 인덱스 업데이트
+            // TODO: notifyAll() 호출
+        }
+        
+        // TODO: take 메서드 구현 (버퍼가 비어있는 경우 대기)
+        public synchronized int take() throws InterruptedException {
+            // TODO: while 조건으로 버퍼가 비어있는지 확인
+            // TODO: wait() 호출
+            // TODO: 아이템 반환 및 인덱스 업데이트
+            // TODO: notifyAll() 호출
+            return 0; // 임시 반환값
+        }
+    }
     
     public static void main(String[] args) {
-        // TODO: 생산자 1, 소비자 2 스레드 생성
+        BoundedBuffer buffer = new BoundedBuffer();
+        
+        // TODO: 생산자 스레드 생성 (1~10 숫자 생성)
+        Thread producer = new Thread(() -> {
+            try {
+                for (int i = 1; i <= 10; i++) {
+                    buffer.offer(i);
+                    System.out.println("생산: " + i);
+                    Thread.sleep(100);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        
+        // TODO: 소비자 스레드 2개 생성
+        Thread consumer1 = new Thread(() -> {
+            try {
+                while (true) {
+                    int item = buffer.take();
+                    System.out.println("소비자1: " + item);
+                    Thread.sleep(150);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        
+        Thread consumer2 = new Thread(() -> {
+            try {
+                while (true) {
+                    int item = buffer.take();
+                    System.out.println("소비자2: " + item);
+                    Thread.sleep(200);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        
+        // TODO: 모든 스레드 시작
     }
 }
 ```
@@ -712,27 +779,46 @@ public class Exercise04 {
 </details>
 
 ## 5. 실전 체크리스트
-* 공유 가변 상태를 최소화. 가능하면 <span class="green-text">불변 객체</span> 또는 <span class="green-text">스레드 한정</span>.
+* **공유 상태 최소화**: 공유 가변 상태를 최소화하고, 가능하면 <span class="green-text">불변 객체</span> 또는 <span class="green-text">스레드 한정</span>을 사용하세요.
+  - 불변 객체: `String`, `Integer` 등 한 번 생성되면 변경되지 않는 객체
+  - 스레드 한정: 각 스레드가 독립적인 데이터를 가지도록 설계
 
-* 꼭 필요한 최소 영역만 <span class="yellow-code">synchronized</span>.
+* **동기화 범위 최소화**: 꼭 필요한 최소 영역만 <span class="yellow-code">synchronized</span>로 보호하세요.
+  - 성능 향상: 동기화 범위가 작을수록 병렬성 증가
+  - 데드락 방지: 락을 보유하는 시간을 최소화
 
-* 조건 대기는 `while` 루프 + `notifyAll()`.
+* **안전한 조건 대기**: 조건 대기는 `while` 루프 + `notifyAll()` 패턴을 사용하세요.
+  - `if` 대신 `while` 사용으로 spurious wakeup 방지
+  - `notifyAll()` 사용으로 모든 대기 스레드에게 신호 전달
 
-* 스레드 이름을 부여해 로깅 가독성 확보.
+* **디버깅 지원**: 스레드 이름을 부여해 로깅 가독성을 확보하세요.
+  - `Thread.currentThread().setName("Worker-1")` 또는 생성자에서 이름 설정
+  - 로그에서 어떤 스레드에서 발생한 문제인지 쉽게 식별 가능
 
-* `run()` 직접 호출 금지. 항상 `start()`.
+* **올바른 스레드 시작**: `run()` 직접 호출 금지. 항상 `start()`를 사용하세요.
+  - `run()` 직접 호출: 동기 실행 (새 스레드 생성 안됨)
+  - `start()` 호출: 비동기 실행 (새 스레드에서 실행)
 
 ## 6. 종합 문제
 
-### 문제 1 - 금융: 주식 거래 시스템 (기초)
-> 두 스레드가 각각 1~1,000,000 범위의 주식 가격을 절반씩 나눠 계산하고, 메인 스레드가 결과를 합산하여 검증하세요.
+### 문제 1 - 기본 스레드 생성 (기초)
+> 두 개의 스레드를 생성하여 각각 "Hello"와 "World"를 출력하세요.
 
 ```java
-public class StockTradingSystem {
+public class BasicThreadDemo {
     public static void main(String[] args) throws Exception {
-        // TODO: t1은 1~500,000 범위의 주식 가격 합계 계산
-        // TODO: t2는 500,001~1,000,000 범위의 주식 가격 합계 계산
-        // TODO: 각 결과를 메인에서 합쳐 총 거래액 출력
+        // TODO: "Hello"를 출력하는 스레드 생성
+        Thread t1 = new Thread(() -> {
+            System.out.println("Hello");
+        });
+        
+        // TODO: "World"를 출력하는 스레드 생성
+        Thread t2 = new Thread(() -> {
+            System.out.println("World");
+        });
+        
+        // TODO: 두 스레드 시작
+        // TODO: 두 스레드 완료 대기
     }
 }
 ```
@@ -741,48 +827,52 @@ public class StockTradingSystem {
   <summary><span class="green-bold">정답 보기</span></summary>
 
   <pre><code class="language-java">
-  public class StockTradingSystem {
-      private static long totalPrice1 = 0;
-      private static long totalPrice2 = 0;
-      
+  public class BasicThreadDemo {
       public static void main(String[] args) throws Exception {
-          // TODO: t1은 1~500,000 범위의 주식 가격 합계 계산
+          // "Hello"를 출력하는 스레드 생성
           Thread t1 = new Thread(() -> {
-              for (int i = 1; i <= 500000; i++) {
-                  totalPrice1 += i;
-              }
-              System.out.println("1~500,000 범위 합계: " + totalPrice1);
+              System.out.println("Hello");
           });
           
-          // TODO: t2는 500,001~1,000,000 범위의 주식 가격 합계 계산
+          // "World"를 출력하는 스레드 생성
           Thread t2 = new Thread(() -> {
-              for (int i = 500001; i <= 1000000; i++) {
-                  totalPrice2 += i;
-              }
-              System.out.println("500,001~1,000,000 범위 합계: " + totalPrice2);
+              System.out.println("World");
           });
           
-          t1.start(); t2.start();
-          t1.join(); t2.join();
+          // 두 스레드 시작
+          t1.start();
+          t2.start();
           
-          // TODO: 각 결과를 메인에서 합쳐 총 거래액 출력
-          long totalTradingAmount = totalPrice1 + totalPrice2;
-          System.out.println("총 거래액: " + totalTradingAmount);
+          // 두 스레드 완료 대기
+          t1.join();
+          t2.join();
+          
+          System.out.println("모든 스레드 완료!");
       }
   }
   </code></pre>
 </details>
-### 문제 2 - 금융: 안전한 은행 계좌 (중급)
-> 2개의 출금 스레드가 동시에 1원씩 10,000회 출금을 시도합니다. 초기 잔액 10,000원에서 음수 잔액이 발생하지 않도록 동기화하세요.
+### 문제 2 - 스레드 이름 설정 (기초)
+> 두 개의 스레드를 "Worker-1", "Worker-2"로 이름을 설정하고 각각 1~5까지 숫자를 출력하세요.
 
 ```java
-class BankAccount {
-    // TODO: balance, withdraw 동기화
-}
-
-public class SafeBankAccount {
+public class NamedThreadDemo {
     public static void main(String[] args) throws Exception {
-        // TODO: 2개 출금 스레드로 10,000회 출금 테스트
+        // TODO: "Worker-1" 스레드 생성 (1~5 출력)
+        Thread worker1 = new Thread(() -> {
+            for (int i = 1; i <= 5; i++) {
+                System.out.println(Thread.currentThread().getName() + ": " + i);
+            }
+        }, "Worker-1");
+        
+        // TODO: "Worker-2" 스레드 생성 (1~5 출력)
+        Thread worker2 = new Thread(() -> {
+            for (int i = 1; i <= 5; i++) {
+                System.out.println(Thread.currentThread().getName() + ": " + i);
+            }
+        }, "Worker-2");
+        
+        // TODO: 두 스레드 시작 및 완료 대기
     }
 }
 ```
@@ -791,166 +881,65 @@ public class SafeBankAccount {
   <summary><span class="green-bold">정답 보기</span></summary>
 
   <pre><code class="language-java">
-  class BankAccount {
-      private int balance = 10000;
-      
-      public synchronized boolean withdraw(int amount) {
-          if (balance >= amount) {
-              balance -= amount;
-              return true;
-          }
-          return false;
-      }
-      
-      public synchronized int getBalance() {
-          return balance;
-      }
-  }
-
-  public class SafeBankAccount {
+  public class NamedThreadDemo {
       public static void main(String[] args) throws Exception {
-          BankAccount account = new BankAccount();
-          
-          Thread withdrawer1 = new Thread(() -> {
-              for (int i = 0; i < 10000; i++) {
-                  account.withdraw(1);
+          // "Worker-1" 스레드 생성 (1~5 출력)
+          Thread worker1 = new Thread(() -> {
+              for (int i = 1; i <= 5; i++) {
+                  System.out.println(Thread.currentThread().getName() + ": " + i);
               }
-          });
+          }, "Worker-1");
           
-          Thread withdrawer2 = new Thread(() -> {
-              for (int i = 0; i < 10000; i++) {
-                  account.withdraw(1);
+          // "Worker-2" 스레드 생성 (1~5 출력)
+          Thread worker2 = new Thread(() -> {
+              for (int i = 1; i <= 5; i++) {
+                  System.out.println(Thread.currentThread().getName() + ": " + i);
               }
-          });
+          }, "Worker-2");
           
-          withdrawer1.start(); withdrawer2.start();
-          withdrawer1.join(); withdrawer2.join();
+          // 두 스레드 시작
+          worker1.start();
+          worker2.start();
           
-          System.out.println("최종 잔액: " + account.getBalance());
+          // 두 스레드 완료 대기
+          worker1.join();
+          worker2.join();
+          
+          System.out.println("모든 작업 완료!");
       }
   }
   </code></pre>
 </details>
-### 문제 3 - SNS: 메시지 큐 시스템 (중급)
-> 용량 3인 메시지 큐에 생산자 2명, 소비자 2명이 랜덤하게 메시지를 생성/소비합니다. 일정 시간 후 종료하세요.
+### 문제 3 - 간단한 동기화 (기초)
+> 공유 변수 `counter`를 두 스레드가 각각 5번씩 증가시키는 프로그램을 만드세요. `synchronized`를 사용하여 동기화하세요.
 
 ```java
-public class SNSMessageQueue {
-    // TODO: 메시지 큐 구현 (용량 3)
-    // TODO: 생산자 2, 소비자 2 스레드 생성
-    // TODO: 랜덤 메시지 생성/소비, interrupt() 처리
-}
-```
-
-<details>
-  <summary><span class="green-bold">정답 보기</span></summary>
-
-  <pre><code class="language-java">
-  public class SNSMessageQueue {
-      static class MessageQueue {
-          private final String[] messages = new String[3];
-          private int count = 0;
-          private int putIndex = 0;
-          private int takeIndex = 0;
-          
-          public synchronized void putMessage(String message) throws InterruptedException {
-              while (count == messages.length) {
-                  wait();
-              }
-              messages[putIndex] = message;
-              putIndex = (putIndex + 1) % messages.length;
-              count++;
-              notifyAll();
-          }
-          
-          public synchronized String getMessage() throws InterruptedException {
-              while (count == 0) {
-                  wait();
-              }
-              String message = messages[takeIndex];
-              takeIndex = (takeIndex + 1) % messages.length;
-              count--;
-              notifyAll();
-              return message;
-          }
-      }
-      
-      public static void main(String[] args) {
-          MessageQueue queue = new MessageQueue();
-          
-          // 생산자 2명
-          Thread producer1 = new Thread(() -> {
-              try {
-                  for (int i = 0; i < 10; i++) {
-                      String message = "메시지-" + (i + 1) + " (생산자1)";
-                      queue.putMessage(message);
-                      System.out.println("생산자1: " + message);
-                      Thread.sleep((int)(Math.random() * 200));
-                  }
-              } catch (InterruptedException e) {
-                  System.out.println("생산자1 종료");
-              }
-          });
-          
-          Thread producer2 = new Thread(() -> {
-              try {
-                  for (int i = 0; i < 10; i++) {
-                      String message = "메시지-" + (i + 1) + " (생산자2)";
-                      queue.putMessage(message);
-                      System.out.println("생산자2: " + message);
-                      Thread.sleep((int)(Math.random() * 200));
-                  }
-              } catch (InterruptedException e) {
-                  System.out.println("생산자2 종료");
-              }
-          });
-          
-          // 소비자 2명
-          Thread consumer1 = new Thread(() -> {
-              try {
-                  while (!Thread.currentThread().isInterrupted()) {
-                      String message = queue.getMessage();
-                      System.out.println("소비자1이 읽음: " + message);
-                      Thread.sleep((int)(Math.random() * 300));
-                  }
-              } catch (InterruptedException e) {
-                  System.out.println("소비자1 종료");
-              }
-          });
-          
-          Thread consumer2 = new Thread(() -> {
-              try {
-                  while (!Thread.currentThread().isInterrupted()) {
-                      String message = queue.getMessage();
-                      System.out.println("소비자2가 읽음: " + message);
-                      Thread.sleep((int)(Math.random() * 300));
-                  }
-              } catch (InterruptedException e) {
-                  System.out.println("소비자2 종료");
-              }
-          });
-          
-          producer1.start(); producer2.start();
-          consumer1.start(); consumer2.start();
-          
-          // 5초 후 종료
-          try {
-              Thread.sleep(5000);
-              producer1.interrupt(); producer2.interrupt();
-              consumer1.interrupt(); consumer2.interrupt();
-          } catch (InterruptedException e) {}
-      }
-  }
-  </code></pre>
-</details>
-### 문제 4 - 쇼핑몰: 주문 처리 시스템 (기초)
-> 주문 처리 워커 스레드들을 `worker-1`, `worker-2`, `worker-3`으로 명명하고, 시작/종료 시점을 로깅하는 시스템을 만드세요.
-
-```java
-public class ShoppingMallOrderSystem {
-    public static void main(String[] args) {
-        // TODO: worker-1, worker-2, worker-3 스레드 생성
-        // TODO: 각 워커의 시작/종료 시점 로깅
+public class SimpleSyncDemo {
+    private static int counter = 0;
+    
+    public static void main(String[] args) throws Exception {
+        // TODO: counter를 5번 증가시키는 스레드 1
+        Thread t1 = new Thread(() -> {
+            for (int i = 0; i < 5; i++) {
+                synchronized (SimpleSyncDemo.class) {
+                    counter++;
+                    System.out.println("스레드1: counter = " + counter);
+                }
+            }
+        });
+        
+        // TODO: counter를 5번 증가시키는 스레드 2
+        Thread t2 = new Thread(() -> {
+            for (int i = 0; i < 5; i++) {
+                synchronized (SimpleSyncDemo.class) {
+                    counter++;
+                    System.out.println("스레드2: counter = " + counter);
+                }
+            }
+        });
+        
+        // TODO: 두 스레드 시작 및 완료 대기
+        // TODO: 최종 counter 값 출력
     }
 }
 ```
@@ -959,57 +948,118 @@ public class ShoppingMallOrderSystem {
   <summary><span class="green-bold">정답 보기</span></summary>
 
   <pre><code class="language-java">
-  public class ShoppingMallOrderSystem {
-      public static void main(String[] args) {
-          // TODO: worker-1, worker-2, worker-3 스레드 생성
-          Thread worker1 = new Thread(() -> {
-              System.out.println("[" + Thread.currentThread().getName() + "] 주문 처리 시작");
+  public class SimpleSyncDemo {
+      private static int counter = 0;
+      
+      public static void main(String[] args) throws Exception {
+          // counter를 5번 증가시키는 스레드 1
+          Thread t1 = new Thread(() -> {
+              for (int i = 0; i < 5; i++) {
+                  synchronized (SimpleSyncDemo.class) {
+                      counter++;
+                      System.out.println("스레드1: counter = " + counter);
+                  }
+              }
+          });
+          
+          // counter를 5번 증가시키는 스레드 2
+          Thread t2 = new Thread(() -> {
+              for (int i = 0; i < 5; i++) {
+                  synchronized (SimpleSyncDemo.class) {
+                      counter++;
+                      System.out.println("스레드2: counter = " + counter);
+                  }
+              }
+          });
+          
+          // 두 스레드 시작
+          t1.start();
+          t2.start();
+          
+          // 두 스레드 완료 대기
+          t1.join();
+          t2.join();
+          
+          // 최종 counter 값 출력
+          System.out.println("최종 counter 값: " + counter);
+      }
+  }
+  </code></pre>
+</details>
+### 문제 4 - Thread.sleep() 사용 (기초)
+> 세 개의 스레드가 각각 다른 간격으로 "작업 중..."을 출력하는 프로그램을 만드세요. `Thread.sleep()`을 사용하세요.
+
+```java
+public class SleepDemo {
+    public static void main(String[] args) throws Exception {
+        // TODO: 1초 간격으로 3번 출력하는 스레드
+        Thread t1 = new Thread(() -> {
+            try {
+                for (int i = 1; i <= 3; i++) {
+                    System.out.println("스레드1: 작업 " + i);
+                    Thread.sleep(1000); // 1초 대기
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        
+        // TODO: 2초 간격으로 3번 출력하는 스레드
+        Thread t2 = new Thread(() -> {
+            try {
+                for (int i = 1; i <= 3; i++) {
+                    System.out.println("스레드2: 작업 " + i);
+                    Thread.sleep(2000); // 2초 대기
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        
+        // TODO: 세 스레드 시작 및 완료 대기
+    }
+}
+```
+
+<details>
+  <summary><span class="green-bold">정답 보기</span></summary>
+
+  <pre><code class="language-java">
+  public class SleepDemo {
+      public static void main(String[] args) throws Exception {
+          // 1초 간격으로 3번 출력하는 스레드
+          Thread t1 = new Thread(() -> {
               try {
-                  for (int i = 1; i <= 5; i++) {
-                      System.out.println("[" + Thread.currentThread().getName() + "] 주문 " + i + " 처리 중...");
-                      Thread.sleep(1000);
+                  for (int i = 1; i <= 3; i++) {
+                      System.out.println("스레드1: 작업 " + i);
+                      Thread.sleep(1000); // 1초 대기
                   }
               } catch (InterruptedException e) {
-                  System.out.println("[" + Thread.currentThread().getName() + "] 작업 중단됨");
+                  e.printStackTrace();
               }
-              System.out.println("[" + Thread.currentThread().getName() + "] 주문 처리 완료");
-          }, "worker-1");
+          });
           
-          Thread worker2 = new Thread(() -> {
-              System.out.println("[" + Thread.currentThread().getName() + "] 주문 처리 시작");
+          // 2초 간격으로 3번 출력하는 스레드
+          Thread t2 = new Thread(() -> {
               try {
-                  for (int i = 1; i <= 5; i++) {
-                      System.out.println("[" + Thread.currentThread().getName() + "] 주문 " + i + " 처리 중...");
-                      Thread.sleep(1200);
+                  for (int i = 1; i <= 3; i++) {
+                      System.out.println("스레드2: 작업 " + i);
+                      Thread.sleep(2000); // 2초 대기
                   }
               } catch (InterruptedException e) {
-                  System.out.println("[" + Thread.currentThread().getName() + "] 작업 중단됨");
+                  e.printStackTrace();
               }
-              System.out.println("[" + Thread.currentThread().getName() + "] 주문 처리 완료");
-          }, "worker-2");
+          });
           
-          Thread worker3 = new Thread(() -> {
-              System.out.println("[" + Thread.currentThread().getName() + "] 주문 처리 시작");
-              try {
-                  for (int i = 1; i <= 5; i++) {
-                      System.out.println("[" + Thread.currentThread().getName() + "] 주문 " + i + " 처리 중...");
-                      Thread.sleep(800);
-                  }
-              } catch (InterruptedException e) {
-                  System.out.println("[" + Thread.currentThread().getName() + "] 작업 중단됨");
-              }
-              System.out.println("[" + Thread.currentThread().getName() + "] 주문 처리 완료");
-          }, "worker-3");
+          // 세 스레드 시작
+          t1.start();
+          t2.start();
           
-          // TODO: 각 워커의 시작/종료 시점 로깅
-          worker1.start(); worker2.start(); worker3.start();
+          // 세 스레드 완료 대기
+          t1.join();
+          t2.join();
           
-          try {
-              worker1.join(); worker2.join(); worker3.join();
-              System.out.println("모든 주문 처리가 완료되었습니다.");
-          } catch (InterruptedException e) {
-              System.out.println("주문 처리 중 오류가 발생했습니다.");
-          }
+          System.out.println("모든 작업 완료!");
       }
   }
   </code></pre>
@@ -1027,16 +1077,16 @@ public class ShoppingMallOrderSystem {
 ## 부록: 익명 클래스 간단 예시
 ```java
 public class AnonymousDemo {
-interface Greeter { void greet(); }
+    interface Greeter { void greet(); }
 
-public static void main(String[] args) {
-    Greeter g = new Greeter() {
-        @Override
-        public void greet() {
-            System.out.println("Hello");
-        }
-    };
-    g.greet();
-}
+    public static void main(String[] args) {
+        Greeter g = new Greeter() {
+            @Override
+            public void greet() {
+                System.out.println("Hello");
+            }
+        };
+        g.greet();
+    }
 }
 ```
