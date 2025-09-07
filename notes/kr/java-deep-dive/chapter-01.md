@@ -1,14 +1,14 @@
 ---
 layout: article
-title: 1. 다형성의 원리와 활용
+title: 1. 다형성과 타입 캐스팅
 permalink: /notes/kr/java-deep-dive/chapter-01
 key: notes
 sidebar:
   nav: notes-kr
 aside:
   toc: true
-excerpt: Java 심화 과정 강의 노트, 다형성 개념과 인터페이스 활용 방법을 다룹니다.
-keywords: "Java, 다형성, 인터페이스, 심화 과정, 데이터 처리, 프로그래밍"
+excerpt: Java 심화 과정 강의 노트, 다형성과 타입 캐스팅 개념과 활용 방법을 다룹니다.
+keywords: "Java, 다형성, 타입 캐스팅, 심화 과정, 데이터 처리, 프로그래밍"
 ---
 
 <style>

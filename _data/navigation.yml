@@ -106,9 +106,9 @@ notes-kr:
         url:   /notes/kr/python-deep-dive/chapter-04
   - title: Java DeepDive
     children:
-      - title: 1. 다형성의 원리와 활용
+      - title: 1. 다형성과 타입 캐스팅
         url: /notes/kr/java-deep-dive/chapter-01
-      - title: 2. 자바 인터페이스 완전 정복
+      - title: 2. 추상 클래스와 인터페이스
         url: /notes/kr/java-deep-dive/chapter-02
       - title: 3. 예외 처리의 모든 것
         url: /notes/kr/java-deep-dive/chapter-03
@@ -120,6 +120,8 @@ notes-kr:
         url: /notes/kr/java-deep-dive/chapter-06
       - title: 7. 프로세스와 스레드
         url: /notes/kr/java-deep-dive/chapter-07
+      - title: 8. 파일 입출력
+        url: /notes/kr/java-deep-dive/chapter-08
 layouts:
   - title: Layouts
     children:
