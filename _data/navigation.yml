@@ -104,6 +104,8 @@ notes-kr:
         url:   /notes/kr/python-deep-dive/chapter-03
       - title: 4. 예외 처리
         url:   /notes/kr/python-deep-dive/chapter-04
+      - title: 5. 웹 크롤링
+        url:   /notes/kr/python-deep-dive/chapter-05
   - title: Java DeepDive
     children:
       - title: 1. 다형성과 타입 캐스팅
