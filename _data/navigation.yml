@@ -98,6 +98,8 @@ notes-kr:
     children:
       - title: 1. 변수와 자료형
         url:    /notes/kr/python-basic/chapter-01
+      - title: 2. 연산자
+        url:    /notes/kr/python-basic/chapter-02
   - title: Python DeepDive
     children:
       - title: 1. 파일 입출력

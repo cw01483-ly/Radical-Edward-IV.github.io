@@ -32,7 +32,7 @@ keywords: "Python, 변수, 자료형, 기초 과정, 데이터 처리, 프로그
 변수는 마치 데이터를 담을 수 있는 <span class="blue-text">상자</span>와 같습니다.
 
 <figure>
-    <img src="/notes/assets/python-basic/chapter-01-01.png" width="70%" alt="변수와 자료형 예시">
+    <img src="/notes/assets/python-basic/chapter-01-01.png" width="50%" alt="변수와 자료형 예시">
     <figcaption>변수와 자료형 예시</figcaption>
 </figure>
 
@@ -521,3 +521,158 @@ print("추출된 문자들:")
   print("d 문자:", d_char)
   </code></pre>
 </details>
+
+### 문자열 슬라이싱 ✂️
+
+인덱스를 사용하여 특정 문자를 추출할 수 있을 뿐만 아니라, 문자열의 일부를 원하는 만큼 잘라내는 것도 가능합니다.  
+이를 <span class="blue-text">슬라이싱</span>이라고 합니다.  
+슬라이싱은 한 문자 이상으로 구성된 단어나 문장을 추출할 때 유용합니다.
+
+문자열 슬라이싱의 기본 구조는 다음과 같습니다.  
+`문자열을 담은 변수명[start:stop:step]`
+
+- <span class="blue-text">start</span>(시작 인덱스): 슬라이싱을 시작할 위치를 지정합니다. 이 값은 생략할 수 있으며, 기본 값은 0입니다.
+- <span class="blue-text">stop</span>(종료 인덱스): 슬라이싱을 종료할 위치를 지정합니다. 이 값은 생략할 수 있으며, 기본 값은 문자열의 끝입니다.
+- <span class="blue-text">step</span>(간격): 슬라이싱할 때 건너뛸 간격을 지정합니다. 이 값은 생략할 수 있으며, 기본 값은 1입니다.
+
+| 문자 | I |   | L | o | v | e |   | P | y | t | h | o | n |
+|------|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 인덱스 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
+
+```python
+text = "I Love Python"
+
+# 기본 슬라이싱 (start:stop)
+substring1 = text[2:6]    # "Love"
+print(substring1)         # Love
+
+# 시작 인덱스 생략 (처음부터)
+substring2 = text[:6]     # "I Love"
+print(substring2)         # I Love
+
+# 종료 인덱스 생략 (끝까지)
+substring3 = text[7:]     # "Python"
+print(substring3)         # Python
+
+# 음수 인덱스 사용
+substring4 = text[-6:]    # "Python"
+print(substring4)         # Python
+
+# step 사용 (간격으로 추출)
+substring5 = text[::2]    # "ILv yhn"
+print(substring5)         # ILv yhn
+
+# 역순으로 추출
+substring6 = text[::-1]   # "nohtyP evoL I"
+print(substring6)         # nohtyP evoL I
+```
+
+> 💡 **팁**: 슬라이싱에서 <span class="yellow-code">stop</span> 인덱스는 포함되지 않습니다! 예를 들어 `text[2:6]`은 인덱스 2부터 5까지(6은 제외)를 추출합니다. 🎯
+
+#### 문제 5 - 문자열 슬라이싱하기 (중급) 🎯
+> 아래 코드의 주석을 참고하여, 문자열 슬라이싱을 사용해 특정 부분을 추출해보세요.
+
+```python
+# 주어진 문자열
+sentence = "Hello World Python"
+word = "Programming"
+
+print("=== 문자열 슬라이싱 연습 ===")
+
+# TODO: 아래 주석을 참고하여 코드를 완성해보세요
+# 1. sentence에서 "World" 추출하기
+# world = 
+
+# 2. sentence에서 "Python" 추출하기 (음수 인덱스 사용)
+# python = 
+
+# 3. word에서 "Program" 추출하기
+# program = 
+
+# 4. word에서 "ming" 추출하기 (음수 인덱스 사용)
+# ming = 
+
+# 5. word에서 홀수 번째 문자들만 추출하기 (step=2)
+# odd_chars = 
+
+print("추출된 문자열들:")
+# print("World:", world)
+# print("Python:", python)
+# print("Program:", program)
+# print("ming:", ming)
+# print("홀수 번째 문자들:", odd_chars)
+```
+
+<details>
+  <summary><span class="green-text">정답 보기</span></summary>
+
+  <pre><code class="language-python">
+  # 주어진 문자열
+  sentence = "Hello World Python"
+  word = "Programming"
+
+  print("=== 문자열 슬라이싱 연습 ===")
+
+  # 1. sentence에서 "World" 추출하기
+  world = sentence[6:11]
+
+  # 2. sentence에서 "Python" 추출하기 (음수 인덱스 사용)
+  python = sentence[-6:]
+
+  # 3. word에서 "Program" 추출하기
+  program = word[:7]
+
+  # 4. word에서 "ming" 추출하기 (음수 인덱스 사용)
+  ming = word[-4:]
+
+  # 5. word에서 홀수 번째 문자들만 추출하기 (step=2)
+  odd_chars = word[::2]
+
+  print("추출된 문자열들:")
+  print("World:", world)
+  print("Python:", python)
+  print("Program:", program)
+  print("ming:", ming)
+  print("홀수 번째 문자들:", odd_chars)
+  </code></pre>
+</details>
+
+### 문자열 처리 유용한 함수 🛠️
+
+#### 문자열 길이 📏
+
+```python
+text = "Hello World"
+length = len(text)
+print(length)  # 11
+
+# 빈 문자열의 길이
+empty = ""
+print(len(empty))  # 0
+```
+
+> 💡 **팁**: <span class="yellow-code">len()</span> 함수는 문자열의 문자 개수를 반환합니다. 공백도 하나의 문자로 계산됩니다! 📊
+
+#### 문자열을 대문자로 변환 🔤
+
+```python
+text = "hello world"
+upper_text = text.upper()
+print(upper_text)  # HELLO WORLD
+
+# 원본은 변경되지 않음
+print(text)  # hello world
+```
+
+#### 문자열을 소문자로 변환 📝
+
+```python
+text = "HELLO WORLD"
+lower_text = text.lower()
+print(lower_text)  # hello world
+
+# 원본은 변경되지 않음
+print(text)  # HELLO WORLD
+```
+
+> 💡 **팁**: <span class="yellow-code">upper()</span>와 <span class="yellow-code">lower()</span> 메서드는 원본 문자열을 변경하지 않고 새로운 문자열을 반환합니다! 🔄
