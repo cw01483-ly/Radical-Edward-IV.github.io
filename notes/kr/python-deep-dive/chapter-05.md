@@ -420,30 +420,29 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from webdriver_manager.chrome import ChromeDriverManager
 
 # 브라우저 실행
-driver = webdriver.Chrome(ChromeDriverManager().install())
+driver = webdriver.Chrome()
 
 try:
     # 네이버 접속
     driver.get('https://www.naver.com')
-    
+
     # 검색창에 텍스트 입력
     search_box = driver.find_element(By.ID, 'query')
     search_box.send_keys('파이썬 크롤링')
-    
+
     # 검색 버튼 클릭
-    search_button = driver.find_element(By.ID, 'search_btn')
+    search_button = driver.find_element(By.CSS_SELECTOR, '.btn_search')
     search_button.click()
-    
+
     # 검색 결과 대기
-    wait = WebDriverWait(driver, 10)
-    results = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, '.result')))
-    
+    wait = WebDriverWait(driver, 5)
+    results = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, '.lst_view > .bx')))
+
     # 검색 결과 출력
-    for result in results[:5]:  # 상위 5개만
-        title = result.find_element(By.CSS_SELECTOR, '.title').text
+    for result in results[0:4]:  # 상위 5개만
+        title = result.find_element(By.CSS_SELECTOR, '.title_area').text
         print(title)
 
 finally:
