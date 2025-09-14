@@ -100,6 +100,8 @@ notes-kr:
         url:    /notes/kr/python-basic/chapter-01
       - title: 2. 연산자
         url:    /notes/kr/python-basic/chapter-02
+      - title: 3. 조건문
+        url:    /notes/kr/python-basic/chapter-03
   - title: Python DeepDive
     children:
       - title: 1. 파일 입출력
