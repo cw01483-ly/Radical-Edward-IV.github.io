@@ -68,6 +68,10 @@ notes-kr:
         url:    /notes/kr/linux-master/level-2-chapter-02
       - title:  3. 기본 명령어
         url:    /notes/kr/linux-master/level-2-chapter-03
+  - title:      정보처리기능사
+    children:
+      - title:  1. 응용 SW 기초 기술 활용
+        url:    /notes/kr/info-processing-technician/chapter-01
   - title:      정보처리기사
     children:
       - title:  1. 요구사항 분석
