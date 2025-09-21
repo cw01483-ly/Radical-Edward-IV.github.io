@@ -37,7 +37,8 @@ keywords: "정보처리기능사, 실기, 응용 SW 기초 기술 활용, 데이
 
 ### 운영체제의 구성 `제작감자 처서문어`{:.success}
 <span class="blue-text">제어 프로그램</span>(Control Program)
-- <span class="blue-text">감시 프로그램</span>, <span class="blue-text">작업 제어 프로그램</span>, <span class="blue-text">자료 관리 프로그램</span>
+- <span class="blue-text">감시 프로그램</span>, <span class="blue-text">작업 제어 프로그램</span>, <span class="blue-text">자료 관리 프로그램</span>   
+
 <span class="blue-text">처리 프로그램</span>(Processing Program)
 - <span class="blue-text">언어 번역 프로그램</span>, <span class="blue-text">서비스 프로그램</span>, <span class="blue-text">문제 프로그램</span>
 
