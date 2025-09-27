@@ -82,6 +82,11 @@ keywords: "정보처리기능사, 실기, 데이터베이스 기초 활용, 데�
 
 ### ER 도형의 종류
 
+<figure>
+<img src="/notes/assets/info-processing-technician/chapter-02-01.png" width="700px;" alt="ER 도형의 종류">
+<figcaption>https://en.wikipedia.org/wiki/Entity-relationship_model</figcaption>
+</figure>
+
 | 도형 | 의미 |
 |------|------|
 | <span class="blue-text">사각형</span> | 개체 타입(Entity Type) |
@@ -212,6 +217,25 @@ keywords: "정보처리기능사, 실기, 데이터베이스 기초 활용, 데�
 4. <span class="blue-text">결</span>정자이면서 후보키가 아닌 것 제거 (BCNF)
 5. <span class="blue-text">다</span>치 종속 제거 (4NF)
 6. <span class="blue-text">조</span>인 종속성 이용 (5NF)
+
+<figure>
+<img src="/notes/assets/info-processing-technician/chapter-02-02.png" width="70%;" alt="정규화 단계">
+</figure>
+
+<figure>
+<img src="/notes/assets/info-processing-technician/chapter-02-03.png" width="70%;" alt="정규화 단계">
+<figcaption>1NF</figcaption>
+</figure>
+
+<figure>
+<img src="/notes/assets/info-processing-technician/chapter-02-04.png" width="70%;" alt="정규화 단계">
+<figcaption>2NF</figcaption>
+</figure>
+
+<figure>
+<img src="/notes/assets/info-processing-technician/chapter-02-05.png" width="70%;" alt="정규화 단계">
+<figcaption>3NF</figcaption>
+</figure>
 
 ### 이상(Anomaly)의 종류 `삽삭갱`{:.success}
 * <span class="blue-text">삽입 이상(Insertion Anomaly)</span>: 데이터 삽입 시 의도와 상관없이 원하지 않은 값들도 함께 삽입

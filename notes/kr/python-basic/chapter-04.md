@@ -30,11 +30,6 @@ keywords: "Python, 변수, 자료형, 기초 과정, 데이터 처리, 프로그
 프로그래밍에서 반복문을 사용하면 코드를 간결하게 작성할 수 있고, 효율성을 높일 수 있습니다.  
 Python에서는 <span class="blue-text">while문과 for문</span> 두 가지 반복문을 제공하며, 각각 고유한 특징과 용도가 있습니다.
 
-<figure>
-    <img src="/notes/assets/python-basic/chapter-04-01.png" width="70%" alt="반복문 종류 예시">
-    <figcaption>반복문 종류 예시</figcaption>
-</figure>
-
 ## 반복문 종류 🔄
 
 | 반복문 종류 | 설명 | 사용 시기 |
@@ -44,7 +39,8 @@ Python에서는 <span class="blue-text">while문과 for문</span> 두 가지 반
 
 ## 1. while문 🔁
 
-while문은 <span class="blue-text">조건이 참인 동안 지속적으로 코드 블록을 반복 실행</span>하는 구문입니다. 반복 횟수를 미리 알 수 없는 경우나 조건에 따라 반복을 수행해야 하는 경우에 유용합니다.
+while문은 <span class="blue-text">조건이 참인 동안 지속적으로 코드 블록을 반복 실행</span>하는 구문입니다.   
+반복 횟수를 미리 알 수 없는 경우나 조건에 따라 반복을 수행해야 하는 경우에 유용합니다.
 
 ### while문의 기본 구조
 
@@ -200,16 +196,13 @@ while num < 20:
 
 # num = 0
 # while num < 20:
-#     num += 1
-#     
 #     # 3의 배수인 경우 "짝" 출력하고 다음 반복으로
-#     if num % 3 == 0:
+#     if True:
 #         print("짝", end=" ")
-#         continue
 #     
 #     # 17인 경우 루프 중단
-#     if num == 17:
-#         break
+#     if True:
+#         pass
 #     
 #     print(num, end=" ")
 ```
@@ -269,7 +262,8 @@ while day <= 5:
 
 ## 2. for문 🔄
 
-for문은 <span class="blue-text">반복 횟수를 미리 알 수 있는 경우</span>에 사용하는 반복문입니다. 리스트, 문자열, range() 함수 등과 함께 사용하여 간결하고 효율적인 코드를 작성할 수 있습니다.
+for문은 <span class="blue-text">반복 횟수를 미리 알 수 있는 경우</span>에 사용하는 반복문입니다.   
+리스트, 문자열, range() 함수 등과 함께 사용하여 간결하고 효율적인 코드를 작성할 수 있습니다.
 
 ### for문의 기본 구조
 
@@ -373,20 +367,12 @@ print(sum)  # 4950
 ```python
 # TODO: 아래 주석을 참고하여 코드를 완성해보세요
 # 1. 1부터 10까지 출력
-# for i in range(1, 11):
-#     print(i)
 
 # 2. 0부터 9까지 출력
-# for i in range(10):
-#     print(i)
 
 # 3. 2부터 20까지 짝수만 출력
-# for i in range(2, 21, 2):
-#     print(i)
 
 # 4. 10부터 1까지 역순으로 출력
-# for i in range(10, 0, -1):
-#     print(i)
 ```
 
 <details>
@@ -457,22 +443,10 @@ for m in range(2, 10):        # 2단부터 9단까지
 ```python
 # TODO: 아래 주석을 참고하여 코드를 완성해보세요
 # 1. 3단만 출력하기
-# for n in range(1, 10):
-#     print("3 X", n, "=", 3 * n)
 
 # 2. 5단부터 7단까지 출력하기
-# for m in range(5, 8):
-#     print(f"=== {m}단 ===")
-#     for n in range(1, 10):
-#         print(f"{m} X {n} = {m * n}")
-#     print()
 
 # 3. 역순 구구단 (9단부터 2단까지)
-# for m in range(9, 1, -1):
-#     print(f"=== {m}단 ===")
-#     for n in range(1, 10):
-#         print(f"{m} X {n} = {m * n}")
-#     print()
 ```
 
 <details>
@@ -644,10 +618,7 @@ for i in range(5):
 *****
 ```
 
-### 문제 2: 구구단 표 (중급)
-전체 구구단을 표 형태로 예쁘게 출력하는 프로그램을 작성하세요.
-
-### 문제 3: 소수 찾기 (고급)
+### 문제 2: 소수 찾기 (고급)
 1부터 100까지의 소수를 모두 찾아 출력하는 프로그램을 작성하세요.
 
 <details>
@@ -658,14 +629,7 @@ for i in range(5):
   for i in range(1, 6):
       print("*" * i)
 
-  # 문제 2: 구구단 표
-  for i in range(2, 10):
-      print(f"=== {i}단 ===")
-      for j in range(1, 10):
-          print(f"{i} X {j} = {i*j:2d}")
-      print()
-
-  # 문제 3: 소수 찾기
+  # 문제 2: 소수 찾기
   for num in range(2, 101):
       is_prime = True
       for i in range(2, int(num**0.5) + 1):

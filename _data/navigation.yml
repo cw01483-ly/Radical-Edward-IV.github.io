@@ -74,6 +74,8 @@ notes-kr:
         url:    /notes/kr/info-processing-technician/chapter-01
       - title:  2. 데이터베이스 기초 활용
         url:    /notes/kr/info-processing-technician/chapter-02
+      - title:  3. 네트워크 기초 활용
+        url:    /notes/kr/info-processing-technician/chapter-03
   - title:      정보처리기사
     children:
       - title:  1. 요구사항 분석
@@ -110,6 +112,10 @@ notes-kr:
         url:    /notes/kr/python-basic/chapter-03
       - title: 4. 반복문
         url:   /notes/kr/python-basic/chapter-04
+      - title: 5. 리스트
+        url:   /notes/kr/python-basic/chapter-05
+      - title: 6. 딕셔너리
+        url:   /notes/kr/python-basic/chapter-06
   - title: Python DeepDive
     children:
       - title: 1. 파일 입출력
