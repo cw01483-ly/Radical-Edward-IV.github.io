@@ -95,9 +95,9 @@ IPv6은 <span class="blue-text">IPv4의 주소 부족 문제를 해결하기 위
 #### 도메인 네임 구조
 ```
 www.my-company.co.kr
-│   │         │  │
-│   │         │  └─ 국가 도메인 (.kr)
-│   │         └──── 기관 종류 (.co)
+│   │          │  │
+│   │          │  └─ 국가 도메인 (.kr)
+│   │          └──── 기관 종류 (.co)
 │   └─────────────── 기관 이름 (my-company)
 └─────────────────── 호스트 이름 (www)
 ```
@@ -116,16 +116,16 @@ www.my-company.co.kr
 ### OSI(Open System Interconnection) 참조 모델의 개요
 OSI 참조 모델은 <span class="blue-text">다른 시스템 간의 원활한 통신을 위해 ISO(국제표준화기구)에서 제안한 통신 규약(Protocol)</span>이다.
 
+<figure>
+<img src="/notes/assets/info-processing-technician/chapter-03-01.webp" width="80%" alt="OSI 참조 모델 7계층">
+<figcaption>https://www.geeksforgeeks.org/computer-networks/tcp-ip-model/</figcaption>
+</figure>
+
 #### OSI 모델의 특징 `개개`{:.success}
 * <span class="blue-text">개방형 시스템</span> 간의 데이터 통신 시 필요한 장비 및 처리 방법을 7단계로 표준화
 * <span class="blue-text">계층별 분리</span>: 1~3계층(하위), 4~7계층(상위)
 
-<figure>
-<img src="/notes/assets/info-processing-technician/chapter-03-01.png" width="80%" alt="OSI 참조 모델 7계층">
-<figcaption>OSI 참조 모델 7계층 구조</figcaption>
-</figure>
-
-### OSI 참조 모델 계층별 특징 `물데네전세표응`{:.success}
+### OSI 참조 모델 계층별 특징 `응표세전네데물`{:.success}
 
 | 계층 | 계층명 | 주요 기능 | 표준 예시 | PDU |
 |------|--------|-----------|-----------|-----|
@@ -177,3 +177,184 @@ OSI 참조 모델은 <span class="blue-text">다른 시스템 간의 원활한 �
 
 > 💡 **팁**: <span class="blue-text">PDU(Protocol Data Unit)</span>는 각 계층에서 처리하는 데이터의 단위를 의미합니다! 각 계층마다 다른 형태의 데이터를 다룹니다! 🔄
 
+## 4. 네트워크 관련 장비 :star::star:
+
+### 네트워크 인터페이스 카드(NIC)
+네트워크 인터페이스 카드는 <span class="blue-text">컴퓨터와 컴퓨터 또는 컴퓨터와 네트워크를 연결하는 장치</span>이다.
+* <span class="blue-text">정보 전송 시 정보가 케이블을 통해 전송될 수 있도록 정보 형태 변환</span>
+* <span class="yellow-code">이더넷 카드</span> 혹은 <span class="yellow-code">네트워크 어댑터</span>라고도 함
+
+### 허브(Hub)
+허브는 <span class="blue-text">한 사무실이나 가까운 거리의 컴퓨터들을 연결하는 장치</span>이다.
+* 각 회선을 통합적으로 관리하며, 신호 증폭 기능을 하는 리피터 역할도 포함
+
+#### 허브의 종류 `더스`{:.success}
+
+##### 더미 허브(Dummy Hub)
+* <span class="blue-text">네트워크에 흐르는 모든 데이터를 단순히 연결만 함</span>
+* LAN이 보유한 대역폭을 컴퓨터 수만큼 나누어 제공
+* 네트워크에 연결된 각 노드를 물리적인 성형 구조로 연결
+
+##### 스위칭 허브(Switching Hub)
+* <span class="blue-text">네트워크상에 흐르는 데이터의 유무 및 흐름을 제어</span>하여 각각의 노드가 허브의 최대 대역폭을 사용할 수 있는 지능형 허브
+* 최근에 사용되는 허브는 대부분 스위칭 허브
+
+### 리피터(Repeater)
+리피터는 <span class="blue-text">전송되는 신호가 전송 선로의 특성 및 외부 충격 등의 요인으로 인해 원래의 형태와 다르게 왜곡되거나 약해질 경우 원래의 신호 형태로 재생하여 다시 전송</span>하는 장치이다.
+* <span class="blue-text">OSI 참조 모델의 물리 계층</span>에서 동작
+* <span class="blue-text">근접한 네트워크 사이에 신호 전송</span>
+
+### 브리지(Bridge)
+브리지는 <span class="blue-text">LAN과 LAN을 연결하거나 LAN 안의 컴퓨터 그룹을 연결</span>하는 장치이다.
+
+#### 브리지의 특징 `데네트보`{:.success}
+* <span class="blue-text">데이터 링크 계층 중 MAC 계층</span>에서 사용
+* <span class="blue-text">네트워크 상의 많은 단말기들에 의해 발생되는 트래픽 병목 현상</span> 줄임
+* <span class="blue-text">네트워크를 분산적으로 구성하여 보안</span> 향상
+* <span class="blue-text">브리지를 이용한 서브넷 구성 시 전송 가능한 회선 수</span>: n개일 때 n(n-1)/2개
+
+### 스위치(Switch)
+스위치는 <span class="blue-text">브리지와 같이 LAN과 LAN을 연결하여 훨씬 더 큰 LAN을 만드는 장치</span>이다.
+
+#### 스위치의 특징 `하포수데`{:.success}
+* <span class="blue-text">하드웨어를 기반으로 처리</span>해 빠름
+* <span class="blue-text">포트마다 각기 다른 전송 속도</span>를 지원하도록 제어 가능
+* <span class="blue-text">수십에서 수백개의 포트</span> 제공
+* <span class="blue-text">OSI 참조 모델의 데이터 링크 계층</span>에서 사용
+
+#### 스위치의 종류 `L2L3L4L7`{:.success}
+
+| 스위치 종류 | OSI 계층 | 설명 | 주요 기능 | 연결 범위 |
+|-------------|----------|------|-----------|-----------|
+| <span class="blue-text">L2 스위치</span> | 2계층 | 일반적인 스위치 | MAC주소를 기반으로 프레임 전송 | 동일 네트워크 간의 연결 |
+| <span class="blue-text">L3 스위치</span> | 3계층 | L2 스위치에 라우터 기능 추가 | IP 주소를 기반으로 패킷 전송 | 서로 다른 네트워크 간 연결 |
+| <span class="blue-text">L4 스위치</span> | 4계층 | 로드밸런서가 달린 L3 스위치 | IP 주소 및 TCP/UDP를 기반으로 로드밸런싱 | 부하 분산 |
+| <span class="blue-text">L7 스위치</span> | 7계층 | 세밀한 로드 밸런싱 | 애플리케이션 계층에서 로드 밸런싱 | 고급 부하 분산 |
+
+### 라우터(Router)
+라우터는 <span class="blue-text">브리지와 같이 LAN과 LAN의 연결 기능에 데이터 전송의 최적 경로를 선택할 수 있는 기능이 추가된 것</span>이다.
+
+#### 라우터의 특징 `네접프`{:.success}
+* <span class="blue-text">네트워크 계층</span>에서 동작하는 장비
+* <span class="blue-text">접속 가능한 경로에 대한 정보를 라우팅 제어표에 저장</span>하여 보관
+* <span class="blue-text">프로토콜 변환</span> 수행 (3계층까지의 프로토콜 구조가 다른 네트워크 간의 연결)
+
+### 게이트웨이(Gateway)
+게이트웨이는 <span class="blue-text">전 계층의 프로토콜 구조가 다른 네트워크의 연결을 수행</span>하는 장치이다.
+
+#### 게이트웨이의 기능 `세표응출`{:.success}
+* <span class="blue-text">세션, 표현, 응용 계층</span> 간을 연결
+* <span class="blue-text">데이터 형식 변환, 주소 변환, 프로토콜 변환</span> 등을 수행
+* <span class="blue-text">출입구 역할</span>: LAN에서 다른 네트워크에 데이터를 보내거나 받아들이는 역할
+
+## 5. TCP/IP 프로토콜 :star::star::star:
+
+### 프로토콜(Protocol)의 개념
+프로토콜은 <span class="blue-text">서로 다른 기기들 간의 데이터 교환을 원활하게 수행할 수 있도록 표준화시켜 놓은 통신 규약</span>이다.
+
+#### 프로토콜의 기본 요소 `구의시`{:.success}
+
+| 요소 | 설명 | 내용 |
+|------|------|------|
+| <span class="blue-text">구문(Syntax)</span> | 전송하고자 하는 데이터의 형식 | 부호화, 신호 레벨 등을 규정 |
+| <span class="blue-text">의미(Semantics)</span> | 두 기기 간의 효율적이고 정확한 정보 전송을 위한 협조 사항 | 오류 관리를 위한 제어 정보 규정 |
+| <span class="blue-text">시간(Timing)</span> | 두 기기 간의 통신 속도, 메시지의 순서 제어 | 통신 속도, 순서 제어 등을 규정 |
+
+#### 프로토콜의 기능 `단캡흐오동순주다경전`{:.success}
+단편화와 재결합, 캡슐화, 흐름 제어, 오류 제어, 동기화, 순서 제어, 주소 지정, 다중화, 경로 제어, 전송 서비스 등
+
+### TCP/IP의 개요
+TCP/IP는 <span class="blue-text">인터넷에 연결된 서로 다른 기종의 컴퓨터들이 데이터를 주고받을 수 있도록 하는 표준 프로토콜</span>이다.
+
+#### TCP와 UDP 비교 `신연패`{:.success}
+
+| 프로토콜 | OSI 계층 | 서비스 유형 | 주요 특징 |
+|----------|----------|-------------|-----------|
+| <span class="blue-text">TCP</span> | 전송 계층 | <span class="blue-text">신뢰성 있는 연결형</span> 서비스 | 3-way-handshake, 패킷의 다중화, 순서 제어, 오류 제어, 흐름 제어 |
+| <span class="blue-text">UDP</span> | 전송 계층 | <span class="blue-text">비연결형</span> 서비스 | 데이터그램 기반, 패킷의 분해/조립, 주소 지정, 경로 선택 |
+
+### TCP/IP의 구조 `응전인네`{:.success}
+
+| OSI 모델 | TCP/IP 계층 | 주요 기능 | 프로토콜 예시 |
+|----------|-------------|-----------|---------------|
+| <span class="blue-text">응용, 표현, 세션</span> | <span class="blue-text">응용 계층</span> | 응용 프로그램 간의 데이터 송수신 제공 | TELNET, FTP, SMTP, SNMP, DNS, HTTP |
+| <span class="blue-text">전송 계층</span> | <span class="blue-text">전송 계층</span> | 호스트들 간의 신뢰성 있는 통신 제공 | TCP, UDP, RTCP |
+| <span class="blue-text">네트워크 계층</span> | <span class="blue-text">인터넷 계층</span> | 데이터 전송을 위한 주소 지정, 경로 설정 제공 | IP, IPX, ICMP, ARP, RARP, OSPF |
+| <span class="blue-text">데이터 링크, 물리</span> | <span class="blue-text">네트워크 액세스 계층</span> | 실제 데이터를 송수신하는 역할 | Ethernet, IEEE 802, HDLC, X.25, RS-232C, ARQ |
+
+> 💡 **팁**: <span class="blue-text">TCP/IP는 4계층 구조</span>로 OSI 7계층보다 단순화되어 있으며, 실제 인터넷에서 가장 널리 사용되는 프로토콜입니다! 🌐
+
+### 주요 프로토콜
+
+#### 응용 계층 프로토콜 `HTTPTELFTP`{:.success}
+
+##### HTTP (HyperText Transfer Protocol)
+* <span class="blue-text">웹(WWW)에서 HTML로 작성된 하이퍼텍스트 문서를 전송하기 위한 표준 프로토콜</span>
+* 1989년 <span class="yellow-code">버너스리(Berners-Lee)</span>가 WWW를 고안하면서 설계
+* <span class="blue-text">HTTPS (HyperText Transfer Protocol Secure)</span>: HTTP의 단점을 보완하고, 안전한 통신을 위해 SSL/TLS의 인증, 암호화 기능을 지원
+
+##### TELNET
+* <span class="blue-text">멀리 떨어져 있는 컴퓨터에 접속하여 자신의 컴퓨터처럼 사용할 수 있도록 해주는 서비스</span>
+* 프로그램을 실행하는 등 시스템 관리 작업을 할 수 있는 <span class="blue-text">가상의 터미널(Virtual Terminal)</span> 기능을 수행
+
+##### FTP (File Transfer Protocol)
+* <span class="blue-text">컴퓨터와 컴퓨터 또는 컴퓨터와 인터넷 사이에서 파일을 주고받을 수 있도록 하는 원격 파일 전송 프로토콜</span>
+
+##### SMTP (Simple Mail Transfer Protocol)
+* <span class="blue-text">전자 우편(E-Mail)을 전송하는 프로토콜</span> (보내기)
+
+##### IMAP (Internet Messaging Access Protocol)
+* <span class="blue-text">로컬 서버에서 프로그램을 이용하여 전자 우편을 액세스하기 위한 표준 프로토콜</span> (받기)
+
+##### SNMP (Simple Network Management Protocol)
+* <span class="blue-text">TCP/IP의 네트워크 관리 프로토콜</span>로, 라우터나 허브 등 네트워크 기기의 네트워크 정보를 네트워크 관리 시스템에 보내는 데 사용되는 표준 통신 규약
+
+##### SSH (Secure Shell)
+* <span class="blue-text">다른 네트워크상의 컴퓨터에 원격 접속하거나 파일을 복사할 수 있게 해주는 응용 프로토콜</span>
+* <span class="yellow-code">22번 포트</span>를 사용
+* rsh, rcp, rlogin, rexec 및 TELNET, FTP 서비스 등을 대체하기 위한 <span class="blue-text">네트워크 보안 도구</span> (TELNET 강화)
+
+#### 전송 계층 프로토콜 `UDPRTCP`{:.success}
+
+##### UDP (User Datagram Protocol)
+* <span class="blue-text">비연결형 서비스</span>로 데이터 전송 전에 연결을 설정하지 않음
+* TCP보다 <span class="blue-text">간단한 헤더 구조</span>로 오버헤드가 적음
+* <span class="blue-text">흐름 제어나 순서 제어가 없어</span> 전송 속도가 빠름
+* <span class="red-text">확인은 안함</span> (신뢰성 낮음)
+
+##### RTCP (Real-Time Control Protocol)
+* <span class="blue-text">RTP(Real-time Transport Protocol) 패킷의 전송 품질을 제어하기 위한 제어 프로토콜</span>
+* 데이터 전송을 모니터링하고 최소한의 제어 및 인증 기능을 제공
+
+#### 인터넷 계층 프로토콜 `ICMPIGMP`{:.success}
+
+##### ICMP (Internet Control Message Protocol)
+* <span class="blue-text">IP와 함께 동작하여 통신 중 오류의 처리와 전송 경로 변경을 위한 제어 메시지를 관리</span>
+* <span class="yellow-code">헤더는 8바이트</span>
+* <span class="blue-text">네트워크 상태 알림</span> 기능
+
+##### IGMP (Internet Group Management Protocol)
+* <span class="blue-text">멀티캐스트를 지원하는 호스트나 라우터 간에 멀티캐스트 그룹을 유지</span>하는 데 사용
+
+#### 네트워크 진단 도구 `ping`{:.success}
+
+##### ping
+* <span class="blue-text">특정 호스트가 현재 네트워크에 연결되어 정상적으로 동작하는지 확인</span>하는 서비스
+* <span class="blue-text">ICMP를 사용하여 특정 호스트에 대한 연결성을 확인</span>
+
+#### 주소 변환 프로토콜 `ARPRARPDHCP`{:.success}
+
+##### ARP (Address Resolution Protocol)
+* <span class="blue-text">호스트의 IP 주소를 해당 호스트에 연결된 네트워크 액세스 장치의 물리 주소(MAC Address)로 변환</span>
+* <span class="yellow-code">IP → MAC</span> 변환
+
+##### RARP (Reverse Address Resolution Protocol)
+* <span class="blue-text">물리 주소를 IP 주소로 변환하는 기능</span>으로, ARP와 반대
+* <span class="yellow-code">MAC → IP</span> 변환
+
+##### DHCP (Dynamic Host Configuration Protocol)
+* <span class="blue-text">IP 주소 부족 문제를 해결하기 위해 만들어진 프로토콜</span>
+* <span class="blue-text">일정 기간 동안 IP 주소를 임대</span>하여 사용 가능한 IP 주소 수보다 더 많은 컴퓨터가 IP 주소를 활용할 수 있게 함
+* <span class="yellow-code">자동 IP 할당</span>
+
+> 💡 **팁**: <span class="blue-text">각 프로토콜은 특정 계층에서 동작</span>하며, 서로 다른 목적과 기능을 가지고 있습니다! 네트워크 통신의 각 단계에서 적절한 프로토콜이 사용됩니다! 🌐
