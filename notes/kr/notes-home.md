@@ -12,6 +12,7 @@ sidebar:
 * [SQL 개발자](/notes/kr/sql-developer/chapter-01) <sub>👈 클릭 시 이동</sub>
 * [SQL 전문가](/notes/kr/sql-professional/chapter-01-01) <sub>👈 클릭 시 이동</sub>
 * [리눅스마스터 2급](/notes/kr/linux-master/level-2-chapter-01) <sub>👈 클릭 시 이동</sub>
+* [정보처리기능사 - 시나공 정보처리기능사 실기 정리 노트](/notes/kr/info-processing-technician/chapter-01) <sub>👈 클릭 시 이동</sub>
 * [정보처리기사 - 수제비 정보처리기사 실기 정리 노트](/notes/kr/info-processing-engineer/chapter-01) <sub>👈 클릭 시 이동</sub>
 * [Python Basic](/notes/kr/python-basic/chapter-01) <sub>👈 클릭 시 이동</sub>
 * [Python DeepDive](/notes/kr/python-deep-dive/chapter-01) <sub>👈 클릭 시 이동</sub>

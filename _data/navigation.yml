@@ -78,6 +78,8 @@ notes-kr:
         url:    /notes/kr/info-processing-technician/chapter-03
       - title:  4. 프로그래밍 언어의 종류
         url:    /notes/kr/info-processing-technician/chapter-04
+      - title:  5. C 언어
+        url:    /notes/kr/info-processing-technician/chapter-05
   - title:      정보처리기사
     children:
       - title:  1. 요구사항 분석
@@ -107,19 +109,21 @@ notes-kr:
   - title: Python Basic
     children:
       - title: 1. 변수와 자료형
-        url:    /notes/kr/python-basic/chapter-01
+        url:   /notes/kr/python-basic/chapter-01
       - title: 2. 연산자
-        url:    /notes/kr/python-basic/chapter-02
+        url:   /notes/kr/python-basic/chapter-02
       - title: 3. 조건문
-        url:    /notes/kr/python-basic/chapter-03
+        url:   /notes/kr/python-basic/chapter-03
       - title: 4. 반복문
         url:   /notes/kr/python-basic/chapter-04
       - title: 5. 리스트
         url:   /notes/kr/python-basic/chapter-05
       - title: 6. 딕셔너리
         url:   /notes/kr/python-basic/chapter-06
-      - title: 7. 튜플
+      - title: 7. 튜플과 세트
         url:   /notes/kr/python-basic/chapter-07
+      - title: 8. 함수
+        url:   /notes/kr/python-basic/chapter-08
   - title: Python DeepDive
     children:
       - title: 1. 파일 입출력
