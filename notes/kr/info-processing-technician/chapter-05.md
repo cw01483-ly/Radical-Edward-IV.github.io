@@ -64,6 +64,86 @@ keywords: "정보처리기능사, 실기, 라이브러리, 프로그래밍 언�
             resultDiv.innerHTML = '<span style="color: #D53C41; font-weight: bold;">오답입니다.</span>';
         }
     }
+
+    function checkConditionAnswer() {
+        const userAnswer = document.getElementById("condition-answer").value.trim();
+        const correctAnswer = "1";
+        
+        const button = document.getElementById("condition-answerButton");
+        const resultDiv = document.getElementById("condition-answerResult");
+        
+        if (userAnswer === correctAnswer) {
+            button.style.display = "none";
+            resultDiv.innerHTML = '<span style="color: #448F52; font-weight: bold;">정답입니다.</span>';
+        } else {
+            button.style.display = "none";
+            resultDiv.innerHTML = '<span style="color: #D53C41; font-weight: bold;">오답입니다.</span>';
+        }
+    }
+
+    function checkIncrementAnswer() {
+        const userAnswer = document.getElementById("increment-answer").value.trim();
+        const correctAnswer = "15";
+        
+        const button = document.getElementById("increment-answerButton");
+        const resultDiv = document.getElementById("increment-answerResult");
+        
+        if (userAnswer === correctAnswer) {
+            button.style.display = "none";
+            resultDiv.innerHTML = '<span style="color: #448F52; font-weight: bold;">정답입니다.</span>';
+        } else {
+            button.style.display = "none";
+            resultDiv.innerHTML = '<span style="color: #D53C41; font-weight: bold;">오답입니다.</span>';
+        }
+    }
+
+    function checkBitwiseAnswer() {
+        const userAnswer = document.getElementById("bitwise-answer").value.trim();
+        const correctAnswer = "4";
+        
+        const button = document.getElementById("bitwise-answerButton");
+        const resultDiv = document.getElementById("bitwise-answerResult");
+        
+        if (userAnswer === correctAnswer) {
+            button.style.display = "none";
+            resultDiv.innerHTML = '<span style="color: #448F52; font-weight: bold;">정답입니다.</span>';
+        } else {
+            button.style.display = "none";
+            resultDiv.innerHTML = '<span style="color: #D53C41; font-weight: bold;">오답입니다.</span>';
+        }
+    }
+
+    function checkRandAnswer() {
+        const userAnswer = document.getElementById("rand-answer").value.trim().toLowerCase();
+        const correctAnswer = "rand()";
+        
+        const button = document.getElementById("rand-answerButton");
+        const resultDiv = document.getElementById("rand-answerResult");
+        
+        if (userAnswer === "rand()" || userAnswer === "rand") {
+            button.style.display = "none";
+            resultDiv.innerHTML = '<span style="color: #448F52; font-weight: bold;">정답입니다.</span>';
+        } else {
+            button.style.display = "none";
+            resultDiv.innerHTML = '<span style="color: #D53C41; font-weight: bold;">오답입니다.</span>';
+        }
+    }
+
+    function checkPriorityAnswer() {
+        const userAnswer = document.getElementById("priority-answer").value.trim();
+        const correctAnswer = "*, +, =";
+        
+        const button = document.getElementById("priority-answerButton");
+        const resultDiv = document.getElementById("priority-answerResult");
+        
+        if (userAnswer === correctAnswer) {
+            button.style.display = "none";
+            resultDiv.innerHTML = '<span style="color: #448F52; font-weight: bold;">정답입니다.</span>';
+        } else {
+            button.style.display = "none";
+            resultDiv.innerHTML = '<span style="color: #D53C41; font-weight: bold;">오답입니다.</span>';
+        }
+    }
 </script>
 
 ![header](https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EB%8A%A5%EC%82%AC&reversal=false&textBg=false)
@@ -440,6 +520,23 @@ int main()
 | ++ | 증가 |
 | -- | 감소 |
 
+#### 기출문제 - 증가/감소 연산자 사용하기
+
+```c
+#include <stdio.h>
+
+void main(void)
+{
+    int x=7;int y=7;int a;
+    a=++x + y--;
+    printf("%d\n",a);
+}
+```
+
+답: <input type="text" id="increment-answer" placeholder="정답을 입력하세요">
+<input type="button" id="increment-answerButton" value="정답 보기" onclick="checkIncrementAnswer()" style="background-color: #448F52; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">
+<div id="increment-answerResult"></div>
+
 #### 관계 연산자
 
 | 관계 연산자 | 의미 |
@@ -462,6 +559,22 @@ int main()
 | << | 비트 왼쪽 시프트 |
 | >> | 비트 오른쪽 시프트 |
 
+#### 기출문제 - 비트 연산자 사용하기
+
+```c
+int main()
+{
+    int a,b,result;
+    a=7;b=4;
+    result=a&b;
+    printf("%d",result);
+}
+```
+
+답: <input type="text" id="bitwise-answer" placeholder="정답을 입력하세요">
+<input type="button" id="bitwise-answerButton" value="정답 보기" onclick="checkBitwiseAnswer()" style="background-color: #448F52; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">
+<div id="bitwise-answerResult"></div>
+
 #### 논리 연산자
 
 | 논리 연산자 | 의미 |
@@ -481,6 +594,23 @@ int main()
 ```c
 조건 ? 참일 때 실행할 코드 : 거짓일 때 실행할 코드
 ```
+
+#### 기출문제 - 조건 연산자 사용하기
+
+```c
+int main(void)
+{
+    ina a = 15;
+
+    printf("%d", a > 10 ? 1 : 0);
+
+    return 0;
+}
+```
+
+답: <input type="text" id="condition-answer" placeholder="정답을 입력하세요">
+<input type="button" id="condition-answerButton" value="정답 보기" onclick="checkConditionAnswer()" style="background-color: #448F52; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">
+<div id="condition-answerResult"></div>
 
 #### 기타 연산자
 
@@ -561,6 +691,19 @@ int main()
 </table>
 
 > 💡 **팁**: 연산자 우선순위는 <span class="blue-text">수학의 연산 순서</span>와 유사합니다! 괄호를 사용하면 명확하게 표현할 수 있습니다! 🧮
+
+#### 기출문제 - 연산자 우선순위
+
+다음 연산자들을 우선순위가 높은 순서대로 나열하세요: `*`, `+`, `=`
+
+답: <input type="text" id="priority-answer" placeholder="예: *, +, =">
+<input type="button" id="priority-answerButton" value="정답 보기" onclick="checkPriorityAnswer()" style="background-color: #448F52; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">
+<div id="priority-answerResult"></div>
+
+> 💡 **해설**: 
+> - `*` (곱셈): 산술 연산자로 우선순위 높음
+> - `+` (덧셈): 산술 연산자로 곱셈보다 낮음
+> - `=` (대입): 대입 연산자로 가장 낮음
 
 ## 2. C언어의 제어문 :star::star::star:
 
@@ -946,3 +1089,48 @@ int factorial(int n)
 - **스택 사용**: 함수 호출이 스택에 쌓임
 
 > 💡 **팁**: 재귀 함수는 <span class="red-text">기본 조건</span>이 없으면 무한 반복에 빠진다! 반드시 종료 조건을 설정해야 한다! ⚠️
+
+## 5. C언어의 라이브러리 함수
+
+### rand() 함수 - 난수 생성
+
+C언어에서 난수를 생성할 때 사용하는 함수입니다.
+
+#### rand() 함수 사용법
+
+```c
+#include <stdio.h>
+#include <stdlib.h>  // rand() 함수를 사용하기 위해 필요
+
+int main()
+{
+    // 0부터 99까지의 난수 생성
+    int random_num = rand() % 100;
+    printf("난수: %d\n", random_num);
+    
+    return 0;
+}
+```
+
+#### 특정 범위의 난수 생성
+
+```c
+// 1부터 70까지의 난수 생성
+int random_num = 1 + (rand() % 70);
+```
+
+#### 기출문제 - rand() 함수 사용하기
+
+다음은 C언어로 구현된 1~70까지의 난수를 구하는 프로그램이다. 빈 칸에 알맞은 라이브러리 함수를 입력하시오.
+
+```c
+int main()
+{
+    for(int i=0;i<10;i++)
+        printf("%d\n",1+(       )%70);
+}
+```
+
+답: <input type="text" id="rand-answer" placeholder="정답을 입력하세요">
+<input type="button" id="rand-answerButton" value="정답 보기" onclick="checkRandAnswer()" style="background-color: #448F52; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">
+<div id="rand-answerResult"></div>
