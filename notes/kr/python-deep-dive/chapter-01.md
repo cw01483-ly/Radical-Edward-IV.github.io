@@ -26,18 +26,19 @@ keywords: "Python, 파일 입출력, 심화 과정, 데이터 처리, 프로그�
 
 ![header](https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=Python%20DeepDive&reversal=false&textBg=false)
 
-> 파이썬은 데이터를 다루는 데 아주 강력한 도구예요. 데이터를 다루려면 '파일'에서 정보를 가져오거나(<span class="blue-text">입력</span>), 파일에 새로운 정보를 저장하는(<span class="blue-text">출력</span>) 방법을 알아야 합니다.
+> 파이썬은 데이터를 다루는 데 아주 강력한 도구예요.   
+> 우리는 지금까지 터미널을 통해서 값을 입력 받거나 출력 하는 방식을 사용했어요.
+> 데이터를 다루려면 '파일'에서 정보를 가져오거나(<span class="blue-text">입력</span>), 파일에 새로운 정보를 저장하는(<span class="blue-text">출력</span>) 방법을 알아야 합니다.
 >
 > * **입력(Input)**: 파일에서 데이터를 프로그램으로 읽어오기
 > * **출력(Output)**: 프로그램의 데이터를 파일에 저장하기
 >
-> <span class="blue-text">프로그램이 노트를 펴서 내용을 읽거나, 새로운 내용을 쓰는 과정</span>이라고 생각하면 쉬워요! 😉
-
----
+> <span class="blue-text">프로그램이 노트를 펴서 내용을 읽거나, 새로운 내용을 쓰는 과정</span>이라고 생각하면 쉬워요!
 
 ## 1. 파일 열고 닫기: `open()` 과 `with`
 
-파일을 읽거나 쓰려면, 가장 먼저 <span class="blue-text">파일을 열어야</span> 합니다. 파이썬에서는 <code class="yellow-code">open()</code> 함수를 사용해요.
+파일을 읽거나 쓰려면, 가장 먼저 <span class="blue-text">파일을 열어야</span> 합니다.   
+파이썬에서는 <code class="yellow-code">open()</code> 함수를 사용해요.
 
 <code class="yellow-code">open("파일이름", "모드")</code>
 
@@ -46,16 +47,14 @@ keywords: "Python, 파일 입출력, 심화 과정, 데이터 처리, 프로그�
 | 모드 | 기능 | 설명 |
 | :--: | :--- | :--- |
 | <span class="blue-text">r</span> | 읽기 (read) | 파일의 내용을 읽기만 할 때 사용해요. |
-| <span class="blue-text">w</span> | 쓰기 (write) | 파일에 내용을 쓸 때 사용해요. <span class="red-text">주의! 기존 내용은 모두 사라지고 새로 써져요.</span> |
-| <span class="blue-text">a</span> | 추가 (append) | 파일의 맨 끝에 새로운 내용을 추가해요. <span class="green-text">기존 내용이 안전하게 유지돼요.</span> |
-
-<br>
+| <span class="blue-text">w</span> | 쓰기 (write) | 파일에 내용을 쓸 때 사용해요. <br /><span class="red-text">기존 내용은 모두 사라지고 새로 써져요.</span> |
+| <span class="blue-text">a</span> | 추가 (append) | 파일의 맨 끝에 새로운 내용을 추가해요. <br /><span class="green-text">기존 내용이 안전하게 유지돼요.</span> |
 
 #### 💡 가장 안전하고 편한 방법: `with`
 
 파일 작업이 끝나면 반드시 `close()`로 닫아줘야 해요. 하지만 깜빡하기 쉽죠.  
 <span class="blue-text">`with` 구문을 사용하면 작업이 끝났을 때 파이썬이 알아서 파일을 닫아줘서 아주 편리하고 안전</span>하답니다.   
-앞으로는 항상 `with`를 사용하세요!
+되도록이록 항상 `with`를 사용하세요!
 
 ```python
 # 'with' 블록이 끝나면 memo.txt 파일은 자동으로 닫힙니다.
@@ -76,7 +75,7 @@ with open("memo.txt", "w") as file:
 
 * <code class="yellow-code">read()</code>: 파일 전체 내용을 하나의 문자열로 통째로 읽어와요.
 * <code class="yellow-code">readlines()</code>: 파일의 모든 줄을 각각의 문자열로 만들어 리스트에 담아줘요.
-* <code class="yellow-code">readline()</code>: 파일에서 딱 한 줄만 읽어와요. (자주 쓰이진 않아요.)
+* <code class="yellow-code">readline()</code>: 파일에서 딱 한 줄만 읽어와요.
 
 ```python
 # memo.txt 파일에 아래 내용이 저장되어 있다고 상상해보세요!
@@ -116,7 +115,7 @@ with open("memo.txt", "a") as f:
 ## 4. 사용자에게 직접 입력받기: `input()`
 파일뿐만 아니라 사용자에게 직접 키보드로 입력을 받을 수도 있어요. 이때는 <code class="yellow-code">input()</code> 함수를 사용해요.
 
-**중요‼️** <code class="yellow-code">input()</code>으로 받은 값은 <span class="red-text">항상 문자열(string) 타입</span>이에요.
+<code class="yellow-code">input()</code>으로 받은 값은 <span class="red-text">항상 문자열(string) 타입</span>이에요.
 
 만약 숫자로 사용하고 싶다면 <code class="yellow-code">int()</code>를 이용해 숫자로 변환해줘야 합니다.
 

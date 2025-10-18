@@ -50,13 +50,12 @@ keywords: "정보처리기능사, 실기, 라이브러리, 프로그래밍 언�
     }
 
     function checkIfAnswer() {
-        const answer1 = document.getElementById("if-answer1").value;
-        const answer2 = document.getElementById("if-answer2").value;
+        const answer = document.getElementById("if-answer").value.trim();
 
         const button = document.getElementById("if-answerButton");
         const resultDiv = document.getElementById("if-answerResult");
 
-        if (answer1 === "a mod 2 == 0" && answer2 === "a % 2 == 0") {
+        if (answer === "a % 2 != 0") {
             button.style.display = "none";
             resultDiv.innerHTML = '<span style="color: #448F52; font-weight: bold;">정답입니다.</span>';
         } else {
@@ -153,37 +152,80 @@ C언어는 <span class="blue-text">시스템 프로그래밍의 기초</span>가
 
 ## 1. 순서도와 C언어의 기호 :star::star::star:
 
-<figure>
-    <img src="/notes/assets/info-processing-technician/chapter-05-01.png" width="300px" alt="순서도와 C언어의 기본">
-</figure>
+<div class="responsive-image-layout">
+    <!-- 첫 번째 이미지 -->
+    <figure class="image-item">
+        <img src="/notes/assets/info-processing-technician/chapter-05-01.png" width="300px" alt="순서도와 C언어의 기본" class="image-style">
+    </figure>
+    
+    <!-- 두 번째 이미지와 코드 블록 -->
+    <div class="image-item">
+        {% include code-with-image.html 
+           image="/notes/assets/info-processing-technician/chapter-05-13.png" 
+           image_alt="C언어 코드 예시"
+           code_id="c-example-1" 
+           code_content="#include &lt;stdio.h&gt;
 
-### 실습 예제 1: 기본 구조 파악하기
-
-```c
-#include <stdio.h>
-
-int main()
-{
+int main() {
     int num;
 
-    scanf("%d", &num);
+    scanf(&quot;%d&quot;, &amp;num);
 
-    if (num > 0)
-    {
-        printf("양수");
-    }
-    else if (num < 0)
-    {
-        printf("음수");
-    }
-    else
-    {
-        printf("0");
+    if (num &gt; 0) {
+        printf(&quot;양수&quot;);
+    } else if (num &lt; 0) {
+        printf(&quot;음수&quot;);
+    } else {
+        printf(&quot;0&quot;);
     }
     
     return 0;
+}" %}
+    </div>
+</div>
+
+<script src="/assets/js/code-copy.js"></script>
+
+<style>
+/* 이미지 스타일 */
+.image-style {
+    display: block;
+    margin: 0 auto;
 }
-```
+
+/* 반응형 이미지 레이아웃 */
+.responsive-image-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.responsive-image-layout .image-item {
+    text-align: center;
+}
+
+/* 데스크톱 레이아웃 (768px 이상) */
+@media (min-width: 768px) {
+    .responsive-image-layout {
+        flex-direction: row;
+        align-items: stretch;
+    }
+    
+    .responsive-image-layout .image-item:first-child {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        text-align: left;
+    }
+    
+    .responsive-image-layout .image-item:last-child {
+        flex: 1;
+        min-width: 0;
+        text-align: left;
+    }
+}
+</style>
 
 > 💡 **팁**: C언어 프로그램은 <span class="blue-text">main()</span> 함수부터 시작된다! 모든 실행문은 중괄호 {} 안에 작성한다! 🎯
 
@@ -761,7 +803,7 @@ int main()
 
     scanf("%d", &a);
 
-    if (__2__) {
+    if (__1__) {
         printf("짝수");
     } else {
         printf("홀수");
@@ -769,8 +811,7 @@ int main()
 }
 ```
 
-<input type="text" id="if-answer1" placeholder="정답 1">
-<input type="text" id="if-answer2" placeholder="정답 2">
+<input type="text" id="if-answer" placeholder="정답을 입력하세요">
 <input type="button" id="if-answerButton" value="정답 보기" onclick="checkIfAnswer()" style="background-color: #448F52; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">
 <div id="if-answerResult"></div>
 

@@ -1,0 +1,19 @@
+<!--
+코드 블록과 복사 버튼을 포함한 flex 레이아웃 컴포넌트
+사용법: include code-with-image.html image="/path/to/image.png" code_id="unique_id" code_content="코드 내용"
+-->
+<div style="position: relative; display: inline-block;">
+    <img src="{{ include.image }}" alt="{{ include.image_alt | default: '코드 예시' }}" style="max-width: 500px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <button onclick="copyCodeToClipboard('{{ include.code_id }}')" 
+            style="position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.7); border: none; border-radius: 4px; padding: 8px; cursor: pointer; color: white; font-size: 14px; display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; transition: background 0.2s;" 
+            onmouseover="this.style.background='rgba(0,0,0,0.9)'" 
+            onmouseout="this.style.background='rgba(0,0,0,0.7)'" 
+            title="코드 복사">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+        </svg>
+    </button>
+</div>
+
+<!-- 숨김 코드 블록 -->
+<div id="{{ include.code_id }}" style="display: none;">{{ include.code_content }}</div>
