@@ -1,0 +1,33 @@
+<div class="quiz-container" data-tags="{{ include.tags }}" style="margin: 20px 0; padding: 15px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #f9f9f9;">
+    <div style="margin-bottom: 10px;">
+        {% if include.tags %}
+        {% assign tag_list = include.tags | split: "," %}
+        {% for tag in tag_list %}
+        <span class="quiz-tag" data-tag="{{ tag | strip }}" style="display: inline-block; background-color: #e8f4f8; color: #203BB0; padding: 4px 10px; border-radius: 12px; font-size: 0.85em; margin-right: 5px; margin-bottom: 5px;">{{ tag | strip }}</span>
+        {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="quiz-question" style="font-weight: bold; margin-bottom: 15px; color: #203BB0;">
+        {{ include.question }}
+    </div>
+
+    {{ include.code_html }}
+    {{ include.choices_html }}
+
+    <div class="quiz-input" style="margin-bottom: 10px;">
+        <label style="display: block; margin-bottom: 5px; font-weight: bold;">답:</label>
+        <input type="text"
+               id="{{ include.id }}-answer"
+               placeholder="{{ include.placeholder | default: '정답을 입력하세요' }}"
+               style="width: 100%; max-width: 400px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;">
+    </div>
+
+    <input type="button"
+           id="{{ include.id }}-button"
+           value="정답 확인"
+           onclick="checkQuizAnswer('{{ include.id }}', '{{ include.answer }}')"
+           style="background-color: #448F52; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background-color 0.3s;">
+
+    <div id="{{ include.id }}-result" style="margin-top: 10px; font-weight: bold;"></div>
+</div>
