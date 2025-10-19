@@ -224,7 +224,7 @@ id:runlevels:action:process
 
 최상위 디렉터리(/) 아래로 계층적 트리🌲 구조
 
-<img src="/notes/assets/linux-directory.png" width="700px" title="Linux Directory"/>   
+<img src="/notes/assets/linux-master/linux-directory.png" width="700px" title="Linux Directory"/>   
 
 | / | 최상위 디렉터리 (루트) |
 | /bin | System Binary의 약어로 이진 파일이며, 리눅스 기본 명령어가 저장 |
@@ -244,7 +244,7 @@ id:runlevels:action:process
 - 여러 개의 물리적인 하드디스크를 하나의 논리적인 대용량 파일 시스템으로 만듦
 - 디스크를 유연하게 관리할 수 있도록 도움
 
-<img src="/notes/assets/logical-volume-manager.png" width="500px" title="Ligical Volume Manager"/>
+<img src="/notes/assets/linux-master/logical-volume-manager.png" width="500px" title="Ligical Volume Manager"/>
 
 ### 2.3.5 RAID (Redundant Array of Independent Disks)
 

@@ -28,7 +28,7 @@ RDBMS는 이러한 RDB를 관리﹒감독하기 위한 시스템이다.
 
 ### 3.1.2 TABLE
 
-<img src="/notes/assets/name-by-table-part.png" width="700px;" alt="테이블 파트별 명칭">
+<img src="/notes/assets/sql-developer/name-by-table-part.png" width="700px;" alt="테이블 파트별 명칭">
 
 ### 3.1.3 SQL(Structured Query Language)
 
@@ -310,7 +310,7 @@ WHERE 절을 사용해도 되는 조건까지 HAVING 절로 처리하면 성능�
 - 각기 다른 테이블을 함께 보여줄 때 사용한다. 실무에서 많이 사용하며 👩‍💻신입 개발자의 기술 면접시 단골 질문이다.
 
 <figure>
-<img src="/notes/assets/sql-joins.png" width="700px;" alt="테이블 파트별 명칭">
+<img src="/notes/assets/sql-developer/sql-joins.png" width="700px;" alt="테이블 파트별 명칭">
 <figcaption>출처: https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins</figcaption>
 </figure>
 
@@ -370,7 +370,7 @@ ORDER BY A.SAL DESC;
 - EQUI, Non EQUI JOIN과 다르게 조건에 일치하지 않는 Rows도 조회된다.<br>
 Oracle에서는 모든 행이 출력되는 테이블의 반대편 테이블에 (+) 기호를 붙여 작성한다.
 
-<img src="/notes/assets/outer-join.png" width="700px;" alt="Outer join">
+<img src="/notes/assets/sql-developer/outer-join.png" width="700px;" alt="Outer join">
 
 ``` sql
 -- scott schema

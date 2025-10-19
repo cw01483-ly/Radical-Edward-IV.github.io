@@ -26,12 +26,12 @@ keywords: "정규화, 반정규화, SQL 전문가, SQLP 시험 준비, 데이터
 - 유사 속성은 제거되어야 합니다. 아래 그림에서 4개 이상의 스킬을 등록하고자 하면 문제가 됩니다. 그리고 스킬1, 스킬2, 스킬3 모두 빠르게 조회하기 위해서는 속성마다 인덱스를 추가해야 합니다.
 
 <figure>
-<img src="/notes/assets/sqlp-1nf-01.png" width="700px;" alt="1NF 다중값" />
+<img src="/notes/assets/sql-professional/sqlp-1nf-01.png" width="700px;" alt="1NF 다중값" />
 <figcaption>다중 값</figcaption>
 </figure>
 
 <figure>
-<img src="/notes/assets/sqlp-1nf-02.png" width="700px;" alt="1NF 유사 속성" />
+<img src="/notes/assets/sql-professional/sqlp-1nf-02.png" width="700px;" alt="1NF 유사 속성" />
 <figcaption>유사 속성</figcaption>
 </figure>
 
@@ -39,13 +39,13 @@ keywords: "정규화, 반정규화, SQL 전문가, SQLP 시험 준비, 데이터
 
 엔터티의 일반 속성은 주식별자 전체에 종속적이어야 합니다 (부분 함수종속성 제거). 함수종속성은 데이터들이 어떤 기준값에 종속되는 현상을 말합니다. 기준값을 결정자(Determinant)라 하고, 종속되는 값을 종속자(Dependent)라고 합니다. beverage_nm이 업무적으로 변경되고 반영이 필요할 때 중복된 beverage_nm을 모두 변경해야 하는 부담이 생기게 됩니다. 해당 테이블의 데이터를 변경했다고 해도 특점 시점 또는 특정 테이블에는 변경되지 않은 데이터가 존재할 수도 있습니다 (정합성에 문제). 이는 조회 일관성을 떨어뜨리게 됩니다.
 
-<img src="/notes/assets/sqlp-2nf.png" width="700px;" alt="2NF" />
+<img src="/notes/assets/sql-professional/sqlp-2nf.png" width="700px;" alt="2NF" />
 
 ### 1.1.3 제3정규형
 
 엔터티의 일반속성 간에는 서로 종속적이지 않습니다 (이행적 종속 제거). 만약 부서명(dept_nm)이 변경되었다면 아래 엔터티의 모든 부서명을 갱신해야 합니다. 데이터 중복으로 인한 문제는 성능 부하 및 정합성 오류로 제2정규형과 동일합니다.
 
-<img src="/notes/assets/sqld-3nf.png" width="700px;" alt="3NF" />
+<img src="/notes/assets/sql-professional/sqld-3nf.png" width="700px;" alt="3NF" />
 
 # 2. 반정규화와 성능
 ## 2.1 반정규화란?

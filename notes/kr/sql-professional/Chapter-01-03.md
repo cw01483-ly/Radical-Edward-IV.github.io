@@ -34,14 +34,14 @@ keywords: "속성, SQL 전문가, SQLP 시험 준비, 데이터 모델링, 엔�
 - 한 개의 속성은 한 개의 속성값을 갖는다.
 
 <figure>
-<img src="/notes/assets/sqlp-relationship-between-entity-attribute.png" width="500px;" alt="엔터티, 인스턴스, 속성, 속성값의 관계">
+<img src="/notes/assets/sql-professional/sqlp-relationship-between-entity-attribute.png" width="500px;" alt="엔터티, 인스턴스, 속성, 속성값의 관계">
 <figcaption>SQL 전문가 가이드</figcaption>
 </figure>
 
 ## 2.2 속성의 표기법
 
 <figure>
-<img src="/notes/assets/sqlp-attribute-notation.png" width="500px;" alt="속성의 표기법">
+<img src="/notes/assets/sql-professional/sqlp-attribute-notation.png" width="500px;" alt="속성의 표기법">
 <figcaption>SQL 전문가 가이드</figcaption>
 </figure>
 

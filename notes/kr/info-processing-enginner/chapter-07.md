@@ -22,8 +22,8 @@ keywords: "정보처리기사, 요약, SQL, ORACLE, 트랜잭션, ACID, 데이�
 
     - **특징:** 원자성(**A**tomicity), 일관성(**C**onsistency), 격리성(**I**solation), 영속성(**D**urability) `ACID`{:.success}
 
-    - **상태 변화:** **활**동 상태, **부**분 완료 상태, **완**료 상태, **실**패 상태, **철**회 상태 `활부완실철`{:.success}   
-    <img src="/notes/assets/transaction-status.png" width="500px" title="Transaction Status"/>
+    - **상태 변화:** **활**동 상태, **부**분 완료 상태, **완**료 상태, **실**패 상태, **철**회 상태 `활부완실철`{:.success}
+    <img src="/notes/assets/info-processing-enginner/transaction-status.png" width="500px" title="Transaction Status"/>
 
     - **제어:** **커**밋, **롤**백, **체**크포인트 `커롤체`{:.success}
 

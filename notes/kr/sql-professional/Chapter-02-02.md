@@ -80,7 +80,7 @@ WHERE A.도메인ID = '1100008'
 상호배타적 관계는 개념만 숙지하고 가겠습니다. 아래 모델을 보면 괄호가 있습니다. 이는 상호배타적 관계를 의미합니다. 주문 엔터티의 개인/법인번호 속성은 개인번호 또는 법인번호 하나만 상속할 수 있습니다.
 
 <figure>
-<img src="/notes/assets/sqlp-mutually-exlusive-relationship.png" width="700px;" alt="상호배타적 관계">
+<img src="/notes/assets/sql-professional/sqlp-mutually-exlusive-relationship.png" width="700px;" alt="상호배타적 관계">
 <figcaption>SQL 전문가 가이드</figcaption>
 </figure>
 

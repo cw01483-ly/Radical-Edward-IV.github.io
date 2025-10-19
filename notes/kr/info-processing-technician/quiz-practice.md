@@ -300,6 +300,156 @@ int main() {
 
 ---
 
+<div class="quiz-number">문제 11</div><strong>데이터베이스 용어</strong>
+
+{% include quiz-text.html
+   id="quiz-11"
+   question="하나의 애트리뷰트가 취할 수 있는 같은 타입의 원자(Atomic) 값들의 집합으로, 실제 애트리뷰트 값이 나타낼 때 그 값의 합법 여부를 시스템이 검사하는데에도 이용하는 것은 무엇인지 쓰시오."
+   answer="도메인|Domain"
+   tags="데이터베이스 기초 활용"
+%}
+
+---
+
+<div class="quiz-number">문제 12</div><strong>OSI 7계층</strong>
+
+{% capture choices_block12 %}
+<div class="quiz-choices" style="margin-bottom: 15px; padding: 10px; background-color: #fff; border-left: 3px solid #203BB0;">
+    <strong>설명하는 특징</strong><br><br>
+    • 두 개의 인접한 개방 시스템들 간에 신뢰성 있고 효율적인 정보 전송을 할 수 있도록 시스템 간 연결 설정과 유지 및 종료를 담당한다.<br>
+    • 송신 측과 수신 측의 속도 차이 해결을 위한 제어 기능을 한다.<br>
+    • 프레임의 시작과 끝을 구분하기 위한 프레임의 동기화 기능을 한다.<br>
+    • 오류의 검출과 회복을 위한 오류 제어 기능을 한다.<br>
+    • 프레임의 순서적 전송을 위한 순서 제어 기능을 한다.
+</div>
+{% endcapture %}
+
+{% include quiz-text.html
+   id="quiz-12"
+   question="위 설명에 해당하는 OSI 7계층을 쓰시오."
+   choices_html=choices_block12
+   answer="데이터 링크 계층|Data Link Layer|데이터링크계층"
+   tags="네트워크 기초 활용"
+%}
+
+---
+
+<div class="quiz-number">문제 13</div><strong>사용자 인터페이스</strong>
+
+{% include quiz-text.html
+   id="quiz-13"
+   question="키보드로 명령어를 직접 입력하지 않고, 마우스로 아이콘이나 메뉴를 선택하여 모든 작업을 수행하는 방식의 인터페이스를 무엇이라고 하는지 영문 약어로 쓰시오."
+   answer="GUI"
+   placeholder="영문 약어 입력"
+   tags="운영체제 기초 활용"
+%}
+
+---
+
+<div class="quiz-number">문제 14</div><strong>Java: 출력 결과를 쓰시오.</strong>
+
+{% capture code_block14 %}
+<div class="quiz-code" style="margin-bottom: 15px;">
+    <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>public class Test {
+    public static void main(String[] args) {
+        Otest ot = new Otest();
+        ot.cat();
+        ot.cat("4");
+    }
+}
+
+class Otest {
+    void cat() {
+        System.out.print("1234");
+    }
+
+    void cat(int c) {
+        System.out.print(++c);
+    }
+
+    void cat(String c) {
+        System.out.print("문자");
+    }
+}</code></pre>
+</div>
+{% endcapture %}
+
+{% include quiz-text.html
+   id="quiz-14"
+   question=""
+   code_html=code_block14
+   answer="1234문자"
+   tags="C언어"
+%}
+
+---
+
+<div class="quiz-number">문제 15</div><strong>네트워크 관리 프로토콜</strong>
+
+{% capture choices_block15 %}
+<div class="quiz-choices" style="margin-bottom: 15px; padding: 10px; background-color: #fff; border-left: 3px solid #203BB0;">
+    <strong>보기</strong><br>
+    ㉠ TCP<br>
+    ㉡ HTTP<br>
+    ㉢ SGMP<br>
+    ㉣ SNMP<br>
+    ㉤ UDP
+</div>
+{% endcapture %}
+
+{% include quiz-text.html
+   id="quiz-15"
+   question="TCP/IP의 네트워크 관리 프로토콜로, 라우터나 허브 등 네트워크 기기의 네트워크 정보를 네트워크 관리 시스템에 보내는데 사용되는 표준 통신 규약을 보기에서 찾아 기호로 쓰시오."
+   choices_html=choices_block15
+   answer="㉣|SNMP"
+   tags="네트워크 기초 활용"
+%}
+
+---
+
+<div class="quiz-number">문제 16</div><strong>C언어: 출력 결과를 쓰시오.</strong>
+
+{% capture code_block16 %}
+<div class="quiz-code" style="margin-bottom: 15px;">
+    <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>#include &lt;stdio.h&gt;
+#define N 100
+
+main() {
+    int i = 1;
+    int cnt = 0;
+    while (i &lt;= N) {
+        if ((i % 3) == 0 &amp;&amp; (i % 7) == 0) {
+            cnt++;
+            printf("%d*%d*", cnt, i);
+        }
+        i++;
+    }
+}</code></pre>
+</div>
+{% endcapture %}
+
+{% include quiz-text.html
+   id="quiz-16"
+   question=""
+   code_html=code_block16
+   answer="1*21*2*42*3*63*4*84*"
+   tags="C언어"
+%}
+
+---
+
+<div class="quiz-number">문제 17</div><strong>Windows 단축키</strong>
+
+{% include quiz-text.html
+   id="quiz-17"
+   question="Windows 10/11에서 윈도우 화면을 잠그도록 하는 단축키를 쓰시오."
+   answer="Window Key + L|Win + L|Windows + L|window + l|win + l|windows + l"
+   placeholder="예: Win + L"
+   tags="운영체제 기초 활용"
+%}
+
+---
+
 ## 학습 팁 💡
 
 <div style="background-color: #e8f4f8; padding: 15px; border-radius: 8px; margin: 20px 0;">

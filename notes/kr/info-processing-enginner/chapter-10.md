@@ -77,7 +77,7 @@ keywords: "정보처리기사, 요약, 애플리케이션 테스트, 화이트�
     - **개념:** 테스트 활동의 그룹이다. 테스트 레벨은 독립적이다.
 
     - **종류:** **단**위 테스트, **통**합 테스트, **시**스템 테스트, **인**수 테스트(사용자 인수 테스트, 운영상의 인수 테스트, 계약 인수 테스트, 규정 인수 테스트, 알파 테스트, 베타 테스트) `#단통시인`{:.success}
-    <img src="/notes/assets/test-level.png" width="500px" title="Test Level"/>
+    <img src="/notes/assets/info-processing-enginner/test-level.png" width="500px" title="Test Level"/>
 
 * **테스트 시나리오**
 

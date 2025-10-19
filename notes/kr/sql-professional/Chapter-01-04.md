@@ -19,7 +19,7 @@ keywords: "관계 모델, 관계 패어링, 존재적 관계, 행위적 관계, 
 > 
 
 <figure>
-<img src="/notes/assets/sqlp-terminologies-of-table.png" width="500px;" alt="테이블 명칭">
+<img src="/notes/assets/sql-professional/sqlp-terminologies-of-table.png" width="500px;" alt="테이블 명칭">
 <figcaption>
   <a href="https://ko.m.wikipedia.org/wiki/관계_(데이터베이스))">wikepedia.com</a>
 </figcaption>
@@ -65,14 +65,14 @@ UML(Unified Modeling Language) 클래스다이어그램의 관계 중에는 **�
 
 ### 3.2.1 관계 표시 방법(1:1, 1:M, M:N)
 
-<img src="/notes/assets/sqlp-notation-of-relationship.jpeg" width="500px;" alt="관계 표기법">
+<img src="/notes/assets/sql-professional/sqlp-notation-of-relationship.jpeg" width="500px;" alt="관계 표기법">
 
 ## 3.3 관계선택사항
 
 필수참여관계는 모든 참여자가 반드시 관계를 가져야 합니다. 주문서는 반드시 주문목록을 가져야 하는 것과 같은 관계입니다. 반대로 목록은 주문되지 않은 목록이 있을 수 있으므로 선택참여관계가 됩니다. 즉 하나의 주문목록에는 한 개의 목록을 항상 포함하고, 한 개의 목록은 여러 개의 주문목록에 포함될 수 있습니다.
 
 <figure>
-<img src="/notes/assets/sqlp-optionality-of-relationship.jpeg" width="500px;" alt="관계선택사항">
+<img src="/notes/assets/sql-professional/sqlp-optionality-of-relationship.jpeg" width="500px;" alt="관계선택사항">
 <figcaption>
   <a href="https://dataonair.or.kr/db-tech-reference/d-guide/sql/?mod=document&uid=328">dataonair.or.kr</a>
 </figcaption>

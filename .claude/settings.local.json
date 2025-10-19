@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 analyze_images.py)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

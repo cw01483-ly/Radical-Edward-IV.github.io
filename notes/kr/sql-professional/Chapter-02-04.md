@@ -20,7 +20,7 @@ keywords: "NULL 속성, SQL NULL, 데이터베이스, NULL 연산, 집계 함수
 IE 표기법에서는 Null 허용여부를 알 수 없지만, 바커 표기법에서는 속성 앞에 동그라미 기호를 통해서 Null 허용 속성임을 표기할 수 있습니다.
 
 <figure>
-<img src="/notes/assets/sqlp-attribute-notation.png" width="700px;" alt="">
+<img src="/notes/assets/sql-professional/sqlp-attribute-notation.png" width="700px;" alt="">
 <figcaption>SQL 전문가 가이드</figcaption>
 </figure>
 

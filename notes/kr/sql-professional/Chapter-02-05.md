@@ -27,7 +27,7 @@ keywords: "본질식별자, 인조식별자, SQL 전문가, SQLP 시험 준비, 
 
 다음과 같은 모델이 있을 때 로직 오류로 인해 중복 데이터가 발생한다면 해당 데이터의 저장을 막을 수 없습니다.
 
-<img src="/notes/assets/sqlp-duplicate-data.png" width="300px;" alt="중복 데이터 발생 가능">
+<img src="/notes/assets/sql-professional/sqlp-duplicate-data.png" width="300px;" alt="중복 데이터 발생 가능">
 
 ```sql
 INSERT INTO ORDER_PRODUCT VALUES (DEFAULT, 110001, 310001, 'CPU', 'SEOUL');
@@ -38,7 +38,7 @@ INSERT INTO ORDER_PRODUCT VALUES (DEFAULT, 110001, 310001, 'CPU', 'INCHEON');
 
 ## 2.2 불필요한 인덱스 생성
 
-<img src="/notes/assets/sqlp-unnecessary-index.png" width="700px;" alt="불필요한 인덱스 발생">
+<img src="/notes/assets/sql-professional/sqlp-unnecessary-index.png" width="700px;" alt="불필요한 인덱스 발생">
 
 - **ORDER_PRODUCT_ORIGIN**
 

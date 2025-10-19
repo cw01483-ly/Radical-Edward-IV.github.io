@@ -181,7 +181,7 @@ node2(External Schema 2) -->node3
 
 ## 7.2 단수와 집합
 
-<img src="/notes/assets/sqlp-singular-and-set.jpeg" width="700px;" alt="단수와 집합">
+<img src="/notes/assets/sql-professional/sqlp-singular-and-set.jpeg" width="700px;" alt="단수와 집합">
 
 # 8. ERD의 이해
 
@@ -205,7 +205,7 @@ node2(External Schema 2) -->node3
 - **Case Method/Barker :** IE를 적용하면서 관계 표기법 등 일부가 다릅니다. Oracle에서 사용되는 모델입니다. (DAP-데이터아키텍처 전문가)
 
 <figure>
-<img src="/notes/assets/sqlp-erd-notation.png" width="700px;" alt="단수와 집합">
+<img src="/notes/assets/sql-professional/sqlp-erd-notation.png" width="700px;" alt="단수와 집합">
 <figcaption>itwiki.kr</figcaption>
 </figure>
 

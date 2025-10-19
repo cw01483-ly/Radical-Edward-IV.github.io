@@ -95,7 +95,7 @@ keywords: "정보처리기사, 요약, 소프트웨어 개발 보안, DOS, DDOS,
     - **개념:** <u>데이터 무결성</u> 및 <u>기밀성 확보</u>를 위해 <u>정보</u>를 <u>변환</u>하는 <u>기법</u>이다.
 
     - **주요 용어:** 평문, 암호문, 암호화, 복호화, 키, 치환 암호, 전치 암호
-    <img src="/notes/assets/decryption-methods.png" width="500px" title="Decryption Methods"/>
+    <img src="/notes/assets/info-processing-enginner/decryption-methods.png" width="500px" title="Decryption Methods"/>
 
 * **안전한 전송을 위한 데이터 암호화 전송**
 

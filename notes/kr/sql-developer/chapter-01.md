@@ -181,15 +181,15 @@ aside:
 
 - **관계명 :** 명확한 문장으로 표현하고 현재형이어야 한다.
 
-    <img src="/notes/assets/relational-notation-01.jpg" width="500px;" alt="관계 표기법">
+    <img src="/notes/assets/sql-developer/relational-notation-01.jpg" width="500px;" alt="관계 표기법">
 
 - **차수 :** 관계에 참여하는 수 (1:1 / 1:M / N:M)
 
-    <img src="/notes/assets/relational-notation-02.jpg" width="500px;" alt="관계 표기법">
+    <img src="/notes/assets/sql-developer/relational-notation-02.jpg" width="500px;" alt="관계 표기법">
 
 - **관계선택사양 :** 필수 또는 선택 여부
 
-    <img src="/notes/assets/relational-notation-03.jpg" width="500px;" alt="관계 표기법">
+    <img src="/notes/assets/sql-developer/relational-notation-03.jpg" width="500px;" alt="관계 표기법">
 
 ## 1.5 식별자
 ### 1.5.1 식별자란?

@@ -23,25 +23,25 @@ aside:
 모든 속성은 반드시 하나의 값만 가져야 한다.
 
 1. **🤹‍♀️다중값**
-    
-    <img src="/notes/assets/normalization-1nf-01.png" width="500px;" alt="정규화">
-    
+
+    <img src="/notes/assets/sql-developer/normalization-1nf-01.png" width="500px;" alt="정규화">
+
 2. **👬유사 속성**
-    
-    <img src="/notes/assets/normalization-1nf-02.png" width="500px;" alt="정규화">
+
+    <img src="/notes/assets/sql-developer/normalization-1nf-02.png" width="500px;" alt="정규화">
     
 
 ### 2.1.2 제2정규형
 
 엔터티의 모든 일반 속성은 반드시 모든 주식별자에 종속되어야 한다. 주식별자가 복합식별자인 경우 일반속성이 주식별자의 일부에만 종속될 수 있는데 이는 제2정규형 대상이다.
 
-<img src="/notes/assets/normalization-2nf.png" width="500px;" alt="정규화">
+<img src="/notes/assets/sql-developer/normalization-2nf.png" width="500px;" alt="정규화">
 
 ### 2.1.3 제3정규형
 
 주식별자가 아닌 모든 속성 간에는 서로 종속될 수 없다.
 
-<img src="/notes/assets/normalization-3nf.png" width="500px;" alt="정규화">
+<img src="/notes/assets/sql-developer/normalization-3nf.png" width="500px;" alt="정규화">
 
 ### 2.1.4 정규화 주의사항
 
