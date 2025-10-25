@@ -8,7 +8,7 @@ sidebar:
 aside:
   toc: true
 excerpt: 정보처리기능사 실기 실전 문제 연습 - 다양한 유형의 문제를 풀어보세요.
-keywords: "정보처리기능사, 실기, 문제풀이, 연습문제, C언어, 네트워크, 데이터베이스, 운영체제"
+keywords: "정보처리기능사, 실기, 문제풀이, 연습문제, C언어, 네트워크, 데이터베이스, 운영체제, 애플리케이션 테스트"
 ---
 
 <script src="/assets/js/quiz.js"></script>
@@ -79,6 +79,7 @@ keywords: "정보처리기능사, 실기, 문제풀이, 연습문제, C언어, �
     <button class="tag-filter-btn" data-tag="네트워크 기초 활용" onclick="filterQuizByTag('네트워크 기초 활용')">네트워크 기초 활용</button>
     <button class="tag-filter-btn" data-tag="데이터베이스 기초 활용" onclick="filterQuizByTag('데이터베이스 기초 활용')">데이터베이스 기초 활용</button>
     <button class="tag-filter-btn" data-tag="운영체제 기초 활용" onclick="filterQuizByTag('운영체제 기초 활용')">운영체제 기초 활용</button>
+    <button class="tag-filter-btn" data-tag="애플리케이션 테스트" onclick="filterQuizByTag('애플리케이션 테스트')">애플리케이션 테스트</button>
     <div id="filter-stats"></div>
 </div>
 
@@ -91,15 +92,15 @@ keywords: "정보처리기능사, 실기, 문제풀이, 연습문제, C언어, �
     <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>#include &lt;stdio.h&gt;
 
 int main() {
-    int x = 5;
-    int y = 10;
-    int z = 20;
-    int sum = 0;
-    x += y;
-    y -= x;
-    z %= y;
-    sum = x + y + z;
-    printf("%d", sum);
+    int a = 8;
+    int b = 12;
+    int c = 25;
+    int total = 0;
+    a += b;
+    b -= a;
+    c %= b;
+    total = a + b + c;
+    printf("%d", total);
 }</code></pre>
 </div>
 {% endcapture %}
@@ -108,7 +109,7 @@ int main() {
    id="quiz-1"
    question=""
    code_html=code_block
-   answer="10"
+   answer="13"
    tags="C언어"
 %}
 
@@ -129,7 +130,7 @@ int main() {
 
 {% include quiz-text.html
    id="quiz-2"
-   question="시스템 내의 다른 모든 사이트들과 직접 연결된 구조로, 기본 비용은 높으나 통신비용이 적게 들고 신뢰성이 높으며, 많은 양의 데이터 통신에 유리하고, 통신 회선의 총 경로가 가장 길게 소요되는 토폴로지는?"
+   question="모든 노드가 서로 직접 연결된 네트워크 구조로, 초기 구축 비용이 높지만 통신 신뢰도가 매우 우수하며, 대용량 데이터 전송에 적합한 토폴로지는?"
    choices_html=choices_block
    answer="㉤|메시|Mesh"
    tags="네트워크 기초 활용"
@@ -155,7 +156,7 @@ int main() {
 
 {% include quiz-text.html
    id="quiz-3-1"
-   question="관계형 데이터 모델에서 (①)은(는) 데이터베이스를 구성하는 가장 작은 논리 단위로서 개체의 특성을 기술하며 파일 구조 상의 데이터 항목 또는 데이터 필드에 해당한다. ①에 해당하는 용어는?"
+   question="관계형 데이터베이스의 기본 구성 요소 중 하나로, 개체의 특성을 표현하며 테이블의 컬럼(Column)에 해당하는 것을 무엇이라고 하는가?"
    choices_html=choices_block3
    answer="㉤|속성"
    tags="데이터베이스 기초 활용"
@@ -163,7 +164,7 @@ int main() {
 
 {% include quiz-text.html
    id="quiz-3-2"
-   question="그리고 (②)은(는) 각 데이터 개체집합 구성 요소 사이의 대응성을 나타낸다. ②에 해당하는 용어는?"
+   question="데이터베이스에서 여러 개체 간의 연관성을 표현하는 요소를 무엇이라고 하는가?"
    choices_html=choices_block3
    answer="㉦|관계"
    tags="데이터베이스 기초 활용"
@@ -175,18 +176,18 @@ int main() {
 
 {% include quiz-text.html
    id="quiz-4"
-   question="현재 디렉토리 내의 파일 목록을 확인하는 명령어는?"
+   question="UNIX/Linux에서 현재 작업 중인 디렉토리의 파일 목록을 표시하는 명령어는?"
    answer="ls"
    tags="운영체제 기초 활용"
 %}
 
 ---
 
-<div class="quiz-number">문제 5</div><strong>IPv4의 주소체계 비트 수</strong>
+<div class="quiz-number">문제 5</div><strong>IPv4 주소 체계</strong>
 
 {% include quiz-text.html
    id="quiz-5"
-   question="IPv4의 주소체계는 몇 비트로 구성되어 있는가?"
+   question="IPv4 주소 체계는 몇 비트(bit)로 이루어져 있는가?"
    answer="32"
    placeholder="숫자만 입력하세요"
    tags="네트워크 기초 활용"
@@ -198,14 +199,14 @@ int main() {
 
 {% include quiz-text.html
    id="quiz-6"
-   question="계층형 트리 구조를 확장한 형태로 네트워크로 데이터베이스 구조를 표현하며, 하나의 자노드(child node)가 다수 개의 부노드(parent node)를 가질 수 있는 데이터베이스 모델은?"
+   question="계층형 구조를 확장한 형태로, 하나의 자식 노드가 여러 개의 부모 노드를 가질 수 있는 네트워크 구조의 데이터베이스 모델은?"
    answer="NDBMS|Network DBMS|네트워크형 DBMS|망형 DBMS"
    tags="데이터베이스 기초 활용"
 %}
 
 ---
 
-<div class="quiz-number">문제 7</div><strong>운영체제 시스템 유형</strong>
+<div class="quiz-number">문제 7</div><strong>운영체제 시스템</strong>
 
 {% capture choices_block7 %}
 <div class="quiz-choices" style="margin-bottom: 15px; padding: 10px; background-color: #fff; border-left: 3px solid #203BB0;">
@@ -220,7 +221,7 @@ int main() {
 
 {% include quiz-text.html
    id="quiz-7"
-   question="프로세서 스케줄링과 다중 프로그래밍을 사용해 각 사용자에게 컴퓨터를 시간적으로 분할하여 나누어주는 개념의 시스템은?"
+   question="CPU를 일정 시간 단위로 분할하여 여러 사용자가 동시에 사용하는 것처럼 느끼게 하는 시스템으로, 멀티태스킹을 지원하는 시스템은?"
    choices_html=choices_block7
    answer="㉣|시분할|시분할 시스템"
    tags="운영체제 기초 활용"
@@ -228,13 +229,13 @@ int main() {
 
 ---
 
-<div class="quiz-number">문제 8</div><strong>네트워크 프로토콜</strong>
+<div class="quiz-number">문제 8</div><strong>전송 계층 프로토콜</strong>
 
 {% capture choices_block8 %}
 <div class="quiz-choices" style="margin-bottom: 15px; padding: 10px; background-color: #fff; border-left: 3px solid #203BB0;">
     <strong>프로토콜 설명</strong><br><br>
-    <strong>1.</strong> 네트워크의 정보 전송을 제어하는 프로토콜로, 인터넷을 이루는 핵심 프로토콜이며 인터넷 IETF의 RFC 793에 기술되어 있다. 논리적인 1:1 가상 회선을 지원하여 해당 경로로만 데이터가 전달되도록 한다. 대표적인 서비스로는 FTP 등이 있다.<br><br>
-    <strong>2.</strong> 네트워크에서 세션을 설정하지 않고 정보를 전송하는 비연결형 서비스를 제공하는 프로토콜로, 고속전송이 필요한 환경에 유용하다. 다만 흐름 제어, 에러 처리를 하지 않아 신뢰성 있는 데이터 전송에는 부적합하다. 대표적인 서비스로는 TFTP 등이 있다.
+    <strong>1.</strong> 연결 지향형 프로토콜로 신뢰성 있는 데이터 전송을 보장한다. 흐름 제어와 오류 제어를 수행하며, 3-way handshake 방식으로 연결을 수립한다. 웹(HTTP), 파일 전송(FTP) 등에 사용된다.<br><br>
+    <strong>2.</strong> 비연결형 프로토콜로 빠른 데이터 전송이 특징이다. 신뢰성보다는 속도를 중시하며, 실시간 스트리밍이나 DNS 조회 등에 적합하다.
 </div>
 {% endcapture %}
 
@@ -257,13 +258,13 @@ int main() {
 
 int main() {
     int i=0, j=0;
-    int n=0;
+    int count=0;
     for (i=0; j&lt;5; j++) {
         if (i==j || (i+j)==4) {
-            n++;
+            count++;
         }
     }
-    printf("%d", n);
+    printf("%d", count);
 }</code></pre>
 </div>
 {% endcapture %}
@@ -278,7 +279,7 @@ int main() {
 
 ---
 
-<div class="quiz-number">문제 10</div><strong>Windows 명령어</strong>
+<div class="quiz-number">문제 10</div><strong>Windows 단축키</strong>
 
 {% capture choices_block10 %}
 <div class="quiz-choices" style="margin-bottom: 15px; padding: 10px; background-color: #fff; border-left: 3px solid #203BB0;">
@@ -291,7 +292,7 @@ int main() {
 
 {% include quiz-text.html
    id="quiz-10"
-   question="실행 창을 여는 단축키는?"
+   question="Windows에서 '실행' 대화상자를 여는 단축키는?"
    choices_html=choices_block10
    answer="R|r"
    placeholder="알파벳 한 글자 입력"
@@ -304,7 +305,7 @@ int main() {
 
 {% include quiz-text.html
    id="quiz-11"
-   question="하나의 애트리뷰트가 취할 수 있는 같은 타입의 원자(Atomic) 값들의 집합으로, 실제 애트리뷰트 값이 나타낼 때 그 값의 합법 여부를 시스템이 검사하는데에도 이용하는 것은 무엇인지 쓰시오."
+   question="속성(Attribute)이 가질 수 있는 값들의 집합으로, 각 속성값의 유효성을 검사하는 데 사용되는 것은 무엇인가?"
    answer="도메인|Domain"
    tags="데이터베이스 기초 활용"
 %}
@@ -315,12 +316,11 @@ int main() {
 
 {% capture choices_block12 %}
 <div class="quiz-choices" style="margin-bottom: 15px; padding: 10px; background-color: #fff; border-left: 3px solid #203BB0;">
-    <strong>설명하는 특징</strong><br><br>
-    • 두 개의 인접한 개방 시스템들 간에 신뢰성 있고 효율적인 정보 전송을 할 수 있도록 시스템 간 연결 설정과 유지 및 종료를 담당한다.<br>
-    • 송신 측과 수신 측의 속도 차이 해결을 위한 제어 기능을 한다.<br>
-    • 프레임의 시작과 끝을 구분하기 위한 프레임의 동기화 기능을 한다.<br>
-    • 오류의 검출과 회복을 위한 오류 제어 기능을 한다.<br>
-    • 프레임의 순서적 전송을 위한 순서 제어 기능을 한다.
+    <strong>계층의 주요 기능</strong><br><br>
+    • 인접한 시스템 간 신뢰성 있는 데이터 전송을 담당한다.<br>
+    • 프레임 단위로 데이터를 전송하며, MAC 주소를 사용한다.<br>
+    • 흐름 제어, 오류 제어, 접근 제어 기능을 수행한다.<br>
+    • 프레임의 시작과 끝을 구분하는 동기화 기능을 제공한다.
 </div>
 {% endcapture %}
 
@@ -338,7 +338,7 @@ int main() {
 
 {% include quiz-text.html
    id="quiz-13"
-   question="키보드로 명령어를 직접 입력하지 않고, 마우스로 아이콘이나 메뉴를 선택하여 모든 작업을 수행하는 방식의 인터페이스를 무엇이라고 하는지 영문 약어로 쓰시오."
+   question="마우스를 이용하여 아이콘, 메뉴, 버튼 등을 클릭하여 작업을 수행하는 그래픽 기반 인터페이스를 영문 약어로 쓰시오."
    answer="GUI"
    placeholder="영문 약어 입력"
    tags="운영체제 기초 활용"
@@ -352,23 +352,23 @@ int main() {
 <div class="quiz-code" style="margin-bottom: 15px;">
     <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>public class Test {
     public static void main(String[] args) {
-        Otest ot = new Otest();
-        ot.cat();
-        ot.cat("4");
+        MyClass mc = new MyClass();
+        mc.print();
+        mc.print("Hello");
     }
 }
 
-class Otest {
-    void cat() {
-        System.out.print("1234");
+class MyClass {
+    void print() {
+        System.out.print("5678");
     }
 
-    void cat(int c) {
-        System.out.print(++c);
+    void print(int num) {
+        System.out.print(++num);
     }
 
-    void cat(String c) {
-        System.out.print("문자");
+    void print(String str) {
+        System.out.print("World");
     }
 }</code></pre>
 </div>
@@ -378,7 +378,7 @@ class Otest {
    id="quiz-14"
    question=""
    code_html=code_block14
-   answer="1234문자"
+   answer="5678World"
    tags="C언어"
 %}
 
@@ -399,7 +399,7 @@ class Otest {
 
 {% include quiz-text.html
    id="quiz-15"
-   question="TCP/IP의 네트워크 관리 프로토콜로, 라우터나 허브 등 네트워크 기기의 네트워크 정보를 네트워크 관리 시스템에 보내는데 사용되는 표준 통신 규약을 보기에서 찾아 기호로 쓰시오."
+   question="네트워크 장비를 관리하고 모니터링하기 위한 프로토콜로, 라우터, 스위치 등의 네트워크 정보를 수집하는데 사용되는 표준 프로토콜을 보기에서 찾아 기호로 쓰시오."
    choices_html=choices_block15
    answer="㉣|SNMP"
    tags="네트워크 기초 활용"
@@ -412,17 +412,17 @@ class Otest {
 {% capture code_block16 %}
 <div class="quiz-code" style="margin-bottom: 15px;">
     <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>#include &lt;stdio.h&gt;
-#define N 100
+#define MAX 100
 
 main() {
-    int i = 1;
-    int cnt = 0;
-    while (i &lt;= N) {
-        if ((i % 3) == 0 &amp;&amp; (i % 7) == 0) {
-            cnt++;
-            printf("%d*%d*", cnt, i);
+    int num = 1;
+    int result = 0;
+    while (num &lt;= MAX) {
+        if ((num % 3) == 0 &amp;&amp; (num % 7) == 0) {
+            result++;
+            printf("%d#%d#", result, num);
         }
-        i++;
+        num++;
     }
 }</code></pre>
 </div>
@@ -432,20 +432,126 @@ main() {
    id="quiz-16"
    question=""
    code_html=code_block16
-   answer="1*21*2*42*3*63*4*84*"
+   answer="1#21#2#42#3#63#4#84#"
    tags="C언어"
 %}
 
 ---
 
-<div class="quiz-number">문제 17</div><strong>Windows 단축키</strong>
+<div class="quiz-number">문제 17</div><strong>Windows 화면 잠금</strong>
 
 {% include quiz-text.html
    id="quiz-17"
-   question="Windows 10/11에서 윈도우 화면을 잠그도록 하는 단축키를 쓰시오."
+   question="Windows 운영체제에서 컴퓨터 화면을 즉시 잠그는 단축키를 쓰시오."
    answer="Window Key + L|Win + L|Windows + L|window + l|win + l|windows + l"
    placeholder="예: Win + L"
    tags="운영체제 기초 활용"
+%}
+
+---
+
+<div class="quiz-number">문제 18</div><strong>애플리케이션 테스트 원칙</strong>
+
+{% include quiz-text.html
+   id="quiz-18"
+   question="소프트웨어에서 모든 결함을 제거하였다 하더라도 사용자의 요구를 만족시키지 못한다면 품질이 높다고 볼 수 없다는 테스트 원칙을 무엇이라고 하는가?"
+   answer="오류-부재의 궤변"
+   tags="애플리케이션 테스트"
+%}
+
+---
+
+<div class="quiz-number">문제 19</div><strong>테스트 기본 원리</strong>
+
+{% include quiz-text.html
+   id="quiz-19"
+   question="애플리케이션 결함의 80%가 전체 코드의 20%에서 발견된다는 경험적 법칙을 무엇이라고 하는가?"
+   answer="파레토 법칙|파레토의 법칙"
+   tags="애플리케이션 테스트"
+%}
+
+---
+
+<div class="quiz-number">문제 20</div><strong>테스트 현상</strong>
+
+{% include quiz-text.html
+   id="quiz-20"
+   question="다음 괄호에 들어갈 용어를 쓰시오.<br><br>동일한 테스트 케이스로 반복 테스트를 수행하면 더 이상 새로운 결함이 발견되지 않는 현상을 ( )라고 한다. 이를 방지하려면 테스트 케이스를 지속적으로 개선하고 업데이트해야 한다."
+   answer="살충제 패러독스|살충제 페러독스"
+   tags="애플리케이션 테스트"
+%}
+
+---
+
+<div class="quiz-number">문제 21</div><strong>테스트 환경 요인</strong>
+
+{% include quiz-text.html
+   id="quiz-21"
+   question="애플리케이션 테스트는 소프트웨어 특성, 테스트 환경, 테스터의 역량 등 ( )에 따라 결과가 달라질 수 있다. 괄호에 들어갈 용어를 쓰시오."
+   answer="정황"
+   tags="애플리케이션 테스트"
+%}
+
+---
+
+<div class="quiz-number">문제 22</div><strong>목적별 테스트 분류</strong>
+
+{% capture choices_block22 %}
+<div class="quiz-choices" style="margin-bottom: 15px; padding: 10px; background-color: #fff; border-left: 3px solid #203BB0;">
+    <strong>보기</strong><br>
+    ㉠ 회복 테스트<br>
+    ㉡ 안전 테스트<br>
+    ㉢ 강도 테스트<br>
+    ㉣ 성능 테스트<br>
+    ㉤ 구조 테스트<br>
+    ㉥ 회귀 테스트<br>
+    ㉦ 병행 테스트
+</div>
+{% endcapture %}
+
+{% include quiz-text.html
+   id="quiz-22"
+   question="소프트웨어 내부의 논리적 경로와 소스 코드의 복잡도를 측정하고 평가하는 테스트를 보기에서 찾아 기호로 쓰시오."
+   choices_html=choices_block22
+   answer="㉤|구조 테스트"
+   tags="애플리케이션 테스트"
+%}
+
+---
+
+<div class="quiz-number">문제 23</div><strong>테스트 실행 방식</strong>
+
+{% include quiz-text.html
+   id="quiz-23"
+   question="다음 괄호(①, ②)에 들어갈 테스트 용어를 순서대로 쓰시오.<br><br>프로그램 실행 여부에 따라 테스트는 ( ① )와 ( ② )로 구분된다. ( ① )는 프로그램을 실행하지 않고 명세서나 소스 코드를 검토하는 방식이며, ( ② )는 프로그램을 직접 실행하여 결함을 찾는 방식이다."
+   answer="①정적 테스트 ②동적 테스트|①정적테스트 ②동적테스트"
+   placeholder="예: ①정적 테스트 ②동적 테스트"
+   tags="애플리케이션 테스트"
+%}
+
+---
+
+<div class="quiz-number">문제 24</div><strong>화이트박스 테스트 기법</strong>
+
+{% capture choices_block24 %}
+<div class="quiz-choices" style="margin-bottom: 15px; padding: 10px; background-color: #fff; border-left: 3px solid #203BB0;">
+    <strong>보기</strong><br>
+    ∙ 제어 흐름 테스트<br>
+    ∙ 분기(Branch) 테스트<br>
+    ∙ 경계값 분석<br>
+    ∙ 경로 테스트<br>
+    ∙ 데이터 흐름 테스트<br>
+    ∙ 동등 분할 테스트<br>
+    ∙ 비교 테스트
+</div>
+{% endcapture %}
+
+{% include quiz-text.html
+   id="quiz-24"
+   question="다음 보기에서 화이트박스 테스트 기법이 '아닌' 것을 모두 고르시오."
+   choices_html=choices_block24
+   answer="경계값 분석, 동등 분할 테스트, 비교 테스트"
+   tags="애플리케이션 테스트"
 %}
 
 ---
@@ -459,6 +565,7 @@ main() {
         <li><strong>용어 문제</strong>: 키워드를 중심으로 개념의 핵심 특징을 파악하세요</li>
         <li><strong>선택형 문제</strong>: 각 보기의 특징을 비교하며 소거법을 활용하세요</li>
         <li><strong>명령어 문제</strong>: 자주 사용되는 명령어는 반복 학습으로 암기하세요</li>
+        <li><strong>애플리케이션 테스트</strong>: 테스트 원칙과 기법의 차이점을 명확히 구분하세요</li>
     </ul>
 </div>
 
