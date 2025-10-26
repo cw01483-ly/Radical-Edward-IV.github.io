@@ -82,8 +82,10 @@ notes-kr:
         url:    /notes/kr/info-processing-technician/chapter-05
       - title:  6. Java, Python 프로그래밍 언어
         url:    /notes/kr/info-processing-technician/chapter-06
-      - title:  7. 애플리케이션 테스트 수행
+      - title:  7. 애플리케이션 테스트 수행 (1)
         url:    /notes/kr/info-processing-technician/chapter-07
+      - title:  8. 애플리케이션 테스트 수행 (2)
+        url:    /notes/kr/info-processing-technician/chapter-08
       - title:  실전 문제 연습
         url:    /notes/kr/info-processing-technician/quiz-practice
   - title:      정보처리기사

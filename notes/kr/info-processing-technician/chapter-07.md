@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 7. 애플리케이션 테스트 관리
+title: 7. 애플리케이션 테스트 관리 (1)
 permalink: /notes/kr/info-processing-technician/chapter-07
 key: notes
 sidebar:
