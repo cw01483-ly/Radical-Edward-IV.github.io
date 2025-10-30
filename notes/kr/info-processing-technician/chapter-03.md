@@ -38,6 +38,25 @@ keywords: "정보처리기능사, 실기, 네트워크 기초 활용, 데이터 
 ### 인터넷(Internet)의 개요
 인터넷이란 <span class="blue-text">TCP/IP 프로토콜을 기반으로 하여 전 세계 수많은 컴퓨터와 네트워크들이 연결된 광범위한 통신망</span>이다.
 
+<!-- TCP/IP 역할과 관계를 표로 정리해보았습니다. -->
+
+<details markdown="1">
+<summary> 🌟 TCP/IP </summary>
+⊙ **TCP/IP** : 컴퓨터끼리 데이터를 주고받기 위한 **통신 규칙(Protocol)** 들의 **모음(집합)**
+
+
+| 구분 | TCP (Transmission Control Protocol) | IP (Internet Protocol) |
+|------|--------------------------------------|-------------------------|
+| **역할** | 데이터를 안전하게 전송하도록 관리 | 데이터를 어디로 보낼지 경로를 결정 |
+| **방식** | 연결형(연결 후 데이터 전송) | 비연결형(패킷 단위로 독립 전송) |
+| **주요 기능** | 오류 제어, 흐름 제어, 순서 제어 | 주소 지정, 경로 설정, 패킷 전달 |
+| **특징** | 신뢰성 ↑ 속도 ↓ | 신뢰성 ↓ 속도는 ↑ |
+| **계층** | OSI 4계층(전송계층)| OSI 3계층(네트워크 계층) |
+| **관계** | IP 위에서 작동(TCP는 IP의 서비스를 이용) | TCP의 하위계층, 데이터 운반 담당|
+
+
+</details>
+
 #### 인터넷의 특징 `미유모네백`{:.success}
 * <span class="blue-text">미국 국방성의 ARPANET</span>에서 시작
 * <span class="blue-text">유닉스 운영체제</span> 기반
@@ -82,15 +101,16 @@ IPv6은 <span class="blue-text">IPv4의 주소 부족 문제를 해결하기 위
 * 예: 2001:0db8:85a3:0000:0000:8a2e:0370:7334
 
 #### IPv6 주소 체계 `유멀애`{:.success}
+<!--암기에 도움이 될 것 같아 사용예시를 추가해 보았습니다. -->
 
-| 주소 유형 | 설명 | 특징 |
+| 주소 유형 | 설명 | 특징 | 사용 예시 | 
 |-----------|------|------|
-| <span class="blue-text">유니캐스트(Unicast)</span> | 단일 송신자와 단일 수신자 간의 통신 | 1:1 통신 |
-| <span class="blue-text">멀티캐스트(Multicast)</span> | 단일 송신자와 다중 수신자 간의 통신 | 1:N 통신 |
-| <span class="blue-text">애니캐스트(Anycast)</span> | 단일 송신자와 가장 가까이 있는 단일 수신자 간의 통신 | 최단 경로 통신 |
+| <span class="blue-text">유니캐스트(Unicast)</span> | 단일 송신자와 단일 수신자 간의 통신 | 1:1 통신 | 웹서버 → 클라이언트 HTML 페이지 전송 |
+| <span class="blue-text">멀티캐스트(Multicast)</span> | 단일 송신자와 다중 수신자 간의 통신 | 1:N 통신 | 실시간 방송, IPTV |
+| <span class="blue-text">애니캐스트(Anycast)</span> | 단일 송신자와 가장 가까이 있는 단일 수신자 간의 통신 | 최단 경로 통신 | DNS서버, 클라우드 서비스 |
 
 ### 도메인 네임(Domain Name)
-도메인 네임은 <span class="blue-text">숫자로 된 IP 주소를 사람이 이해하기 쉬운 문자 형태로 표현</span>한 것이다.
+* 도메인 네임은 <span class="blue-text">숫자로 된 IP 주소를 사람이 이해하기 쉬운 문자 형태로 표현</span>한 것이다.
 
 #### 도메인 네임 구조
 ```
@@ -121,6 +141,34 @@ OSI 참조 모델은 <span class="blue-text">다른 시스템 간의 원활한 �
 <figcaption>https://www.geeksforgeeks.org/computer-networks/tcp-ip-model/</figcaption>
 </figure>
 
+<details markdown="1">
+<summary> 🌟 OSI vs TCP/IP 비교 </summary>
+<!-- OSI와 TCP/IP의 차이점을 정리해보았습니다. -->
+
+| 구분 | OSI 7계층 | TCP/IP 4계층 |
+|------|------------|---------------|
+| 제정 기관 | ISO (국제표준화기구) | 미국 국방성(DARPA) |
+| 계층 수 | 7계층 | 4계층 |
+| 계층 구조(송신) | 응용 → 표현 → 세션 → 전송 → 네트워크 → 데이터링크 → 물리 | 응용 → 전송 → 인터넷 → 네트워크 액세스 |
+| 계층 구조(수신) | 물리 → 데이터링크 → 네트워크 → 전송 → 세션 → 표현 → 응용 | 네트워크 액세스 → 인터넷 → 전송 → 응용 |
+| 표준 목적 | 통신의 이론적 구조 제시 | 인터넷의 실제 구현 중심 |
+| 전송 방식 | 연결형(TCP), 비연결형(UDP) 모두 포함(이론적 설계) | TCP/UDP 직접 구현 (실제 동작) |
+
+
+#### 🌟 계층 대응 구조
+
+| OSI 7계층 | TCP/IP 4계층 | 예시 프로토콜 |
+|------------|----------------|----------------|
+| **응용** (Application) | 응용 계층 | HTTP, FTP, SMTP, DNS |
+| 표현 (Presentation) | ↑ 통합됨 | JPEG, ASCII, SSL |
+| 세션 (Session) | ↑ 통합됨 | NetBIOS, RPC |
+| **전송** (Transport) | 전송 계층 | TCP, UDP |
+| **네트워크** (Network) | 인터넷 계층 | IP, ICMP, ARP |
+| **데이터링크** (Data Link) | 네트워크 액세스 계층 | Ethernet, PPP |
+| 물리 (Physical) | ↑ 통합됨 | RS-232C, X.21 |
+
+</details>
+
 #### OSI 모델의 특징 `개개`{:.success}
 * <span class="blue-text">개방형 시스템</span> 간의 데이터 통신 시 필요한 장비 및 처리 방법을 7단계로 표준화
 * <span class="blue-text">계층별 분리</span>: 1~3계층(하위), 4~7계층(상위)
@@ -144,8 +192,8 @@ OSI 참조 모델은 <span class="blue-text">다른 시스템 간의 원활한 �
 * <span class="yellow-code">표준</span>: RS-232C, X.21 등
 * <span class="yellow-code">PDU</span>: 비트(Bit)
 
-##### 데이터 링크 계층 (Data Link Layer)
-* <span class="blue-text">두 개의 인접한 개발 시스템들 간에 신뢰성 있고 효율적인 정보 전송</span>
+##### 데이터 링크 계층 (Data Link Layer) <!-- line.196  개발 시스템 > 개방 시스템 으로 수정하였습니다. OS를 말씀하신 것 같아 수정했습니다.-->
+* <span class="blue-text">두 개의 인접한 개방 시스템들 간에 신뢰성 있고 효율적인 정보 전송</span>
 * <span class="yellow-code">표준</span>: HDLC, ADCCP, LLC, LAPB, LAPD 등
 * <span class="yellow-code">PDU</span>: 프레임(Frame)
 
@@ -207,8 +255,8 @@ OSI 참조 모델은 <span class="blue-text">다른 시스템 간의 원활한 �
 ### 브리지(Bridge)
 브리지는 <span class="blue-text">LAN과 LAN을 연결하거나 LAN 안의 컴퓨터 그룹을 연결</span>하는 장치이다.
 
-#### 브리지의 특징 `데네트보`{:.success}
-* <span class="blue-text">데이터 링크 계층 중 MAC 계층</span>에서 사용
+#### 브리지의 특징 `데네트보`{:.success} <!-- MAC을 찾아보다 저와 같은 수강생이 있을 것 같아 간단한 비유를 작게 달아봤습니다. -->
+* <span class="blue-text">데이터 링크 계층 중 MAC 계층</span>에서 사용    <small style="margin-left:5px; color:gray">MAC : 네트워크 장치 고유 식별자</small>
 * <span class="blue-text">네트워크 상의 많은 단말기들에 의해 발생되는 트래픽 병목 현상</span> 줄임
 * <span class="blue-text">네트워크를 분산적으로 구성하여 보안</span> 향상
 * <span class="blue-text">브리지를 이용한 서브넷 구성 시 전송 가능한 회선 수</span>: n개일 때 n(n-1)/2개
