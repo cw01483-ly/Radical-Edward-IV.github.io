@@ -27,7 +27,7 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
     eventmachine (1.2.7)
-    ffi (1.17.2-aarch64-linux-gnu)
+    ffi (1.17.2-x64-mingw-ucrt)
     forwardable-extended (2.6.0)
     gemoji (4.1.0)
     html-pipeline (2.14.3)
@@ -81,7 +81,7 @@ GEM
     logger (1.7.0)
     mercenary (0.3.6)
     minitest (5.25.5)
-    nokogiri (1.18.9-aarch64-linux-gnu)
+    nokogiri (1.18.9-x64-mingw-ucrt)
       racc (~> 1.4)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
@@ -101,11 +101,13 @@ GEM
     securerandom (0.4.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2025.2)
+      tzinfo (>= 1.0.0)
     uri (1.0.3)
     webrick (1.9.1)
 
 PLATFORMS
-  aarch64-linux
+  x64-mingw-ucrt
 
 DEPENDENCIES
   http_parser.rb (~> 0.6.0)
@@ -120,4 +122,4 @@ DEPENDENCIES
   webrick (~> 1.8)
 
 BUNDLED WITH
-   2.4.19
+   2.5.18
